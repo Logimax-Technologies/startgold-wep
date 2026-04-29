@@ -1,0 +1,645 @@
+diff --git a/css/media.css b/css/media.css
+index 06e3bc1..9fdcadf 100644
+--- a/css/media.css
++++ b/css/media.css
+@@ -107,7 +107,7 @@
+         flex-direction: column;
+         align-items: center;
+         text-align: center;
+-        gap: 18px;
++        gap: 0px;
+     }
+ 
+     .footer-bottom-left {
+@@ -117,6 +117,7 @@
+ 
+     .footer-bottom-center {
+         order: 2;
++        margin-top: 20px;
+     }
+ 
+     .footer-bottom-right {
+@@ -165,6 +166,32 @@
+     .digi-gold-section .container {
+         max-width: 980px;
+     }
++
++    /* All H1-level Headings */
++    h1,
++    .hero-h1,
++    .golden-heading,
++    .why-choose-title,
++    .stable-invest-title,
++    .sip-title,
++    .faq-title,
++    .about-hero-heading,
++    .about-mv-heading,
++    .about-why-title,
++    .feat-showcase-heading,
++    .contact-info-heading {
++        font-size: 36px !important;
++        font-weight: 900 !important;
++    }
++
++    /* All Sub-headings */
++    .why-choose-sub,
++    .stable-invest-sub,
++    .sip-sub,
++    .about-why-sub {
++        font-size: 22px !important;
++        font-weight: 600 !important;
++    }
+ }
+ 
+ @media (max-width: 1000px) {}
+@@ -451,7 +502,7 @@
+     }
+ 
+     .digi-gold-section {
+-        top: -68px;
++        top: -203px;
+         margin-top: 0px;
+         padding: 0 0 0px;
+     }
+@@ -502,7 +553,7 @@
+     .digi-corner img {
+         width: 100%;
+         height: auto;
+-        transform: scale(1.4);
++        
+         transform-origin: center;
+     }
+ 
+@@ -519,28 +570,16 @@
+     }
+ 
+     /* Top-left: icon circle at top-left, text right of circle */
+-    .top-left span {
+-        left: 50px;
+-        top: 2px;
+-    }
++    
+ 
+     /* Top-right: icon circle at top-right, text left of circle */
+-    .top-right span {
+-        right: 50px;
+-        top: 2px;
+-    }
++    
+ 
+     /* Bottom-left: icon at bottom-left, text right of circle */
+-    .bottom-left span {
+-        left: 50px;
+-        bottom: 2px;
+-    }
++    
+ 
+     /* Bottom-right: icon at bottom-right, text left of circle */
+-    .bottom-right span {
+-        right: 50px;
+-        bottom: 2px;
+-    }
++    
+ 
+     .digi-gold-tagline {
+         font-size: .82rem;
+@@ -1133,6 +1172,32 @@
+     }
+ }
+ 
++@media (max-width: 750px) {
++    .digi-gold-section {
++        top: -203px;
++    }
++
++    
++
++    
++
++    
++
++    
++
++    .top-right {
++        left: 12px;
++    }
++
++    .top-right {
++        padding-left: 13px;
++    }
++
++    .digi-corner img {
++        
++    }
++}
++
+ @media (max-width: 730px) {
+ 
+     .why-grid-row.top-row .why-feature-card,
+@@ -1252,7 +1317,7 @@
+ 
+     .digi-gold-heading {
+         font-size: 1.1rem;
+-        margin-bottom: 30px;
++        margin-bottom: 56px;
+     }
+ 
+     .slide-features.left {
+@@ -1275,7 +1340,7 @@
+     .digi-corner img {
+         width: 100%;
+         height: 48px;
+-        transform: scale(1.5);
++        
+         transform-origin: center;
+     }
+ 
+@@ -1292,28 +1357,16 @@
+     }
+ 
+     /* Top-left: icon circle at top-left, text right of circle */
+-    .top-left span {
+-        left: 32px;
+-        top: 4px;
+-    }
++    
+ 
+     /* Top-right: icon circle at top-right, text left of circle */
+-    .top-right span {
+-        right: -22px;
+-        top: 7px;
+-    }
++    
+ 
+     /* Bottom-left: icon at bottom-left, text right of circle */
+-    .bottom-left span {
+-        left: 36px;
+-        bottom: 4px;
+-    }
++    
+ 
+     /* Bottom-right: icon at bottom-right, text left of circle */
+-    .bottom-right span {
+-        right: -20px;
+-        bottom: 2px;
+-    }
++    
+ 
+     .digi-gold-tagline {
+         font-size: .82rem;
+@@ -1534,7 +1587,7 @@
+     .stable-invest-right .stat-block {
+         flex: 1 1 40%;
+         text-align: left;
+-        padding-left: 56px;
++        padding-left: 75px;
+     }
+ 
+     .stable-invest-right .btn-start-invest {
+@@ -1745,7 +1798,7 @@
+         flex-direction: column;
+         align-items: center;
+         text-align: center;
+-        gap: 16px;
++        gap: 0px;
+     }
+ 
+     .footer-bottom-left {
+@@ -1755,6 +1808,7 @@
+ 
+     .footer-bottom-center {
+         order: 2;
++        margin-top: 12px;
+     }
+ 
+     .footer-bottom-right {
+@@ -1871,6 +1925,9 @@
+         margin-right: 0px;
+     }
+ 
++    .trust-badges-section {
++        min-height: 400px;
++    }
+ }
+ 
+ @media (max-width: 650px) {
+@@ -1987,7 +2044,7 @@
+ 
+     .digi-gold-heading {
+         font-size: 1.1rem;
+-        margin-bottom: 30px;
++        margin-bottom: 45px;
+     }
+ 
+     .slide-features.left {
+@@ -2010,7 +2067,7 @@
+     .digi-corner img {
+         width: 100%;
+         height: 32px;
+-        transform: scale(1.4);
++        
+         transform-origin: center;
+     }
+ 
+@@ -2027,28 +2084,16 @@
+     }
+ 
+     /* Top-left: icon circle at top-left, text right of circle */
+-    .top-left span {
+-        left: 34px;
+-        top: 2px;
+-    }
++    
+ 
+     /* Top-right: icon circle at top-right, text left of circle */
+-    .top-right span {
+-        right: -13px;
+-        top: 2px;
+-    }
++    
+ 
+     /* Bottom-left: icon at bottom-left, text right of circle */
+-    .bottom-left span {
+-        left: 34px;
+-        bottom: 2px;
+-    }
++    
+ 
+     /* Bottom-right: icon at bottom-right, text left of circle */
+-    .bottom-right span {
+-        right: -17px;
+-        bottom: 2px;
+-    }
++    
+ 
+     .digi-gold-tagline {
+         font-size: .82rem;
+@@ -2160,7 +2205,7 @@
+     }
+ 
+     .golden-banner {
+-        padding: 60px 0 40px;
++        padding: 60px 0 40px !important;
+         text-align: center;
+     }
+ 
+@@ -2271,7 +2316,7 @@
+     .stable-invest-right .stat-block {
+         flex: 1 1 40%;
+         text-align: left;
+-        padding-left: 16px;
++        padding-left: 30px;
+     }
+ 
+     .stable-invest-right .btn-start-invest {
+@@ -2279,7 +2324,7 @@
+     }
+ 
+     .stable-invest-desc {
+-        font-size: 14px;
++        font-size: 13px;
+     }
+ 
+     .stat-text {
+@@ -2456,8 +2501,8 @@
+     }
+ 
+     .marquee-bar {
+-        margin-left: 28px;
+-        margin-right: 28px;
++        margin-left: 0px;
++        margin-right: 0px;
+     }
+ 
+     /* Footer mobile */
+@@ -2482,7 +2527,7 @@
+         flex-direction: column;
+         align-items: center;
+         text-align: center;
+-        gap: 16px;
++        gap: 0px;
+     }
+ 
+     .footer-bottom-left {
+@@ -2608,12 +2653,15 @@
+         margin-right: 0px;
+     }
+ 
++    .trust-badges-section {
++        min-height: 400px;
++    }
+ }
+ 
+ @media (max-width: 480px) {
+     .hero-h1 {
+         font-size: 19px;
+-        line-height: 2;
++        line-height: 1.5;
+     }
+ 
+     .hero-p {
+@@ -2630,6 +2678,14 @@
+         gap: 10px;
+     }
+ 
++    .trust-quote-text {
++        font-size: 17px;
++    }
++
++    .trust-badges-section {
++        min-height: 380px;
++    }
++
+     .menu-overlay a {
+         font-size: 1.15rem;
+     }
+@@ -2694,25 +2750,13 @@
+         font-size: .7rem;
+     }
+ 
+-    .top-left span {
+-        left: -4px;
+-        top: -19px;
+-    }
++    
+ 
+-    .top-right span {
+-        right: 11px;
+-        top: -24px;
+-    }
++    
+ 
+-    .bottom-left span {
+-        left: -4px;
+-        bottom: -24px;
+-    }
++    
+ 
+-    .bottom-right span {
+-        right: 12px;
+-        bottom: -24px;
+-    }
++    
+ 
+     .bottom-right {
+         padding-left: 0px;
+@@ -2828,6 +2872,10 @@
+     .breadcrumb-nav {
+         padding-left: 0px;
+     }
++
++    .mobile-live-rates-container {
++        margin-top: 41px !important;
++    }
+ }
+ 
+ @media (prefers-reduced-motion: reduce) {
+@@ -2846,6 +2894,27 @@
+     .top-left {
+         left: 1px;
+     }
++
++    h1,
++    .hero-h1,
++    .golden-heading,
++    .why-choose-title,
++    .stable-invest-title,
++    .sip-title,
++    .faq-title,
++    .about-hero-heading,
++    .about-mv-heading,
++    .about-why-title,
++    .feat-showcase-heading,
++    .contact-info-heading {
++        font-size: 22px !important;
++    }
++
++    .stable-invest-right .stat-block {}
++
++    .digi-gold-section {
++        top: -127px;
++    }
+ }
+ 
+ @media (min-width: 1440px) {
+@@ -3206,25 +3275,13 @@
+         font-size: 1.45rem;
+     }
+ 
+-    .top-left span {
+-        left: 82px;
+-        top: 66%;
+-    }
++    
+ 
+-    .top-right span {
+-        right: 0px;
+-        top: 78%;
+-    }
++    
+ 
+-    .bottom-left span {
+-        left: 82px;
+-        bottom: 74%;
+-    }
++    
+ 
+-    .bottom-right span {
+-        right: 14px;
+-        bottom: 74%;
+-    }
++    
+ 
+     .digi-gold-tagline {
+         font-size: 1.1rem;
+@@ -3933,29 +3990,17 @@
+         font-size: 1.65rem;
+     }
+ 
+-    .top-left span {
+-        left: 92px;
+-        top: 66%;
+-    }
++    
+ 
+     .hero-left {
+         padding-left: 55px;
+     }
+ 
+-    .top-right span {
+-        right: 0px;
+-        top: 78%;
+-    }
++    
+ 
+-    .bottom-left span {
+-        left: 92px;
+-        bottom: 74%;
+-    }
++    
+ 
+-    .bottom-right span {
+-        right: 16px;
+-        bottom: 74%;
+-    }
++    
+ 
+     .digi-gold-tagline {
+         font-size: 1.25rem;
+@@ -4306,70 +4351,73 @@
+    ======================================================== */
+ /* 1. Menu Pill Button */
+ .hamburger {
+-    width: auto !important;
+-    min-width: 76px !important;
++    width: 38px !important;
++    min-width: 38px !important;
+     height: 38px !important;
+-    flex-direction: row !important;
+-    align-items: center !important;
++    flex-direction: column !important;
++    align-items: flex-end !important;
++    justify-content: space-between !important;
+     background: var(--nav-green) !important;
+-    border-radius: 30px !important;
+-    padding: 0 34px 0 12px !important;
++    border-radius: 50% !important;
++    padding: 12px 9px !important;
+     position: relative;
+-    justify-content: flex-start !important;
+     cursor: pointer;
+     border: 1px solid rgba(255, 255, 255, 0.1) !important;
+     flex-shrink: 0;
+ }
+ 
+ .hamburger::before {
+-    content: "Menu";
+-    color: #fff;
+-    font-family: var(--sans);
+-    font-size: 14px;
+-    font-weight: 500;
+-    margin: 0;
++    display: none !important;
+ }
+ 
+ .hamburger span {
+-    position: absolute;
+-    right: 12px;
++    display: block !important;
++    position: relative !important;
++    left: auto !important;
++    right: auto !important;
++    transform: none !important;
+     background: #fff !important;
+-    transition: transform 0.3s ease, opacity 0.3s ease, top 0.3s ease, width 0.3s ease !important;
++    transition: .3s !important;
++    height: 2px !important;
++    border-radius: 2px !important;
+ }
+ 
+-/* 2 lines design */
++/* 3 lines staggered design */
+ .hamburger span:nth-child(1) {
+-    top: 13px;
+-    width: 16px !important;
+-    transform: none !important;
++    top: auto !important;
++    width: 65% !important;
+ }
+ 
+ .hamburger span:nth-child(2) {
+-    top: 21px;
+-    width: 20px !important;
++    top: auto !important;
++    width: 100% !important;
+     opacity: 1 !important;
+-    transform: none !important;
+ }
+ 
+ .hamburger span:nth-child(3) {
+-    display: none !important;
++    display: block !important;
++    top: auto !important;
++    width: 60% !important;
+ }
+ 
+ /* Open state for button */
+ .hamburger.open span:nth-child(1) {
+-    top: 19px;
++    position: absolute !important;
++    top: 18px !important;
+     transform: none !important;
+     width: 22px !important;
+-    right: 12px;
++    right: 8px !important;
+ }
+ 
+ .hamburger.open span:nth-child(2) {
+-    top: 19px;
+-    transform: none !important;
+-    width: 22px !important;
+     opacity: 0 !important;
+ }
+ 
++.hamburger.open span:nth-child(3) {
++    opacity: 0 !important;
++    transform: none !important;
++}
++
+ /* 2. Floating Menu Overlay */
+ .menu-overlay {
+     top: 80px !important;
+@@ -4458,6 +4506,7 @@
+     opacity: 1 !important;
+ }
+ 
++
+ /* ==== GLOBAL TYPOGRAPHY GROUPING (Responsive) ==== */
+ 
+ /* TABLET (iPad) */
+@@ -4476,7 +4525,7 @@
+     .about-why-title,
+     .feat-showcase-heading,
+     .contact-info-heading {
+-        font-size: 34px !important;
++        font-size: 27px !important;
+         font-weight: 900 !important;
+     }
+ 
+@@ -4488,6 +4537,10 @@
+         font-size: 16px !important;
+         font-weight: 600 !important;
+     }
++
++    .golden-banner {
++        padding: 100px 0 50px;
++    }
+ }
+ 
+ /* MOBILE */
+@@ -4536,7 +4589,7 @@
+     .about-why-title,
+     .feat-showcase-heading,
+     .contact-info-heading {
+-        font-size: 22px !important;
++        font-size: 24px !important;
+         font-weight: 900 !important;
+     }
+ 
+@@ -4545,7 +4598,12 @@
+     .stable-invest-sub,
+     .sip-sub,
+     .about-why-sub {
+-        font-size: 13px !important;
++        font-size: 16px !important;
+         font-weight: 600 !important;
+     }
+-}
+\ No newline at end of file
++}
++
++
++@media (max-width: 1050px) { .digi-corner { transform: scale(1.3); transform-origin: center; } .digi-corner span { font-size: 0.9rem; } }
++@media (max-width: 767px) { .digi-corner { transform: scale(1.4); } .digi-corner span { font-size: 0.75rem; } }
++
+
