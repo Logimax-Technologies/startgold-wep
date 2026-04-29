@@ -1,0 +1,112 @@
+/* ======== Playfair Display (text font) ======== */
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url("PlayfairDisplay/PlayfairDisplay-VariableFont_wght.ttf") format('truetype');
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: italic;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url("PlayfairDisplay/PlayfairDisplay-Italic-VariableFont_wght.ttf") format('truetype');
+}
+
+/* ======== Lora — Numbers Only (via unicode-range) ======== */
+/* This @font-face will ONLY activate for digits, currency symbols, and numeric punctuation */
+@font-face {
+  font-family: 'NumberFont';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("Lora (1)/Lora-VariableFont_wght.ttf") format('truetype');
+  unicode-range: U+0030-0039;
+  /* 0-9 only */
+}
+
+@font-face {
+  font-family: 'NumberFont';
+  font-style: italic;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("Lora (1)/Lora-Italic-VariableFont_wght.ttf") format('truetype');
+  unicode-range: U+0030-0039;
+}
+
+/* ======== Lora (full — kept for backward compat) ======== */
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("Lora (1)/Lora-VariableFont_wght.ttf") format('truetype');
+}
+
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("Lora (1)/Lora-Italic-VariableFont_wght.ttf") format('truetype');
+}
+
+/* ======== Legacy fonts (kept for reference) ======== */
+@font-face {
+  font-family: 'Libre Baskerville';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(LibreBaskerville-Italic.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Libre Baskerville';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(LibreBaskerville-Regular.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Libre Baskerville';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(LibreBaskerville-Bold.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(Outfit-300.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(Outfit-400.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(Outfit-500.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(Outfit-600.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(Outfit-700.ttf) format('truetype');
+}
