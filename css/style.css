@@ -90,10 +90,11 @@ img {
 }
 
 .site-header.scrolled {
-    background: rgba(2, 42, 22, 0.95); /* Dark green to hide the text */
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    padding: 14px 0;
+    background: rgba(2, 42, 22, 0.95);
+    /* Dark green to allow blur effect to show through */
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    padding: 14px 0 0px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
@@ -273,7 +274,7 @@ img {
     top: 92px;
     right: 0;
     width: 320px;
-    height: calc(100% - 92px);
+    height: auto;
     background: linear-gradient(180deg, #012a12 0%, #003716 40%, #013916 100%);
     border-left: 1px solid rgba(255, 215, 0, .15);
     box-shadow: -8px 0 40px rgba(0, 0, 0, .5);
@@ -288,6 +289,7 @@ img {
     overscroll-behavior: contain;
     scrollbar-width: none;
     /* Firefox */
+    border-bottom-left-radius: 20px;
 }
 
 .menu-overlay::-webkit-scrollbar {
@@ -3359,5 +3361,5 @@ label {
 
 /* Overridden in .footer-heading sections above */
 .site-footer-new .container {
-    max-width: 1080px;
+    /*   max-width: 1080px;*/
 }

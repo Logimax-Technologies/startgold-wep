@@ -88,10 +88,58 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 /** Header interactions — scroll, hamburger */
 function initHeader() {
-    // Scroll effect
+    // Scroll effect - Match background color of active section
+    const sectionColors = [
+        { selector: '.top-wrapper', color: 'rgba(2, 42, 22, 0.95)' },
+        { selector: '.golden-banner', color: 'linear-gradient(134.11deg, rgba(255, 239, 192, 0.95) 15.42%, rgba(255, 217, 124, 0.95) 109.23%)' },
+        { selector: '.why-choose-section', color: 'linear-gradient(134.11deg, rgba(255, 248, 228, 0.95) 15.42%, rgba(255, 223, 146, 0.95) 109.23%)' },
+        { selector: '.stable-invest-section', color: 'rgba(255, 192, 36, 0.95)' },
+        { selector: '.sip-section', color: 'linear-gradient(134.11deg, rgba(255, 248, 228, 0.95) 15.42%, rgba(255, 223, 146, 0.95) 109.23%)' },
+        { selector: '.app-slider-section', color: 'rgba(2, 42, 22, 0.95)' },
+        { selector: '.trust-badges-section', color: 'rgba(2, 42, 22, 0.95)' },
+        { selector: '.digi-gold-section', color: 'rgba(2, 42, 22, 0.95)' },
+        { selector: '.faq-section', color: 'rgba(252, 235, 187, 0.95)' },
+        { selector: '.about-hero', color: 'rgba(252, 235, 187, 0.95)' },
+        { selector: '.about-mv-section', color: 'linear-gradient(134.11deg, rgba(255, 248, 228, 0.95) 15.42%, rgba(255, 223, 146, 0.95) 109.23%)' },
+        { selector: '.about-why-section', color: 'linear-gradient(134.11deg, rgba(255, 248, 228, 0.95) 15.42%, rgba(255, 223, 146, 0.95) 109.23%)' },
+        { selector: '.contact-page-wrapper', color: 'rgba(252, 235, 187, 0.95)' },
+        { selector: 'footer', color: 'rgba(2, 42, 22, 0.95)' },
+        { selector: '.site-footer-new', color: 'rgba(2, 42, 22, 0.95)' }
+    ];
+
     window.addEventListener('scroll', () => {
         const header = document.getElementById('siteHeader');
-        if (header) header.classList.toggle('scrolled', scrollY > 40);
+        if (!header) return;
+
+        const scrollY = window.scrollY;
+        header.classList.toggle('scrolled', scrollY > 40);
+
+        if (scrollY > 40) {
+            const headerCenter = scrollY + (header.offsetHeight / 2);
+            let currentColor = 'rgba(2, 42, 22, 0.95)'; // Default Dark Green
+
+            const elements = document.querySelectorAll(sectionColors.map(s => s.selector).join(', '));
+            
+            elements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                const top = rect.top + scrollY;
+                const bottom = top + rect.height;
+                
+                if (headerCenter >= top && headerCenter <= bottom) {
+                    for (const item of sectionColors) {
+                        if (el.matches(item.selector)) {
+                            currentColor = item.color;
+                            break;
+                        }
+                    }
+                }
+            });
+
+            header.style.background = currentColor;
+        } else {
+            header.style.background = '';
+            header.style.backgroundColor = ''; // Clear both just in case
+        }
     });
 
     // Hamburger menu

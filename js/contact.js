@@ -328,8 +328,6 @@
                                     townEl.appendChild(opt);
                                 });
                                 townEl.disabled = false;
-                                // Auto-select the first town
-                                townEl.value = postOffices[0].Name;
                                 clearError('town');
                             }
                         }

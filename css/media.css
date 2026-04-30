@@ -73,6 +73,11 @@
     .top-right {
         padding-left: 43px;
     }
+
+    .menu-overlay {
+        right: 3px !important;
+        top: 90px !important
+    }
 }
 
 @media (max-width: 991px) {
@@ -156,7 +161,12 @@
     }
 
     .hero-phone {
-        margin-bottom: 10px;
+        margin-bottom: -1px;
+    }
+
+    .marquee-bar {
+        margin-left: 292px;
+        margin-right: 292px;
     }
 
     .hero-left {
@@ -165,6 +175,13 @@
 
     .digi-gold-section .container {
         max-width: 980px;
+    }
+
+    :root {
+        --m-h1-size: 36px;
+        --m-sub-size: 22px;
+        --m-sec-pad: 80px 0;
+        --m-head-mar: 40px;
     }
 
     /* All H1-level Headings */
@@ -180,7 +197,7 @@
     .about-why-title,
     .feat-showcase-heading,
     .slide-heading {
-        font-size: 36px !important;
+        font-size: var(--m-h1-size) !important;
         font-weight: 900 !important;
     }
 
@@ -189,8 +206,39 @@
     .stable-invest-sub,
     .sip-sub,
     .about-why-sub {
-        font-size: 22px !important;
+        font-size: var(--m-sub-size) !important;
         font-weight: 600 !important;
+    }
+
+    /* All Main Sections Padding */
+    .why-choose-section,
+    .stable-invest-section,
+    .sip-section,
+    .about-mv-section,
+    .about-why-section,
+    .trust-badges-section,
+    .faq-section {
+        padding: var(--m-sec-pad) !important;
+    }
+
+    /* All Section Headers Margin */
+    .why-choose-header,
+    .sip-plan-heading,
+    .faq-title,
+    .about-why-title,
+    .about-mv-heading {
+        margin-bottom: var(--m-head-mar) !important;
+    }
+
+    .faq-section {
+        position: relative;
+        top: -100px;
+        margin-bottom: -147px;
+    }
+
+    .faq-sectionpage {
+        top: 0px !important;
+        margin-bottom: 0px !important;
     }
 }
 
@@ -263,6 +311,14 @@
 
     .about-mv-title {
         font-size: 29px;
+    }
+
+    .menu-overlay {
+        right: 3px !important
+    }
+
+    .faq-section {
+        margin-bottom: -41px;
     }
 }
 
@@ -372,11 +428,17 @@
     .about-why-title,
     .feat-showcase-heading,
     .slide-heading {
-        font-size: 26px !important;
+        font-size: 26px;
     }
 
     .footer-bottom-left {
         text-align: center;
+    }
+
+    .faq-section {
+        top: -100px;
+        margin-bottom: -126px;
+        position: relative;
     }
 }
 
@@ -1180,6 +1242,16 @@
     .digi-corner img {
         transform: scale(1.2);
     }
+
+    .menu-overlay {
+        right: 10px !important;
+    }
+
+    .faq-section {
+        top: -211px;
+        margin-bottom: -210px;
+        position: relative;
+    }
 }
 
 @media (max-width: 730px) {
@@ -1280,6 +1352,7 @@
         padding: 0px 0 0px;
         top: -100px;
         position: relative;
+        margin-bottom: -110px;
     }
 
     .faq-sectionpage {
@@ -1402,7 +1475,7 @@
     }
 
     .hero-p {
-        font-size: .95rem;
+        font-size: 15px;
         text-align: center;
     }
 
@@ -1930,6 +2003,16 @@
     .trust-badges-section {
         min-height: 400px;
     }
+
+    .menu-overlay {
+        right: 10px !important;
+    }
+
+    .faq-section {
+        top: -211px;
+        margin-bottom: -210px;
+        position: relative;
+    }
 }
 
 @media (max-width: 650px) {
@@ -2015,7 +2098,7 @@
     }
 
     .digi-gold-section {
-        top: -148px;
+        top: -180px;
         margin-top: 0px;
         padding: 0 0 0px;
     }
@@ -2024,6 +2107,7 @@
         padding: 0px 0 0px;
         top: -100px;
         position: relative;
+        margin-bottom: -110px;
     }
 
     .faq-sectionpage {
@@ -2679,6 +2763,10 @@
     .trust-badges-section {
         min-height: 400px;
     }
+
+    .menu-overlay {
+        right: 10px !important;
+    }
 }
 
 @media (max-width: 480px) {
@@ -2919,6 +3007,10 @@
     .hero-p {
         padding-top: 16px;
     }
+
+    .menu-overlay {
+        right: 8px !important
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2926,6 +3018,14 @@
         opacity: 1 !important;
         transform: none !important;
         transition: none !important;
+    }
+}
+
+@media (max-width: 430px) {
+    .faq-section {
+        top: -195px;
+        position: relative;
+        margin-bottom: -210px;
     }
 }
 
@@ -2956,7 +3056,33 @@
     .stable-invest-right .stat-block {}
 
     .digi-gold-section {
-        top: -127px;
+        top: -165px;
+    }
+
+    .faq-section {
+        top: -180px;
+    }
+
+    .faq-section {
+        margin-bottom: -196px;
+    }
+}
+
+@media (min-width: 1200px) {
+    top: 86px !important;
+}
+
+@media (min-width: 1300px) {
+    .menu-overlay {
+        right: 99px !important;
+        top: 86px !important;
+    }
+}
+
+@media (min-width: 1400px) {
+    .menu-overlay {
+        right: 99px !important;
+        top: 86px !important;
     }
 }
 
@@ -3034,7 +3160,9 @@
     }
 
     .marquee-bar {
-        top: 100px
+        top: 100px;
+        margin-left: 292px;
+        margin-right: 292px;
     }
 
     .golden-banner {
@@ -3344,7 +3472,7 @@
     }
 
     .faq-section {
-        padding: 24px 0 70px;
+        padding: 24px 0 40px;
     }
 
     .faq-accordion {
@@ -3362,7 +3490,7 @@
     }
 
     .faq-question span:first-child {
-        font-size: 1.15rem;
+        font-size: 16px;
     }
 
     .faq-icon {
@@ -3390,11 +3518,11 @@
     }
 
     .faq-answer p {
-        font-size: 1.05rem;
+        font-size: 16px;
     }
 
     .site-footer-new {
-        padding: 70px 0 40px;
+        padding: 0px 0 40px;
     }
 
     .footer-card {
@@ -3620,6 +3748,39 @@
         font-size: 1.05rem;
         padding: 14px 42px;
         border-radius: 12px;
+    }
+
+    .menu-overlay {
+        right: 86px !important;
+        top: 85px !important;
+    }
+}
+
+@media (min-width: 1500px) {
+    .menu-overlay {
+        right: 161px !important;
+        top: 85px !important;
+    }
+}
+
+@media (min-width: 1600px) {
+    .menu-overlay {
+        right: 178px !important;
+        top: 85px !important;
+    }
+}
+
+@media (min-width: 1700px) {
+    .menu-overlay {
+        right: 215px !important;
+        top: 85px !important;
+    }
+}
+
+@media (min-width: 1800px) {
+    .menu-overlay {
+        right: 278px !important;
+        top: 85px !important;
     }
 }
 
@@ -3955,6 +4116,11 @@
 
     .slide-phone-img {
         height: 960px;
+    }
+
+    .menu-overlay {
+        right: 200px !important;
+        top: 118px !important;
     }
 
     .slide-features {
@@ -4482,7 +4648,7 @@
 /* Open state for button */
 .hamburger.open span:nth-child(1) {
     position: absolute !important;
-    top: 18px !important;
+    top: 18px;
     transform: none !important;
     width: 22px !important;
     right: 8px !important;
@@ -4499,8 +4665,8 @@
 
 /* 2. Floating Menu Overlay */
 .menu-overlay {
-    top: 80px !important;
-    right: 73px !important;
+    top: 80px;
+    right: 73px;
     left: auto !important;
     max-height: calc(100vh - 100px) !important;
     overflow-y: auto !important;
@@ -4593,50 +4759,11 @@
 /* TABLET (iPad) */
 @media (max-width: 991px) {
 
-    /* All H1-level Headings */
-    h1,
-    .hero-h1,
-    .golden-heading,
-    .why-choose-title,
-    .stable-invest-title,
-    .sip-title,
-    .faq-title,
-    .about-hero-heading,
-    .about-mv-heading,
-    .about-why-title,
-    .feat-showcase-heading,
-    .slide-heading {
-        font-size: 27px !important;
-        font-weight: 900 !important;
-    }
-
-    /* All Sub-headings */
-    .why-choose-sub,
-    .stable-invest-sub,
-    .sip-sub,
-    .about-why-sub {
-        font-size: 16px !important;
-        font-weight: 600 !important;
-    }
-
-    /* All Main Sections Padding */
-    .why-choose-section,
-    .stable-invest-section,
-    .sip-section,
-    .about-mv-section,
-    .about-why-section,
-    .trust-badges-section,
-    .faq-section {
-        padding: 60px 0 !important;
-    }
-
-    /* All Section Headers Margin */
-    .why-choose-header,
-    .sip-plan-heading,
-    .faq-title,
-    .about-why-title,
-    .about-mv-heading {
-        margin-bottom: 30px !important;
+    :root {
+        --m-h1-size: 27px;
+        --m-sub-size: 16px;
+        --m-sec-pad: 60px 0;
+        --m-head-mar: 30px;
     }
 
     .golden-banner {
@@ -4651,100 +4778,27 @@
 /* MOBILE */
 @media (max-width: 767px) {
 
-    /* All H1-level Headings */
-    h1,
-    .hero-h1,
-    .golden-heading,
-    .why-choose-title,
-    .stable-invest-title,
-    .sip-title,
-    .faq-title,
-    .about-hero-heading,
-    .about-mv-heading,
-    .about-why-title,
-    .feat-showcase-heading,
-    .slide-heading {
-        font-size: 23px !important;
-        font-weight: 900 !important;
+    :root {
+        --m-h1-size: 23px;
+        --m-sub-size: 14px;
+        --m-sec-pad: 40px 0;
+        --m-head-mar: 25px;
     }
 
-    /* All Sub-headings */
-    .why-choose-sub,
-    .stable-invest-sub,
-    .sip-sub,
-    .about-why-sub {
+    /* Reduce 'Know More' button size on home page mobile view */
+    .btn-start-invest-top .btn-start-invest {
+        padding: 10px 28px !important;
         font-size: 14px !important;
-        font-weight: 600 !important;
-    }
-
-    /* All Main Sections Padding */
-    .why-choose-section,
-    .stable-invest-section,
-    .sip-section,
-    .about-mv-section,
-    .about-why-section,
-    .trust-badges-section,
-    .faq-section {
-        padding: 40px 0 !important;
-    }
-
-    /* All Section Headers Margin */
-    .why-choose-header,
-    .sip-plan-heading,
-    .faq-title,
-    .about-why-title,
-    .about-mv-heading {
-        margin-bottom: 25px !important;
+        border-radius: 8px !important;
     }
 }
 
 /* SMALL MOBILE */
 @media (max-width: 480px) {
 
-    /* All H1-level Headings */
-    h1,
-    .hero-h1,
-    .golden-heading,
-    .why-choose-title,
-    .stable-invest-title,
-    .sip-title,
-    .faq-title,
-    .about-hero-heading,
-    .about-mv-heading,
-    .about-why-title,
-    .feat-showcase-heading,
-    .slide-heading {
-        font-size: 24px !important;
-        font-weight: 900 !important;
-    }
-
-    /* All Sub-headings */
-    .why-choose-sub,
-    .stable-invest-sub,
-    .sip-sub,
-    .about-why-sub {
-        font-size: 16px !important;
-        font-weight: 600 !important;
-    }
-
-    /* All Main Sections Padding */
-    .why-choose-section,
-    .stable-invest-section,
-    .sip-section,
-    .about-mv-section,
-    .about-why-section,
-    .trust-badges-section,
-    .faq-section {
-        padding: 40px 0 !important;
-    }
-
-    /* All Section Headers Margin */
-    .why-choose-header,
-    .sip-plan-heading,
-    .faq-title,
-    .about-why-title,
-    .about-mv-heading {
-        margin-bottom: 25px !important;
+    :root {
+        --m-h1-size: 24px;
+        --m-sub-size: 16px;
     }
 }
 
@@ -4943,6 +4997,66 @@
     .sip-plan-card {
         flex: 0 1 calc(50% - 10px) !important;
         max-width: 50% !important;
+    }
+}
+
+@media (max-width: 520px) {
+    .digi-corner img {
+        width: 100%;
+        height: 39px;
+    }
+
+    .top-right {
+        left: 40px;
+    }
+
+    .top-right span {
+        right: -24px;
+        top: 5px;
+    }
+
+    .top-left span {
+        left: 26px;
+        top: 2px;
+    }
+
+    .bottom-left span {
+        left: 26px;
+        bottom: 2px;
+    }
+
+    .hero-phone {
+        margin-bottom: 0px;
+    }
+}
+
+@media (max-width: 500px) {
+    .digi-corner img {
+        width: 100%;
+        height: 39px;
+    }
+
+    .top-right {
+        left: 40px;
+    }
+
+    .top-right span {
+        right: -24px;
+        top: 5px;
+    }
+
+    .top-left span {
+        left: 26px;
+        top: 2px;
+    }
+
+    .bottom-left span {
+        left: 26px;
+        bottom: 2px;
+    }
+
+    .hero-phone {
+        margin-bottom: 0px;
     }
 }
 
@@ -5351,7 +5465,7 @@
 
     .top-left span {
         left: 92px;
-        top: 66%;
+        top: 71%;
     }
 
     .top-right span {
@@ -5360,13 +5474,13 @@
     }
 
     .bottom-left span {
-        left: 92px;
-        bottom: 74%;
+        left: 110px;
+        bottom: 76%;
     }
 
     .bottom-right span {
         right: 16px;
-        bottom: 74%;
+        bottom: 77%;
     }
 }
 
@@ -5804,3 +5918,274 @@
         border-radius: 60px !important;
     }
 }
+
+/*@media (max-width: 760px) {
+    .digi-corner img {
+        width: 100%;
+        height: 70px;
+    }
+
+    .top-right {
+        left: 40px;
+    }
+
+    .top-right span {
+        left: 44px;
+        top: 7px;
+
+    }
+
+    .top-left span {
+        left: 26px;
+        top: 2px;
+    }
+
+    .bottom-left span {
+        left: 26px;
+        bottom: 2px;
+    }
+
+    .hero-phone {
+        margin-bottom: 0px;
+    }
+}
+
+@media (max-width: 640px) {
+    .digi-corner img {
+        width: 100%;
+        height: 39px;
+    }
+
+    .top-right {
+        left: 40px;
+    }
+
+    .top-right span {
+        right: -24px;
+        top: 5px;
+    }
+
+    .top-left span {
+        left: 26px;
+        top: 2px;
+    }
+
+    .bottom-left span {
+        left: 26px;
+        bottom: 2px;
+    }
+
+    .hero-phone {
+        margin-bottom: 0px;
+    }
+}
+
+@media (max-width: 620px) {
+    .digi-corner img {
+        width: 100%;
+        height: 39px;
+    }
+
+    .top-right {
+        left: 40px;
+    }
+
+    .top-right span {
+        right: -24px;
+        top: 5px;
+    }
+
+    .top-left span {
+        left: 26px;
+        top: 2px;
+    }
+
+    .bottom-left span {
+        left: 26px;
+        bottom: 2px;
+    }
+
+    .hero-phone {
+        margin-bottom: 0px;
+    }
+}
+
+@media (max-width: 600px) {
+    .digi-corner img {
+        width: 100%;
+        height: 39px;
+    }
+
+    .top-right {
+        left: 40px;
+    }
+
+    .top-right span {
+        right: -24px;
+        top: 5px;
+    }
+
+    .top-left span {
+        left: 26px;
+        top: 2px;
+    }
+
+    .bottom-left span {
+        left: 26px;
+        bottom: 2px;
+    }
+
+    .hero-phone {
+        margin-bottom: 0px;
+    }
+}
+
+@media (max-width: 580px) {
+    .digi-corner img {
+        width: 100%;
+        height: 39px;
+    }
+
+    .top-right {
+        left: 40px;
+    }
+
+    .top-right span {
+        right: -24px;
+        top: 5px;
+    }
+
+    .top-left span {
+        left: 26px;
+        top: 2px;
+    }
+
+    .bottom-left span {
+        left: 26px;
+        bottom: 2px;
+    }
+
+    .hero-phone {
+        margin-bottom: 0px;
+    }
+}
+
+@media (max-width: 560px) {
+    .digi-corner img {
+        width: 100%;
+        height: 39px;
+    }
+
+    .top-right {
+        left: 40px;
+    }
+
+    .top-right span {
+        right: -24px;
+        top: 5px;
+    }
+
+    .top-left span {
+        left: 26px;
+        top: 2px;
+    }
+
+    .bottom-left span {
+        left: 26px;
+        bottom: 2px;
+    }
+
+    .hero-phone {
+        margin-bottom: 0px;
+    }
+}
+
+@media (max-width: 540px) {
+    .digi-corner img {
+        width: 100%;
+        height: 39px;
+    }
+
+    .top-right {
+        left: 40px;
+    }
+
+    .top-right span {
+        right: -24px;
+        top: 5px;
+    }
+
+    .top-left span {
+        left: 26px;
+        top: 2px;
+    }
+
+    .bottom-left span {
+        left: 26px;
+        bottom: 2px;
+    }
+
+    .hero-phone {
+        margin-bottom: 0px;
+    }
+}
+
+@media (max-width: 520px) {
+    .digi-corner img {
+        width: 100%;
+        height: 39px;
+    }
+
+    .top-right {
+        left: 40px;
+    }
+
+    .top-right span {
+        right: -24px;
+        top: 5px;
+    }
+
+    .top-left span {
+        left: 26px;
+        top: 2px;
+    }
+
+    .bottom-left span {
+        left: 26px;
+        bottom: 2px;
+    }
+
+    .hero-phone {
+        margin-bottom: 0px;
+    }
+}
+
+@media (max-width: 500px) {
+    .digi-corner img {
+        width: 100%;
+        height: 39px;
+    }
+
+    .top-right {
+        left: 40px;
+    }
+
+    .top-right span {
+        right: -24px;
+        top: 5px;
+    }
+
+    .top-left span {
+        left: 26px;
+        top: 2px;
+    }
+
+    .bottom-left span {
+        left: 26px;
+        bottom: 2px;
+    }
+
+    .hero-phone {
+        margin-bottom: 0px;
+    }
+}*/
