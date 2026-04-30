@@ -90,11 +90,9 @@ img {
 }
 
 .site-header.scrolled {
-    background: rgba(2, 42, 22, 0.95); /* Dark green to hide the text */
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    padding: 14px 0;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    /*background: rgba(3, 60, 32, .92);
+    backdrop-filter: blur(12px);*/
+    padding: 20px 0;
 }
 
 .header-bar {
@@ -260,7 +258,6 @@ img {
     opacity: 0;
     visibility: hidden;
     transition: opacity .3s ease, visibility .3s ease;
-    touch-action: none;
 }
 
 .menu-backdrop.open {
@@ -284,15 +281,6 @@ img {
     transform: translateX(100%);
     visibility: hidden;
     transition: transform .4s cubic-bezier(.22, .68, 0, 1.02), visibility .4s ease;
-    overflow-y: auto;
-    overscroll-behavior: contain;
-    scrollbar-width: none;
-    /* Firefox */
-}
-
-.menu-overlay::-webkit-scrollbar {
-    display: none;
-    /* Chrome/Safari */
 }
 
 .menu-overlay.open {

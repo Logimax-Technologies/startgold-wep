@@ -2225,7 +2225,7 @@
     }
 
     .golden-banner {
-        padding: 60px 0 40px !important;
+        padding: 60px 0 60px !important;
         text-align: center;
     }
 
@@ -2308,7 +2308,7 @@
     }
 
     .stable-invest-section {
-        padding: 50px 0 60px;
+        padding: 30px 0 30px;
     }
 
     .contact-page-wrapper {
@@ -2362,8 +2362,12 @@
     }
 
     .sip-section {
-        padding: 50px 0 60px;
+        padding: 30px 0 30px;
         margin-top: 0px;
+    }
+
+    .faq-title {
+        margin-bottom: 25px;
     }
 
     .app-slider-section {
@@ -2448,11 +2452,11 @@
     }
 
     .about-mv-card {
-        padding: 30px 24px;
+        padding: 10px 24px;
     }
 
     .about-why-section {
-        padding: 50px 0 60px;
+        padding: 20px 0 20px;
     }
 
     .about-why-grid {
@@ -2867,7 +2871,7 @@
     }
 
     .about-mv-title {
-        font-size: 22px;
+        font-size: 26px;
     }
 
     .about-cta-badges {
@@ -2909,7 +2913,11 @@
     }
 
     .mobile-live-rates-container {
-        margin-top: 41px !important;
+        margin-top: 26px !important;
+    }
+
+    .hero-p {
+        padding-top: 16px;
     }
 }
 
@@ -3754,7 +3762,7 @@
     }
 
     .golden-banner {
-        padding: 180px 0 120px;
+        padding: 120px 0 120px;
     }
 
     .golden-logo {
@@ -3762,11 +3770,11 @@
     }
 
     .why-choose-section {
-        padding: 40px 0 110px;
+        padding: 40px 0 40px;
     }
 
     .why-choose-header {
-        margin-bottom: 70px;
+        margin-bottom: 46px;
     }
 
     .why-choose-sub {
@@ -3793,7 +3801,7 @@
     }
 
     .stable-invest-section {
-        padding: 90px 0 60px;
+        padding: 40px 0 40px;
         border-bottom-right-radius: 40px;
         border-bottom-left-radius: 40px;
     }
@@ -3845,7 +3853,7 @@
     }
 
     .sip-section {
-        padding: 130px 0 120px;
+        padding: 80px 0 80px;
         margin-top: -31px;
     }
 
@@ -3984,7 +3992,7 @@
     }
 
     .trust-badges-section {
-        padding: 80px 0 60px;
+        padding: 96px 0 60px;
         min-height: 600px;
     }
 
@@ -4067,7 +4075,7 @@
     }
 
     .faq-section {
-        padding: 28px 0 80px;
+        padding: 0px 0 0px;
     }
 
     .faq-accordion {
@@ -4150,6 +4158,10 @@
 
     .footer-nav a {
         font-size: 19px;
+    }
+
+    .site-footer-new .container {
+        max-width: 1600px;
     }
 
     .footer-bottom-center a {
@@ -4488,9 +4500,11 @@
 /* 2. Floating Menu Overlay */
 .menu-overlay {
     top: 80px !important;
-    right: 16px !important;
+    right: 73px !important;
     left: auto !important;
-    height: auto !important;
+    max-height: calc(100vh - 100px) !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain !important;
     width: 240px !important;
     max-width: none !important;
     border-radius: 30px !important;
@@ -4605,6 +4619,26 @@
         font-weight: 600 !important;
     }
 
+    /* All Main Sections Padding */
+    .why-choose-section,
+    .stable-invest-section,
+    .sip-section,
+    .about-mv-section,
+    .about-why-section,
+    .trust-badges-section,
+    .faq-section {
+        padding: 60px 0 !important;
+    }
+
+    /* All Section Headers Margin */
+    .why-choose-header,
+    .sip-plan-heading,
+    .faq-title,
+    .about-why-title,
+    .about-mv-heading {
+        margin-bottom: 30px !important;
+    }
+
     .golden-banner {
         padding: 100px 0 50px;
     }
@@ -4642,6 +4676,26 @@
         font-size: 14px !important;
         font-weight: 600 !important;
     }
+
+    /* All Main Sections Padding */
+    .why-choose-section,
+    .stable-invest-section,
+    .sip-section,
+    .about-mv-section,
+    .about-why-section,
+    .trust-badges-section,
+    .faq-section {
+        padding: 40px 0 !important;
+    }
+
+    /* All Section Headers Margin */
+    .why-choose-header,
+    .sip-plan-heading,
+    .faq-title,
+    .about-why-title,
+    .about-mv-heading {
+        margin-bottom: 25px !important;
+    }
 }
 
 /* SMALL MOBILE */
@@ -4671,6 +4725,26 @@
     .about-why-sub {
         font-size: 16px !important;
         font-weight: 600 !important;
+    }
+
+    /* All Main Sections Padding */
+    .why-choose-section,
+    .stable-invest-section,
+    .sip-section,
+    .about-mv-section,
+    .about-why-section,
+    .trust-badges-section,
+    .faq-section {
+        padding: 40px 0 !important;
+    }
+
+    /* All Section Headers Margin */
+    .why-choose-header,
+    .sip-plan-heading,
+    .faq-title,
+    .about-why-title,
+    .about-mv-heading {
+        margin-bottom: 25px !important;
     }
 }
 
