@@ -1168,10 +1168,9 @@ img {
 .trust-badges-section {
     background: url('../img/digigoldbg.png') center / cover no-repeat,
         linear-gradient(160deg, #02331b 0%, #0a5228 40%, #02331b 100%);
-    padding: 60px 0 40px;
+    padding: 60px 0 220px;
     margin-top: -48px;
     position: relative;
-    min-height: 450px;
 }
 
 .trust-badges-row {
@@ -1324,6 +1323,7 @@ img {
     padding: 0 0 60px;
     margin-top: -201px;
     position: relative;
+    z-index: 1;
 }
 
 .digi-gold-card {
@@ -1432,7 +1432,7 @@ img {
 /* ======== FAQ SECTION ======== */
 .faq-section {
     background: transparent;
-    padding: 0px 0 25px;
+    padding: 30px 0 25px;
 }
 
 .btn-start-invest-top {
