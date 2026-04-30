@@ -27,7 +27,7 @@ html {
 
 body {
     font-family: var(--sans);
-    background: var(--cream) url('../img/body1.png') no-repeat center center;
+    background: var(--cream) url('../img/body1.png?v=1777559743126') no-repeat center center;
     color: #fff;
     overflow-x: hidden;
     width: 100%;
@@ -68,7 +68,7 @@ h1,
 
 /* ======== TOP WRAPPER ======== */
 .top-wrapper {
-    background: url('../img/header_top1.png') no-repeat center;
+    background: url('../img/header_top1.png?v=1777559743126') no-repeat center;
     border-bottom-right-radius: 60px;
     border-bottom-left-radius: 60px;
     position: relative;
@@ -700,8 +700,8 @@ h1,
 
 /* ======== STABLE INVESTMENT SECTION ======== */
 .stable-invest-section {
-    /*background: url('../img/whygoldsilver.png') no-repeat center calc(100% + 60px) / calc(100% + 124px) auto, linear-gradient(279deg, #FFB500 -1.95%, #FFCA49 98.12%);*/
-    background: url(../img/why_body1.png) no-repeat center;
+    /*background: url('../img/whygoldsilver.png?v=1777559743126') no-repeat center calc(100% + 60px) / calc(100% + 124px) auto, linear-gradient(279deg, #FFB500 -1.95%, #FFCA49 98.12%);*/
+    background: url(../img/why_body1.png?v=1777559743126) no-repeat center;
     background-blend-mode: multiply, normal;
     padding: 70px 0 40px;
     position: relative;
@@ -1039,8 +1039,8 @@ h1,
 
 /* Gold slide background */
 .app-slide[data-bg="gold"] {
-    /*background: url('../img/herobg.png') no-repeat bottom center / cover, linear-gradient(to bottom, #FFD54F 0%, #FFC107 100%);*/
-    background: url(../img/why_body1.png) no-repeat center;
+    /*background: url('../img/herobg.png?v=1777559743126') no-repeat bottom center / cover, linear-gradient(to bottom, #FFD54F 0%, #FFC107 100%);*/
+    background: url(../img/why_body1.png?v=1777559743126) no-repeat center;
     background-blend-mode: multiply;
 }
 
@@ -1146,7 +1146,7 @@ h1,
 
 /* ======== TRUST BADGES ======== */
 .trust-badges-section {
-    background: url('../img/digigoldbg.png') center / cover no-repeat,
+    background: url('../img/digigoldbg.png?v=1777559743126') center / cover no-repeat,
         linear-gradient(160deg, #02331b 0%, #0a5228 40%, #02331b 100%);
     padding: 60px 0 40px;
     margin-top: -48px;
@@ -1711,12 +1711,12 @@ label {
 
 /* ======== FOOTER (NEW) ======== */
 .site-footer-new {
-    background: linear-gradient(180deg, var(--cream) 0%, rgba(255, 249, 235, 0) 80px), url('../img/body1.png') center / cover no-repeat;
+    background: linear-gradient(180deg, var(--cream) 0%, rgba(255, 249, 235, 0) 80px), url('../img/body1.png?v=1777559743126') center / cover no-repeat;
     padding: 0px 0 40px;
 }
 
 .footer-card {
-    background: url('../img/footer.png') no-repeat center / cover;
+    background: url('../img/footer.png?v=1777559743126') no-repeat center / cover;
     border-radius: 28px;
     padding: 50px 60px 40px;
 }
@@ -1899,7 +1899,7 @@ label {
 
 /* ======== ABOUT US PAGE ======== */
 .about-top-wrapper {
-    background: url(../img/why_body1.png) no-repeat center;
+    background: url(../img/why_body1.png?v=1777559743126) no-repeat center;
     background-blend-mode: multiply, normal;
     border-bottom-right-radius: 60px;
     border-bottom-left-radius: 60px;
@@ -2165,7 +2165,7 @@ label {
 
 /* ======== ABOUT CTA ======== */
 .about-cta-section {
-    background: linear-gradient(180deg, var(--cream) 0%, rgba(255, 249, 235, 0) 80px), url('../img/body1.png') center / cover no-repeat;
+    background: linear-gradient(180deg, var(--cream) 0%, rgba(255, 249, 235, 0) 80px), url('../img/body1.png?v=1777559743126') center / cover no-repeat;
     padding: 60px 0 60px;
 }
 
@@ -2321,7 +2321,7 @@ label {
 
 /* --- Info Card (Left) --- */
 .contact-info-card {
-    background: url('../img/Contactbg.png') center / cover no-repeat;
+    background: url('../img/Contactbg.png?v=1777559743126') center / cover no-repeat;
     border-radius: 15px;
     padding: 40px 32px;
     display: flex;

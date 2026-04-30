@@ -8,8 +8,32 @@
     --gold: #d4a017;
     --cream: #fcebbb;
     --red: #e02a2a;
-    --serif: 'Lora', serif;
-    --sans: 'Lora', serif;
+    --serif: 'NumberFont', 'Playfair Display', serif;
+    --sans: 'NumberFont', 'Playfair Display', serif;
+
+    /* Typography — Desktop Base */
+    --m-h1-size: 42px;
+    --m-h1-weight: 900;
+    --m-sub-size: 22px;
+    --m-sub-weight: 600;
+    --m-body-size: 18px;
+    --m-small-size: 14px;
+    --m-xsmall-size: 12px;
+    --m-label-size: 24px;
+    --m-stat-size: 43px;
+    --m-stat-text-size: 15px;
+    --m-golden-size: 55px;
+    --m-golden-weight: 700;
+    --m-grow-title-size: 36px;
+    --m-trust-quote-size: 26px;
+    --m-digi-heading-size: 42px;
+    --m-tagline-size: 16px;
+    --m-faq-text-size: 16px;
+    --m-sf-text-size: 13px;
+    --m-addr-head-size: 19px;
+    --m-stat-span-size: 20px;
+    --m-sec-pad: 80px 0;
+    --m-head-mar: 40px;
 }
 
 *,
@@ -39,6 +63,31 @@ img {
     display: block;
 }
 
+/* ==== GLOBAL TYPOGRAPHY GROUPING (Desktop Base) ==== */
+/* All H1-level Headings */
+.hero-h1,
+.why-choose-title,
+.stable-invest-title,
+.sip-title,
+.faq-title,
+.about-hero-heading,
+.about-mv-heading,
+.about-why-title,
+.feat-showcase-heading,
+.slide-heading {
+    font-weight: var(--m-h1-weight);
+    font-size: var(--m-h1-size);
+}
+
+/* All Sub-headings */
+.why-choose-sub,
+.stable-invest-sub,
+.sip-sub,
+.about-why-sub {
+    font-weight: var(--m-sub-weight);
+    font-size: var(--m-sub-size);
+}
+
 /* ======== TOP WRAPPER ======== */
 .top-wrapper {
     background: url('../img/header_top1.png') no-repeat center;
@@ -65,9 +114,12 @@ img {
 }
 
 .site-header.scrolled {
-    /*background: rgba(3, 60, 32, .92);
-    backdrop-filter: blur(12px);*/
-    padding: 20px 0;
+    background: rgba(2, 42, 22, 0.95);
+    /* Dark green to allow blur effect to show through */
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    padding: 14px 0 0px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 .header-bar {
@@ -80,7 +132,6 @@ img {
     position: relative;
     transition: background 0.3s ease;
 }
-
 
 .header-logo {
     flex-shrink: 0;
@@ -158,15 +209,15 @@ img {
 
 /* Header Apps Actions */
 .header-right-actions {
-    gap: 20px;
+    gap: 30px;
 }
 
 .header-apps {
-    gap: 16px;
+    gap: 22px;
 }
 
 .header-app-icon {
-    height: 22px;
+    height: 28px;
     width: auto;
     object-fit: contain;
     flex-shrink: 0;
@@ -234,6 +285,7 @@ img {
     opacity: 0;
     visibility: hidden;
     transition: opacity .3s ease, visibility .3s ease;
+    touch-action: none;
 }
 
 .menu-backdrop.open {
@@ -246,7 +298,7 @@ img {
     top: 92px;
     right: 0;
     width: 320px;
-    height: calc(100% - 92px);
+    height: auto;
     background: linear-gradient(180deg, #012a12 0%, #003716 40%, #013916 100%);
     border-left: 1px solid rgba(255, 215, 0, .15);
     box-shadow: -8px 0 40px rgba(0, 0, 0, .5);
@@ -257,6 +309,16 @@ img {
     transform: translateX(100%);
     visibility: hidden;
     transition: transform .4s cubic-bezier(.22, .68, 0, 1.02), visibility .4s ease;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: none;
+    /* Firefox */
+    border-bottom-left-radius: 20px;
+}
+
+.menu-overlay::-webkit-scrollbar {
+    display: none;
+    /* Chrome/Safari */
 }
 
 .menu-overlay.open {
@@ -381,13 +443,11 @@ img {
 .hero-left {
     padding-top: 20px;
     padding-bottom: 40px;
-    padding-left: 30px;
+    padding-left: 40px;
 }
 
 .hero-h1 {
     font-family: var(--serif);
-
-    font-size: clamp(1.6rem, 2.8vw, 2.6rem);
     line-height: 1.25;
     margin-bottom: 18px;
 }
@@ -414,10 +474,10 @@ img {
 }
 
 .hero-p {
-    font-size: 1rem;
+    font-size: var(--m-body-size);
     color: rgba(255, 255, 255, .85);
-    line-height: 1.6;
-    margin-bottom: 24px;
+    line-height: 1.9rem;
+    padding-top: 34px;
 }
 
 .hero-badges {
@@ -457,7 +517,7 @@ img {
 
 .hero-trust-label {
     font-family: var(--sans);
-    font-size: 14px;
+    font-size: var(--m-small-size);
     color: #ffffff;
     font-weight: 500;
 }
@@ -521,10 +581,10 @@ img {
 .golden-heading {
     font-family: var(--serif);
     padding-left: 30px;
-    font-size: 55px;
+    font-size: var(--m-golden-size);
     line-height: 1.25;
     color: var(--dk-green);
-    font-weight: 700;
+    font-weight: var(--m-golden-weight);
 }
 
 .golden-logo {
@@ -562,8 +622,6 @@ img {
 .why-choose-sub {
     display: block;
     font-family: var(--sans);
-    font-weight: 600;
-    font-size: 18px;
     color: var(--dk-green);
     margin-bottom: 10px;
     letter-spacing: .5px;
@@ -571,10 +629,8 @@ img {
 
 .why-choose-title {
     font-family: var(--serif);
-    font-size: clamp(1.8rem, 3vw, 2.8rem);
     line-height: 1.25;
     color: #136b23;
-    font-size: 36px;
 }
 
 /* Grid layout */
@@ -635,7 +691,7 @@ img {
 .wf-label {
     font-family: var(--sans);
     font-weight: 700;
-    font-size: 22px;
+    font-size: var(--m-label-size);
     color: #fff;
     margin: 0;
     line-height: 1.3;
@@ -654,8 +710,8 @@ img {
 
 .wf-img-wide {
     flex-shrink: 0;
-    width: 110px;
-    height: 110px;
+    width: 85px;
+    height: 85px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -668,7 +724,7 @@ img {
 }
 
 .why-feature-card-wide .wf-label {
-    font-size: 26px;
+    font-size: var(--m-label-size);
     white-space: nowrap;
 }
 
@@ -696,8 +752,6 @@ img {
 .stable-invest-sub {
     display: block;
     font-family: var(--sans);
-    font-weight: 600;
-    font-size: 18px;
     color: var(--dk-green);
     margin-bottom: 10px;
     letter-spacing: .5px;
@@ -705,7 +759,6 @@ img {
 
 .stable-invest-title {
     font-family: var(--serif);
-    font-size: 36px;
     line-height: 1.25;
     color: #003716E5;
     margin-bottom: 16px;
@@ -713,8 +766,8 @@ img {
 
 .stable-invest-desc {
     font-family: var(--sans);
-    font-size: 13px;
-    color: #3b3a37;
+    font-size: var(--m-body-size);
+    color: #003716E5;
     line-height: 1.7;
     margin: 0;
 }
@@ -754,7 +807,7 @@ img {
 
 .stat-value {
     font-family: var(--serif);
-    font-size: 43px;
+    font-size: var(--m-stat-size);
     background: linear-gradient(119.58deg, #003716 2.23%, #167525 93.99%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -766,7 +819,7 @@ img {
 
 .stat-text {
     font-family: var(--sans);
-    font-size: 15px;
+    font-size: var(--m-stat-text-size);
     color: var(--dk-green);
     line-height: 1.6;
     margin: 0;
@@ -823,8 +876,6 @@ img {
 .sip-sub {
     display: block;
     font-family: var(--sans);
-    font-weight: 600;
-    font-size: 18px;
     color: var(--dk-green);
     margin-bottom: 10px;
     letter-spacing: .5px;
@@ -832,7 +883,6 @@ img {
 
 .sip-title {
     font-family: var(--serif);
-    font-size: 36px;
     line-height: 1.25;
     color: var(--dk-green);
     margin-bottom: 16px;
@@ -840,7 +890,7 @@ img {
 
 .sip-desc {
     font-family: var(--sans);
-    font-size: 13px;
+    font-size: var(--m-body-size);
     color: var(--dk-green);
     line-height: 1.7;
     margin: 0;
@@ -861,7 +911,7 @@ img {
 
 .sip-grow-title {
     font-family: var(--serif);
-    font-size: clamp(1.6rem, 2.9vw, 2.2rem);
+    font-size: var(--m-grow-title-size);
     line-height: 1.3;
     color: var(--dk-green);
     margin-bottom: 20px;
@@ -870,7 +920,7 @@ img {
 
 .sip-grow-text {
     font-family: var(--sans);
-    font-size: 13px;
+    font-size: var(--m-small-size);
     color: var(--dk-green);
     line-height: 1.7;
     margin-bottom: 16px;
@@ -888,7 +938,7 @@ img {
 .sip-plan-heading {
     font-family: var(--sans);
     font-weight: 600;
-    font-size: 22px;
+    font-size: var(--m-sub-size);
     color: var(--dk-green);
     margin-bottom: 20px;
     text-align: right;
@@ -1023,13 +1073,11 @@ img {
 
 .slide-heading {
     font-family: var(--serif);
-    font-size: clamp(1.6rem, 2.8vw, 2.4rem);
     color: var(--dk-green);
     text-align: center;
-    max-width: 853px;
+    max-width: 900px;
     margin: 0 auto 50px;
     line-height: 1.35;
-    font-weight: 700;
 }
 
 /* 3-column: features | phone | features */
@@ -1102,7 +1150,7 @@ img {
 .sf-title {
     font-family: var(--sans);
     font-weight: 700;
-    font-size: 1.05rem;
+    font-size: var(--m-body-size);
     color: var(--dk-green);
     margin: 0 0 6px;
     line-height: 1.3;
@@ -1110,7 +1158,7 @@ img {
 
 .sf-text {
     font-family: var(--sans);
-    font-size: 13px;
+    font-size: var(--m-sf-text-size);
     color: var(--dk-green);
     line-height: 1.55;
     margin: 0;
@@ -1255,10 +1303,11 @@ img {
 
 .trust-quote-text {
     font-family: var(--sans);
-    font-size: 24px;
+    font-size: var(--m-trust-quote-size);
     color: #FFE1AB;
     line-height: 1.6;
     margin: 0;
+    font-weight: 900;
 }
 
 .tq-highlight {
@@ -1288,10 +1337,11 @@ img {
 
 .digi-gold-heading {
     font-family: var(--serif);
-    font-size: clamp(1.6rem, 3.8vw, 2.8rem);
+    font-size: var(--m-digi-heading-size);
     color: #fff;
     margin-bottom: 80px;
     letter-spacing: .5px;
+    font-weight: 900;
 }
 
 /* Diamond grid layout */
@@ -1420,11 +1470,10 @@ img {
 
 .digi-gold-tagline {
     font-family: var(--serif);
-    font-size: .95rem;
+    font-size: var(--m-tagline-size);
     color: #fff;
     margin-top: 25px;
     margin-bottom: 0;
-    font-weight: 700;
 }
 
 .digi-gold-section .container {
@@ -1434,12 +1483,15 @@ img {
 /* ======== FAQ SECTION ======== */
 .faq-section {
     background: transparent;
-    padding: 0px 0 60px;
+    padding: 0px 0 25px;
+}
+
+.btn-start-invest-top {
+    margin-top: 20px;
 }
 
 .faq-title {
     font-family: var(--serif);
-    font-size: 36px;
     color: var(--dk-green);
     text-align: center;
     margin-bottom: 44px;
@@ -1457,7 +1509,7 @@ img {
     border-radius: 10px;
     overflow: hidden;
     border: 1px solid var(--dk-green);
-    transition: box-shadow .3s ease;
+    transition: background .3s ease, border-color .3s ease, box-shadow .3s ease;
 }
 
 .faq-item:hover {}
@@ -1482,7 +1534,7 @@ img {
 
 .faq-question span:first-child {
     font-family: var(--sans);
-    font-size: 14px;
+    font-size: var(--m-small-size);
     color: #1a1a1a;
     line-height: 1.45;
 }
@@ -1546,10 +1598,15 @@ img {
 
 .faq-answer p {
     font-family: var(--sans);
-    font-size: 16px;
-    color: rgba(255, 255, 255, .8);
+    font-size: var(--m-faq-text-size);
+    color: #1a1a1a;
     line-height: 1.65;
     margin: 0;
+    transition: color 0.3s ease;
+}
+
+.faq-item.active .faq-answer p {
+    color: rgba(255, 255, 255, .8);
 }
 
 /* ======== REFER SECTION ======== */
@@ -1682,7 +1739,7 @@ label {
 /* ======== FOOTER (NEW) ======== */
 .site-footer-new {
     background: linear-gradient(180deg, var(--cream) 0%, rgba(255, 249, 235, 0) 80px), url('../img/body1.png') center / cover no-repeat;
-    padding: 0px 0 0px;
+    padding: 0px 0 40px;
 }
 
 .footer-card {
@@ -1725,16 +1782,14 @@ label {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    margin-left: 12px;
+    margin-left: 4px;
     position: relative;
-    top: 4px;
-    /* Adjust to vertically center with the text baseline */
+    top: -18px;
     transition: transform 0.3s ease;
 }
 
 .lets-talk-arrow img {
-    width: 32px;
-    /* Slightly smaller to match user's image proportions */
+    width: 28px;
     height: auto;
     display: block;
 }
@@ -1761,7 +1816,7 @@ label {
 
 .footer-social-links a {
     font-family: var(--sans);
-    font-size: .95rem;
+    font-size: var(--m-xsmall-size);
     color: rgba(255, 255, 255, .8);
     text-decoration: none;
     transition: color .2s;
@@ -1786,7 +1841,7 @@ label {
 .footer-nav a {
     font-family: var(--sans);
     font-weight: 500;
-    font-size: 14px;
+    font-size: var(--m-small-size);
     color: #fff;
     text-decoration: none;
     transition: color .2s;
@@ -1818,7 +1873,7 @@ label {
 
 .footer-bottom-center a {
     font-family: var(--sans);
-    font-size: 14px;
+    font-size: var(--m-small-size);
     color: #fff;
     text-decoration: none;
     transition: color .2s;
@@ -1843,7 +1898,7 @@ label {
 
 .footer-bottom-right a {
     font-family: var(--sans);
-    font-size: 12px;
+    font-size: var(--m-xsmall-size);
     color: #fff;
     text-decoration: none;
     transition: color .2s;
@@ -1856,7 +1911,7 @@ label {
 
 .footer-copy {
     font-family: var(--sans);
-    font-size: 10px;
+    font-size: var(--m-xsmall-size);
     color: #fff;
     margin: 5px 0 4px;
     line-height: 1.9;
@@ -1864,7 +1919,7 @@ label {
 
 .footer-cin {
     font-family: var(--sans);
-    font-size: 10px;
+    font-size: var(--m-xsmall-size);
     color: #fff;
     margin: 0;
 }
@@ -1920,7 +1975,6 @@ label {
 .about-hero-heading {
     font-family: var(--serif);
     padding-left: 30px;
-    font-size: clamp(2rem, 3.5vw, 3rem);
     line-height: 1.25;
     color: var(--dk-green);
     margin-bottom: 24px;
@@ -1969,11 +2023,9 @@ label {
 
 .about-mv-heading {
     font-family: var(--serif);
-    font-size: clamp(1.8rem, 3vw, 2.4rem);
     color: var(--dk-green);
     text-align: center;
     margin-bottom: 50px;
-    font-weight: 700;
 }
 
 .about-mv-grid {
@@ -2046,7 +2098,6 @@ label {
 .about-why-sub {
     display: block;
     font-family: var(--sans);
-    font-size: 22px;
     color: var(--dk-green);
     margin-bottom: 10px;
     letter-spacing: .5px;
@@ -2058,7 +2109,6 @@ label {
 
 .about-why-title {
     font-family: var(--serif);
-    font-size: 32px;
     line-height: 1.25;
     color: var(--dk-green);
 }
@@ -2111,8 +2161,7 @@ label {
 
 .about-why-card-title {
     font-family: var(--serif);
-
-    font-size: 1.05rem;
+    font-size: var(--m-body-size);
     color: var(--dk-green);
     margin: 0;
     line-height: 1.3;
@@ -2201,7 +2250,6 @@ label {
 
 .feat-showcase-heading {
     font-family: var(--serif);
-    font-size: 30px;
     line-height: 1.3;
     color: var(--dk-green);
     text-align: center;
@@ -2239,7 +2287,7 @@ label {
 .feat-mobile-title {
     font-family: var(--serif);
     color: #b76e00;
-    font-size: 22px;
+    font-size: var(--m-sub-size);
     font-weight: 700;
     margin-bottom: 0px;
 }
@@ -2254,7 +2302,7 @@ label {
 .feat-mobile-desc {
     font-family: var(--serif);
     color: var(--dk-green);
-    font-size: 16px;
+    font-size: var(--m-tagline-size);
     font-weight: 600;
     margin-bottom: 0;
     line-height: 1.4;
@@ -2300,7 +2348,6 @@ label {
 
 .contact-info-heading {
     font-family: var(--serif);
-
     font-size: 1.65rem;
     color: var(--gold);
     line-height: 1.35;
@@ -2337,7 +2384,7 @@ label {
 
 .contact-info-text {
     font-family: var(--sans);
-    font-size: 12px;
+    font-size: var(--m-xsmall-size);
     color: rgba(255, 255, 255, .75);
     line-height: 1.8;
     margin: 0;
@@ -2773,9 +2820,9 @@ label {
 .policy-heading {
     font-family: var(--serif);
     font-size: 1.35rem;
-
     color: #013916;
     margin-bottom: 14px;
+    font-weight: 900;
 }
 
 .policy-num {
@@ -3268,7 +3315,7 @@ label {
     justify-content: center;
     background: linear-gradient(135deg, var(--gold) 0%, #b8860b 100%);
     color: #fff;
-    font-size: 18px;
+    font-size: var(--m-body-size);
     box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25);
     transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
@@ -3284,13 +3331,13 @@ label {
 }
 
 .address_head {
-    font-size: 19px;
+    font-size: var(--m-addr-head-size);
     color: var(--gold);
     font-weight: bold;
 }
 
 .stat-value span {
-    font-size: 20px;
+    font-size: var(--m-stat-span-size);
     font-weight: 500;
     margin-left: 6px;
     vertical-align: baseline;
@@ -3309,3 +3356,71 @@ label {
 }
 
 /* Overridden in .footer-heading sections above */
+.site-footer-new .container {
+    /*   max-width: 1080px;*/
+}
+
+/* ============================================================
+   RESPONSIVE TYPOGRAPHY - :root Variable Overrides
+   Single source of truth for all heading/sub-heading sizes.
+   ============================================================ */
+
+/* TABLET-LANDSCAPE */
+@media (max-width: 1050px) {
+    :root {
+        --m-h1-size: 36px;
+        --m-sub-size: 22px;
+        --m-sec-pad: 80px 0;
+        --m-head-mar: 40px;
+    }
+}
+
+/* TABLET (iPad) */
+@media (max-width: 991px) {
+    :root {
+        --m-h1-size: 27px;
+        --m-sub-size: 16px;
+        --m-sec-pad: 60px 0;
+        --m-head-mar: 30px;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 767px) {
+    :root {
+        --m-h1-size: 25px;
+        --m-sub-size: 16px;
+        --m-body-size: 16px;
+        --m-small-size: 13px;
+        --m-xsmall-size: 11px;
+        --m-label-size: 20px;
+        --m-golden-size: 40px;
+        --m-grow-title-size: 28px;
+        --m-trust-quote-size: 20px;
+        --m-digi-heading-size: 34px;
+        --m-sf-text-size: 12px;
+        --m-stat-size: 36px;
+        --m-stat-text-size: 13px;
+        --m-sec-pad: 40px 0;
+        --m-head-mar: 25px;
+    }
+}
+
+/* SMALL MOBILE */
+@media (max-width: 480px) {
+    :root {
+        --m-h1-size: 26px;
+        --m-sub-size: 18px;
+        --m-body-size: 16px;
+        --m-small-size: 13px;
+        --m-xsmall-size: 11px;
+        --m-label-size: 18px;
+        --m-golden-size: 36px;
+        --m-grow-title-size: 26px;
+        --m-trust-quote-size: 18px;
+        --m-digi-heading-size: 30px;
+        --m-sf-text-size: 12px;
+        --m-stat-size: 34px;
+        --m-stat-text-size: 16px;
+    }
+}

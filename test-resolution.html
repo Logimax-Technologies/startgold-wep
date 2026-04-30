@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resolution Test</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #1a1a2e; color: #fff; padding: 40px; }
+        
+        :root { --sf: 1; }
+        @media (min-width: 1921px) { :root { --sf: 1.4; } }
+        @media (min-width: 2561px) { :root { --sf: 2; } }
+        
+        .box {
+            background: #16213e; border: 2px solid #0f3460; border-radius: 16px;
+            padding: 30px; margin: 20px 0; max-width: 800px;
+        }
+        h1 { color: #e94560; margin-bottom: 20px; }
+        h2 { color: #0f3460; background: #e94560; display: inline-block; padding: 8px 20px; border-radius: 8px; margin: 10px 0; }
+        
+        .viewport-display { font-size: 60px; color: #53d769; font-weight: bold; }
+        .scale-display { font-size: 40px; color: #ffd700; font-weight: bold; }
+        
+        .test-text-hd { font-size: 42px; color: #fff; }
+        .test-text-scaled { font-size: calc(42px * var(--sf)); color: #53d769; }
+        
+        .status { padding: 15px 25px; border-radius: 10px; margin: 10px 0; font-size: 20px; font-weight: bold; }
+        .active { background: #53d769; color: #000; }
+        .inactive { background: #333; color: #666; }
+        
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+        td, th { padding: 12px; text-align: left; border: 1px solid #333; }
+        th { background: #0f3460; }
+    </style>
+</head>
+<body>
+    <h1>🖥️ StartGOLD Resolution Test Page</h1>
+    
+    <div class="box">
+        <h2>Current Viewport Width</h2>
+        <div class="viewport-display" id="vpWidth">Loading...</div>
+        <p style="margin-top:10px; color:#aaa;">This number must be 2561+ for 4K scaling to work</p>
+    </div>
+    
+    <div class="box">
+        <h2>Active Scale Factor</h2>
+        <div class="scale-display" id="sfDisplay">Loading...</div>
+        <div style="margin-top: 15px;">
+            <div class="status" id="statusHD">HD (1x) — min-width: 0px</div>
+            <div class="status" id="status2K">2K (1.4x) — min-width: 1921px</div>
+            <div class="status" id="status4K">4K (2x) — min-width: 2561px</div>
+        </div>
+    </div>
+    
+    <div class="box">
+        <h2>Font Size Comparison</h2>
+        <table>
+            <tr><th>Type</th><th>Size</th><th>Preview</th></tr>
+            <tr>
+                <td>Base HD (42px)</td>
+                <td>42px</td>
+                <td class="test-text-hd">Aa</td>
+            </tr>
+            <tr>
+                <td>Scaled (42px × --sf)</td>
+                <td id="scaledSize">42px</td>
+                <td class="test-text-scaled">Aa</td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="box">
+        <h2>⚠️ How to Test 4K on Your Laptop</h2>
+        <ol style="line-height: 2.2; font-size: 18px; padding-left: 20px;">
+            <li>Press <strong>F12</strong> to open DevTools</li>
+            <li>Click the <strong>📱 phone icon</strong> (top-left of DevTools)</li>
+            <li>Click <strong>⋮ three dots</strong> in responsive toolbar → Enable <strong>"Add device pixel ratio"</strong></li>
+            <li>Set <strong>DPR</strong> dropdown → <strong>1.0</strong></li>
+            <li>Type <strong>3840</strong> in width field → press Enter</li>
+            <li>Press <strong>Ctrl+Shift+R</strong> to hard refresh</li>
+        </ol>
+        <p style="margin-top:15px; color: #e94560; font-size: 18px;">
+            <strong>Your current DPR: <span id="dprValue">?</span></strong> — 
+            If DPR > 1, the CSS viewport = physical width ÷ DPR.
+            That's why 3840px shows as <span id="adjustedWidth">?</span>px to CSS!
+        </p>
+    </div>
+
+    <script>
+        function update() {
+            const w = window.innerWidth;
+            const dpr = window.devicePixelRatio;
+            
+            document.getElementById('vpWidth').textContent = w + 'px';
+            document.getElementById('dprValue').textContent = dpr.toFixed(2);
+            document.getElementById('adjustedWidth').textContent = Math.round(3840 / dpr);
+            
+            // Detect which scale factor is active
+            let sf = 1;
+            if (w >= 2561) sf = 2;
+            else if (w >= 1921) sf = 1.4;
+            
+            document.getElementById('sfDisplay').textContent = '--sf: ' + sf;
+            document.getElementById('scaledSize').textContent = Math.round(42 * sf) + 'px';
+            
+            document.getElementById('statusHD').className = 'status ' + (sf === 1 ? 'active' : 'inactive');
+            document.getElementById('status2K').className = 'status ' + (sf === 1.4 ? 'active' : 'inactive');
+            document.getElementById('status4K').className = 'status ' + (sf === 2 ? 'active' : 'inactive');
+        }
+        
+        update();
+        window.addEventListener('resize', update);
+    </script>
+</body>
+</html>

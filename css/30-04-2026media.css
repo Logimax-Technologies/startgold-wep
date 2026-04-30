@@ -107,7 +107,7 @@
         flex-direction: column;
         align-items: center;
         text-align: center;
-        gap: 18px;
+        gap: 0px;
     }
 
     .footer-bottom-left {
@@ -117,6 +117,7 @@
 
     .footer-bottom-center {
         order: 2;
+        margin-top: 20px;
     }
 
     .footer-bottom-right {
@@ -142,13 +143,13 @@
         font-size: 42px;
     }
 
-    
+    .top-left span {}
 
-    
+    .top-right span {}
 
-    
+    .bottom-left span {}
 
-    
+    .bottom-right span {}
 
     .top-right {
         padding-left: 46px;
@@ -164,6 +165,32 @@
 
     .digi-gold-section .container {
         max-width: 980px;
+    }
+
+    /* All H1-level Headings */
+    h1,
+    .hero-h1,
+    .golden-heading,
+    .why-choose-title,
+    .stable-invest-title,
+    .sip-title,
+    .faq-title,
+    .about-hero-heading,
+    .about-mv-heading,
+    .about-why-title,
+    .feat-showcase-heading,
+    .slide-heading {
+        font-size: 36px !important;
+        font-weight: 900 !important;
+    }
+
+    /* All Sub-headings */
+    .why-choose-sub,
+    .stable-invest-sub,
+    .sip-sub,
+    .about-why-sub {
+        font-size: 22px !important;
+        font-weight: 600 !important;
     }
 }
 
@@ -217,142 +244,139 @@
         height: 65px;
     }
 
-    .wf-label {
-        font-size: 18px;
-    }
-
-    .stable-invest-content {
-        gap: 40px;
-    }
-
-    .stable-invest-phones {
-        max-height: 420px;
-    }
-
-    .sip-content {
-        gap: 40px;
-    }
-
-    .contact-left,
-    .contact-right {
-        padding: 30px 20px;
-    }
-
-    /* Slider responsive */
-    .slide-layout {
-        gap: 20px;
-    }
-
-    .slide-phone-img {
-        max-height: 420px;
-    }
-
-    .slide-heading {
-        font-size: 1.53rem;
-        margin-bottom: 36px;
-    }
-
-    .sf-title {
-        font-size: .95rem;
-    }
-
-    .sf-text {
-        font-size: .82rem;
-    }
-
-    .slide-feature {
-        max-width: 220px;
-    }
-
-    .gold-nugget {
-        width: 214px;
-        transform: scale(1.3);
-    }
-
-    .digi-corner img {
-        width: 100%;
-        height: 54px;
-        
-    }
-
-    
-
-    
-
-    
-
-    
-
-    .top-right {
-        padding-left: 40px;
-    }
-
-    .digi-corner span {
+    .wf-label,
+    .why-feature-card-wide .wf-label {
         font-size: 16px;
     }
 
-    .trust-badges-row {
-        gap: 50px;
+    .sip-plan-card {
+        padding: 28px 15px;
     }
 
-    .trust-badge-item {
-        padding: 0 40px;
+    .sip-plan-mix {
+        font-size: 12px;
     }
 
-    .trust-logo-icon {
-        width: 42px;
-        height: 42px;
-        font-size: 1.1rem;
+    .sip-plan-price {
+        font-size: 16px;
     }
 
-    /* About page GÇö tablet */
-    .about-mv-card {
-        padding: 30px 28px;
-    }
-
-    .about-why-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .about-cta-card {
-        padding: 50px 30px;
-    }
-
-    /* Contact page GÇö tablet */
-    .contact-wrapper {
-        grid-template-columns: 1fr;
-    }
-
-    .contact-info-card {
-        padding: 36px 30px;
-    }
-
-    .contact-form-card {
-        padding: 36px 30px;
-    }
-
-    .top-wrapper {
-        background: var(--dk-green) url(../img/header_top.png) no-repeat center calc(100% + 60px) / calc(100% + 243px) auto;
-        background-size: 102% 100% !important;
-    }
-
-    .slide-features.right {
-        right: 4px;
-    }
-
-    .marquee-bar {
-        margin-left: 60px;
-        margin-right: 60px;
-    }
-
-    .digi-gold-section {
-        margin-top: -300px;
+    .about-mv-title {
+        font-size: 29px;
     }
 }
+
+.sip-plan-tag {
+    font-size: 12px;
+}
+
+.stable-invest-content {
+    gap: 40px;
+}
+
+.stable-invest-phones {
+    max-height: 420px;
+}
+
+.sip-content {
+    gap: 40px;
+}
+
+.contact-left,
+.contact-right {
+    padding: 30px 20px;
+}
+
+/* Slider responsive */
+.slide-layout {
+    gap: 20px;
+}
+
+.slide-phone-img {
+    max-height: 420px;
+}
+
+.slide-heading {
+    font-size: 1.53rem;
+    margin-bottom: 36px;
+}
+
+.sf-title {
+    font-size: .95rem;
+}
+
+.sf-text {
+    font-size: .82rem;
+}
+
+.slide-feature {
+    max-width: 220px;
+}
+
+.trust-badges-row {
+    gap: 50px;
+}
+
+.trust-badge-item {
+    padding: 0 40px;
+}
+
+.trust-logo-icon {
+    width: 42px;
+    height: 42px;
+    font-size: 1.1rem;
+}
+
+/* About page â€” tablet */
+.about-mv-card {
+    padding: 30px 28px;
+}
+
+.about-why-grid {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.about-cta-card {
+    padding: 50px 30px;
+}
+
+/* Contact page â€” tablet */
+.slide-features.right {
+    right: 4px;
+}
+
+.marquee-bar {
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
+.digi-gold-section {
+    margin-top: -170px;
+}
+
 
 @media (max-width: 900px) {
     .digi-gold-section {
         margin-top: -180px;
+    }
+
+    h1,
+    .hero-h1,
+    .golden-heading,
+    .why-choose-title,
+    .stable-invest-title,
+    .sip-title,
+    .faq-title,
+    .about-hero-heading,
+    .about-mv-heading,
+    .about-why-title,
+    .feat-showcase-heading,
+    .slide-heading {
+        font-size: 26px !important;
+    }
+
+    .footer-bottom-left {
+        text-align: center;
     }
 }
 
@@ -439,7 +463,7 @@
     }
 
     .digi-gold-section {
-        top: -68px;
+        top: -203px;
         margin-top: 0px;
         padding: 0 0 0px;
     }
@@ -490,7 +514,7 @@
     .digi-corner img {
         width: 100%;
         height: auto;
-        
+        transform: scale(1.4);
         transform-origin: center;
     }
 
@@ -507,16 +531,28 @@
     }
 
     /* Top-left: icon circle at top-left, text right of circle */
-    
+    .top-left span {
+        left: 50px;
+        top: 2px;
+    }
 
     /* Top-right: icon circle at top-right, text left of circle */
-    
+    .top-right span {
+        right: 50px;
+        top: 2px;
+    }
 
     /* Bottom-left: icon at bottom-left, text right of circle */
-    
+    .bottom-left span {
+        left: 50px;
+        bottom: 2px;
+    }
 
     /* Bottom-right: icon at bottom-right, text left of circle */
-    
+    .bottom-right span {
+        right: 50px;
+        bottom: 2px;
+    }
 
     .digi-gold-tagline {
         font-size: .82rem;
@@ -831,7 +867,7 @@
         font-weight: 700;
     }
 
-    /* About page GÇö mobile */
+    /* About page â€” mobile */
     .about-hero {
         padding: 20px 0 0px;
     }
@@ -878,7 +914,7 @@
         font-size: 1.3rem;
     }
 
-    /* Features page GÇö mobile */
+    /* Features page â€” mobile */
     .features-hero-img {
         max-height: 200px;
         margin-top: 24px;
@@ -892,7 +928,7 @@
         font-size: 1.27rem;
     }
 
-    /* Contact page GÇö mobile */
+    /* Contact page â€” mobile */
     .contact-section {
         padding: 30px 0 60px;
     }
@@ -979,7 +1015,7 @@
         order: 1;
     }
 
-    /* Footer top row GÇö stack on mobile */
+    /* Footer top row â€” stack on mobile */
     .footer-top-row {
         flex-direction: column;
         align-items: flex-start;
@@ -1074,7 +1110,6 @@
         border-bottom-left-radius: 35px;
     }
 
-    .contact-info-heading,
     .contact-info-item {
         margin: 0px 16px 8px;
     }
@@ -1106,6 +1141,44 @@
     .sip-sub,
     .sip-plan-heading {
         font-size: 16px;
+    }
+}
+
+@media (max-width: 750px) {
+    .digi-gold-section {
+        top: -203px;
+    }
+
+    .top-left span {
+        left: 56px;
+        top: 14px;
+    }
+
+    .bottom-left span {
+        left: 58px;
+        bottom: 14px;
+    }
+
+    .top-right span {
+        right: 6px;
+        top: 14px;
+    }
+
+    .bottom-right span {
+        right: -2px;
+        bottom: 7px;
+    }
+
+    .top-right {
+        left: 12px;
+    }
+
+    .top-right {
+        padding-left: 13px;
+    }
+
+    .digi-corner img {
+        transform: scale(1.2);
     }
 }
 
@@ -1209,6 +1282,13 @@
         position: relative;
     }
 
+    .faq-sectionpage {
+        padding: 40px 0 60px;
+        margin-top: 0px;
+        top: 0px;
+        position: relative;
+    }
+
     .trust-cert-group {
         gap: 18px;
     }
@@ -1228,7 +1308,7 @@
 
     .digi-gold-heading {
         font-size: 1.1rem;
-        margin-bottom: 30px;
+        margin-bottom: 56px;
     }
 
     .slide-features.left {
@@ -1251,7 +1331,7 @@
     .digi-corner img {
         width: 100%;
         height: 48px;
-        
+        transform: scale(1.5);
         transform-origin: center;
     }
 
@@ -1268,16 +1348,28 @@
     }
 
     /* Top-left: icon circle at top-left, text right of circle */
-    
+    .top-left span {
+        left: 32px;
+        top: 4px;
+    }
 
     /* Top-right: icon circle at top-right, text left of circle */
-    
+    .top-right span {
+        right: -22px;
+        top: 7px;
+    }
 
     /* Bottom-left: icon at bottom-left, text right of circle */
-    
+    .bottom-left span {
+        left: 36px;
+        bottom: 4px;
+    }
 
     /* Bottom-right: icon at bottom-right, text left of circle */
-    
+    .bottom-right span {
+        right: -20px;
+        bottom: 2px;
+    }
 
     .digi-gold-tagline {
         font-size: .82rem;
@@ -1432,7 +1524,7 @@
     }
 
     .bottom-row {
-        margin-top: 0px;
+        margin-top: 7px;
     }
 
     .why-grid-row.top-row .why-feature-card,
@@ -1498,7 +1590,7 @@
     .stable-invest-right .stat-block {
         flex: 1 1 40%;
         text-align: left;
-        padding-left: 56px;
+        padding-left: 75px;
     }
 
     .stable-invest-right .btn-start-invest {
@@ -1582,7 +1674,7 @@
         font-weight: 700;
     }
 
-    /* About page GÇö mobile */
+    /* About page â€” mobile */
     .about-hero {
         padding: 20px 0 0px;
     }
@@ -1629,7 +1721,7 @@
         font-size: 1.3rem;
     }
 
-    /* Features page GÇö mobile */
+    /* Features page â€” mobile */
     .features-hero-img {
         max-height: 200px;
         margin-top: 24px;
@@ -1643,7 +1735,7 @@
         font-size: 1.27rem;
     }
 
-    /* Contact page GÇö mobile */
+    /* Contact page â€” mobile */
     .contact-section {
         padding: 30px 0 60px;
     }
@@ -1709,7 +1801,7 @@
         flex-direction: column;
         align-items: center;
         text-align: center;
-        gap: 16px;
+        gap: 0px;
     }
 
     .footer-bottom-left {
@@ -1719,6 +1811,7 @@
 
     .footer-bottom-center {
         order: 2;
+        margin-top: 12px;
     }
 
     .footer-bottom-right {
@@ -1726,7 +1819,7 @@
         order: 1;
     }
 
-    /* Footer top row GÇö stack on mobile */
+    /* Footer top row â€” stack on mobile */
     .footer-top-row {
         flex-direction: column;
         align-items: flex-start;
@@ -1821,7 +1914,6 @@
         border-bottom-left-radius: 35px;
     }
 
-    .contact-info-heading,
     .contact-info-item {
         margin: 0px 16px 8px;
     }
@@ -1835,6 +1927,9 @@
         margin-right: 0px;
     }
 
+    .trust-badges-section {
+        min-height: 400px;
+    }
 }
 
 @media (max-width: 650px) {
@@ -1927,9 +2022,15 @@
 
     .faq-section {
         padding: 0px 0 0px;
-        position: relative;
         top: -100px;
+        position: relative;
+    }
 
+    .faq-sectionpage {
+        padding: 40px 0 60px;
+        margin-top: 0px;
+        top: 0px;
+        position: relative;
     }
 
     .trust-cert-group {
@@ -1951,7 +2052,7 @@
 
     .digi-gold-heading {
         font-size: 1.1rem;
-        margin-bottom: 30px;
+        margin-bottom: 45px;
     }
 
     .slide-features.left {
@@ -1974,7 +2075,7 @@
     .digi-corner img {
         width: 100%;
         height: 32px;
-        
+        transform: scale(1.4);
         transform-origin: center;
     }
 
@@ -1991,16 +2092,28 @@
     }
 
     /* Top-left: icon circle at top-left, text right of circle */
-    
+    .top-left span {
+        left: 34px;
+        top: 2px;
+    }
 
     /* Top-right: icon circle at top-right, text left of circle */
-    
+    .top-right span {
+        right: -13px;
+        top: 2px;
+    }
 
     /* Bottom-left: icon at bottom-left, text right of circle */
-    
+    .bottom-left span {
+        left: 34px;
+        bottom: 2px;
+    }
 
     /* Bottom-right: icon at bottom-right, text left of circle */
-    
+    .bottom-right span {
+        right: -17px;
+        bottom: 2px;
+    }
 
     .digi-gold-tagline {
         font-size: .82rem;
@@ -2112,7 +2225,7 @@
     }
 
     .golden-banner {
-        padding: 60px 0 40px;
+        padding: 60px 0 40px !important;
         text-align: center;
     }
 
@@ -2223,7 +2336,7 @@
     .stable-invest-right .stat-block {
         flex: 1 1 40%;
         text-align: left;
-        padding-left: 16px;
+        padding-left: 30px;
     }
 
     .stable-invest-right .btn-start-invest {
@@ -2231,7 +2344,7 @@
     }
 
     .stable-invest-desc {
-        font-size: 14px;
+        font-size: 13px;
     }
 
     .stat-text {
@@ -2307,7 +2420,7 @@
         font-weight: 700;
     }
 
-    /* About page GÇö mobile */
+    /* About page â€” mobile */
     .about-hero {
         padding: 20px 0 0px;
     }
@@ -2354,7 +2467,7 @@
         font-size: 1.3rem;
     }
 
-    /* Features page GÇö mobile */
+    /* Features page â€” mobile */
     .features-hero-img {
         max-height: 200px;
         margin-top: 24px;
@@ -2368,7 +2481,7 @@
         font-size: 1.27rem;
     }
 
-    /* Contact page GÇö mobile */
+    /* Contact page â€” mobile */
     .contact-section {
         padding: 30px 0 60px;
     }
@@ -2408,8 +2521,8 @@
     }
 
     .marquee-bar {
-        margin-left: 28px;
-        margin-right: 28px;
+        margin-left: 0px;
+        margin-right: 0px;
     }
 
     /* Footer mobile */
@@ -2434,7 +2547,7 @@
         flex-direction: column;
         align-items: center;
         text-align: center;
-        gap: 16px;
+        gap: 0px;
     }
 
     .footer-bottom-left {
@@ -2451,7 +2564,7 @@
         order: 1;
     }
 
-    /* Footer top row GÇö stack on mobile */
+    /* Footer top row â€” stack on mobile */
     .footer-top-row {
         flex-direction: column;
         align-items: flex-start;
@@ -2546,7 +2659,6 @@
         border-bottom-left-radius: 35px;
     }
 
-    .contact-info-heading,
     .contact-info-item {
         margin: 0px 16px 8px;
     }
@@ -2560,16 +2672,23 @@
         margin-right: 0px;
     }
 
+    .trust-badges-section {
+        min-height: 400px;
+    }
 }
 
 @media (max-width: 480px) {
     .hero-h1 {
         font-size: 19px;
-        line-height: 2;
+        line-height: 1.5;
     }
 
     .hero-p {
         font-size: 15px;
+    }
+
+    .bottom-row {
+        margin-top: 0px;
     }
 
     .hero-phone {
@@ -2580,6 +2699,14 @@
     .hero-badges {
         flex-direction: row !important;
         gap: 10px;
+    }
+
+    .trust-quote-text {
+        font-size: 17px;
+    }
+
+    .trust-badges-section {
+        min-height: 380px;
     }
 
     .menu-overlay a {
@@ -2646,13 +2773,25 @@
         font-size: .7rem;
     }
 
-    
+    .top-left span {
+        left: -4px;
+        top: -19px;
+    }
 
-    
+    .top-right span {
+        right: 11px;
+        top: -24px;
+    }
 
-    
+    .bottom-left span {
+        left: -4px;
+        bottom: -24px;
+    }
 
-    
+    .bottom-right span {
+        right: 12px;
+        bottom: -24px;
+    }
 
     .bottom-right {
         padding-left: 0px;
@@ -2690,7 +2829,7 @@
         font-size: 1rem;
     }
 
-    /* About page GÇö small mobile */
+    /* About page â€” small mobile */
     .about-hero-heading {
         font-size: 1.19rem;
     }
@@ -2728,7 +2867,7 @@
     }
 
     .about-mv-title {
-        font-size: 1.2rem;
+        font-size: 22px;
     }
 
     .about-cta-badges {
@@ -2768,6 +2907,10 @@
     .breadcrumb-nav {
         padding-left: 0px;
     }
+
+    .mobile-live-rates-container {
+        margin-top: 41px !important;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2785,6 +2928,27 @@
 
     .top-left {
         left: 1px;
+    }
+
+    h1,
+    .hero-h1,
+    .golden-heading,
+    .why-choose-title,
+    .stable-invest-title,
+    .sip-title,
+    .faq-title,
+    .about-hero-heading,
+    .about-mv-heading,
+    .about-why-title,
+    .feat-showcase-heading,
+    .slide-heading {
+        font-size: 22px !important;
+    }
+
+    .stable-invest-right .stat-block {}
+
+    .digi-gold-section {
+        top: -127px;
     }
 }
 
@@ -3146,13 +3310,25 @@
         font-size: 1.45rem;
     }
 
-    
+    .top-left span {
+        left: 82px;
+        top: 66%;
+    }
 
-    
+    .top-right span {
+        right: 0px;
+        top: 78%;
+    }
 
-    
+    .bottom-left span {
+        left: 82px;
+        bottom: 74%;
+    }
 
-    
+    .bottom-right span {
+        right: 14px;
+        bottom: 74%;
+    }
 
     .digi-gold-tagline {
         font-size: 1.1rem;
@@ -3861,17 +4037,29 @@
         font-size: 1.65rem;
     }
 
-    
+    .top-left span {
+        left: 92px;
+        top: 66%;
+    }
 
     .hero-left {
         padding-left: 55px;
     }
 
-    
+    .top-right span {
+        right: 0px;
+        top: 78%;
+    }
 
-    
+    .bottom-left span {
+        left: 92px;
+        bottom: 74%;
+    }
 
-    
+    .bottom-right span {
+        right: 16px;
+        bottom: 74%;
+    }
 
     .digi-gold-tagline {
         font-size: 1.25rem;
@@ -4203,7 +4391,7 @@
 
     /* Header Apps Mobile Spacing */
     .header-right-actions {
-        gap: clamp(8px, 2vw, 16px) !important;
+        gap: clamp(32px, 2vw, 16px) !important;
         /* Flexible gap */
     }
 
@@ -4215,6 +4403,14 @@
         /* height: clamp(26px, 7vw, 32px) !important;*/
         flex-shrink: 0;
     }
+
+    .contact-wrapper {
+        display: contents;
+    }
+
+    .contact-form-card {
+        margin-top: 20px;
+    }
 }
 
 /* ========================================================
@@ -4222,68 +4418,71 @@
    ======================================================== */
 /* 1. Menu Pill Button */
 .hamburger {
-    width: auto !important;
-    min-width: 76px !important;
+    width: 38px !important;
+    min-width: 38px !important;
     height: 38px !important;
-    flex-direction: row !important;
-    align-items: center !important;
+    flex-direction: column !important;
+    align-items: flex-end !important;
+    justify-content: space-between !important;
     background: var(--nav-green) !important;
-    border-radius: 30px !important;
-    padding: 0 34px 0 12px !important;
+    border-radius: 50% !important;
+    padding: 12px 9px !important;
     position: relative;
-    justify-content: flex-start !important;
     cursor: pointer;
     border: 1px solid rgba(255, 255, 255, 0.1) !important;
     flex-shrink: 0;
 }
 
 .hamburger::before {
-    content: "Menu";
-    color: #fff;
-    font-family: var(--sans);
-    font-size: 14px;
-    font-weight: 500;
-    margin: 0;
+    display: none !important;
 }
 
 .hamburger span {
-    position: absolute;
-    right: 12px;
+    display: block !important;
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
     background: #fff !important;
-    transition: transform 0.3s ease, opacity 0.3s ease, top 0.3s ease, width 0.3s ease !important;
+    transition: .3s !important;
+    height: 2px !important;
+    border-radius: 2px !important;
 }
 
-/* 2 lines design */
+/* 3 lines staggered design */
 .hamburger span:nth-child(1) {
-    top: 13px;
-    width: 16px !important;
-    transform: none !important;
+    top: auto !important;
+    width: 65% !important;
 }
 
 .hamburger span:nth-child(2) {
-    top: 21px;
-    width: 20px !important;
+    top: auto !important;
+    width: 100% !important;
     opacity: 1 !important;
-    transform: none !important;
 }
 
 .hamburger span:nth-child(3) {
-    display: none !important;
+    display: block !important;
+    top: auto !important;
+    width: 60% !important;
 }
 
 /* Open state for button */
 .hamburger.open span:nth-child(1) {
-    top: 19px;
+    position: absolute !important;
+    top: 18px !important;
     transform: none !important;
     width: 22px !important;
-    right: 12px;
+    right: 8px !important;
 }
 
 .hamburger.open span:nth-child(2) {
-    top: 19px;
-    transform: none !important;
-    width: 22px !important;
     opacity: 0 !important;
+}
+
+.hamburger.open span:nth-child(3) {
+    opacity: 0 !important;
+    transform: none !important;
 }
 
 /* 2. Floating Menu Overlay */
@@ -4374,6 +4573,7 @@
     opacity: 1 !important;
 }
 
+
 /* ==== GLOBAL TYPOGRAPHY GROUPING (Responsive) ==== */
 
 /* TABLET (iPad) */
@@ -4391,8 +4591,8 @@
     .about-mv-heading,
     .about-why-title,
     .feat-showcase-heading,
-    .contact-info-heading {
-        font-size: 34px !important;
+    .slide-heading {
+        font-size: 27px !important;
         font-weight: 900 !important;
     }
 
@@ -4403,6 +4603,10 @@
     .about-why-sub {
         font-size: 16px !important;
         font-weight: 600 !important;
+    }
+
+    .golden-banner {
+        padding: 100px 0 50px;
     }
 }
 
@@ -4421,7 +4625,7 @@
     .about-mv-heading,
     .about-why-title,
     .feat-showcase-heading,
-    .contact-info-heading {
+    .slide-heading {
         font-size: 23px !important;
         font-weight: 900 !important;
     }
@@ -4451,8 +4655,8 @@
     .about-mv-heading,
     .about-why-title,
     .feat-showcase-heading,
-    .contact-info-heading {
-        font-size: 22px !important;
+    .slide-heading {
+        font-size: 24px !important;
         font-weight: 900 !important;
     }
 
@@ -4461,8 +4665,629 @@
     .stable-invest-sub,
     .sip-sub,
     .about-why-sub {
-        font-size: 13px !important;
+        font-size: 16px !important;
         font-weight: 600 !important;
     }
 }
 
+/* Hide <br> on mobile devices to prevent awkward text breaks */
+@media (max-width: 991px) {
+    br {
+        display: none !important;
+    }
+
+    /* Exceptions where <br> is required for formatting */
+    .trust-quote-text br,
+    .faq-answer br,
+    .contact-info-text br,
+    .footer-address br {
+        display: inline !important;
+    }
+}
+
+/* Standardize Why Choose section font and image sizes for Tab and Mobile */
+@media (max-width: 991px) {
+
+    .wf-img,
+    .wf-img-wide {
+        width: 65px !important;
+        height: 65px !important;
+    }
+
+    .wf-label,
+    .why-feature-card-wide .wf-label {
+        font-size: 15px !important;
+    }
+}
+
+@media (max-width: 767px) {
+
+    .wf-img,
+    .wf-img-wide {
+        width: 58px !important;
+        height: 58px !important;
+    }
+
+    .wf-label,
+    .why-feature-card-wide .wf-label {
+        font-size: 16px !important;
+    }
+}
+
+
+
+
+/* Ensure all Why Choose cards stay side-by-side but fit evenly on mobile */
+@media (max-width: 991px) {
+
+    .why-feature-card,
+    .why-feature-card-wide {
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        padding: 18px 20px !important;
+        gap: 20px !important;
+        text-align: left !important;
+    }
+
+    .wf-label,
+    .why-feature-card-wide .wf-label {
+        white-space: normal !important;
+        text-align: left !important;
+        margin: 0 !important;
+    }
+}
+
+
+/* Increase mobile rate chip sizes */
+@media (max-width: 991px) {
+    .mobile-live-rates-container {
+        gap: 20px !important;
+    }
+
+    .mobile-live-rates-container .rate-chip {
+        flex: 1 !important;
+        justify-content: center !important;
+        height: 42px !important;
+        padding: 4px 10px !important;
+    }
+
+    .mobile-live-rates-container .rate-val {
+        font-size: 1.3rem !important;
+        left: 0 !important;
+    }
+
+    .mobile-live-rates-container .rate-coin img {
+        height: 60px !important;
+        margin: -5px -5px -5px -2px !important;
+    }
+
+    .mobile-live-rates-container .rate-live-pill {
+        width: 45px !important;
+        height: 45px !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .mobile-live-rates-container .rate-chip {
+        height: 30px !important;
+        padding: 3px 6px 3px 2px !important;
+        gap: 2px !important;
+        flex: none !important;
+    }
+
+    .mobile-live-rates-container .rate-val {
+        font-size: .95rem !important;
+    }
+
+    .mobile-live-rates-container .rate-coin img {
+        height: 48px !important;
+        margin: 0 !important;
+    }
+
+    .mobile-live-rates-container .rate-live-pill {
+        width: 36px !important;
+        height: 36px !important;
+    }
+
+    .mobile-live-rates-container {
+        gap: 8px !important;
+    }
+}
+
+/* Ensure live rate chips do not overflow on very small devices (<400px) */
+@media (max-width: 400px) {
+    .mobile-live-rates-container {
+        padding-left: 2px !important;
+        padding-right: 2px !important;
+        gap: 4px !important;
+    }
+
+    .mobile-live-rates-container .rate-chip {
+        padding: 2px 4px 2px 2px !important;
+        height: 28px !important;
+        width: 49% !important;
+        /* Force them to stay within screen */
+        justify-content: center !important;
+    }
+
+    .mobile-live-rates-container .rate-val {
+        font-size: 0.8rem !important;
+        /* Slightly smaller to fit */
+        letter-spacing: -0.5px !important;
+        /* Compress text slightly */
+    }
+
+    .mobile-live-rates-container .rate-coin img {
+        height: 38px !important;
+    }
+
+    .mobile-live-rates-container .rate-live-pill {
+        width: 30px !important;
+        height: 30px !important;
+    }
+}
+
+/* Fix for iPad and Mobile Landscape: Show 2 cards per row to eliminate excess empty green space */
+@media (max-width: 991px) and (min-width: 600px) {
+
+    .why-grid-row.top-row .why-feature-card,
+    .why-grid-row.bottom-row .why-feature-card,
+    .why-feature-card-wide {
+        flex: 0 1 calc(39% - 12px) !important;
+    }
+
+    .why-grid-row {
+        justify-content: center !important;
+        gap: 20px !important;
+    }
+}
+
+/* For extremely large phones in landscape, also cap max-width if they drop below 600px */
+@media (max-width: 599px) {
+
+    .why-grid-row .why-feature-card,
+    .why-grid-row .why-feature-card-wide {
+        max-width: 450px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+}
+
+/* Fix for SIP Cards on iPad and Mobile Landscape: Show side-by-side instead of stacked full-width */
+@media (max-width: 991px) and (min-width: 600px) {
+    .sip-cards-row {
+        flex-direction: row !important;
+        justify-content: center !important;
+        gap: 20px !important;
+    }
+
+    .sip-plan-card {
+        flex: 0 1 calc(50% - 10px) !important;
+        max-width: 50% !important;
+    }
+}
+
+/* For extreme landscape on small phones, cap the width so it doesn't stretch 100% and leave empty green space */
+@media (max-width: 599px) {
+    .sip-plan-card {
+        max-width: 450px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        width: 100% !important;
+    }
+}
+
+/* Fix About Page layout for iPad and Mobile Landscape */
+@media (max-width: 767px) {
+    .about-hero .row {
+        flex-direction: column !important;
+        text-align: center !important;
+    }
+
+    .about-hero .col-md-7,
+    .about-hero .col-md-5 {
+        width: 100% !important;
+        max-width: 100% !important;
+        flex: 0 0 100% !important;
+    }
+
+    .about-hero-heading {
+        max-width: 100% !important;
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    .about-hero-desc {
+        max-width: 100% !important;
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        padding: 0 15px !important;
+    }
+
+    .about-hero-logo {
+        margin-top: 30px !important;
+        max-height: 200px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        display: block !important;
+    }
+}
+
+
+
+/* --- Added from stagingtest for digi-gold layout --- */
+@media (max-width: 1299px) {
+    .bottom-right {
+        padding-left: 9px;
+    }
+}
+
+@media (max-width: 1199px) {
+    .top-right {
+        padding-left: 43px;
+    }
+}
+
+@media (max-width: 1050px) {
+    .top-left span {}
+
+    .top-right span {}
+
+    .bottom-left span {}
+
+    .bottom-right span {}
+
+    .top-right {
+        padding-left: 46px;
+    }
+}
+
+@media (max-width: 991px) {
+    .gold-nugget {
+        width: 214px;
+        transform: scale(1.3);
+    }
+
+    .digi-corner img {
+        width: 100%;
+        height: 54px;
+        transform: scale(1.5);
+    }
+
+    .top-left span {
+        left: 29px;
+        top: 75%;
+    }
+
+    .top-right span {
+        right: -23px;
+        top: 83%;
+    }
+
+    .bottom-left span {
+        left: 36px;
+        bottom: 80%;
+    }
+
+    .bottom-right span {
+        right: -26px;
+        bottom: 76%;
+    }
+
+    .top-right {
+        padding-left: 40px;
+    }
+
+    .digi-corner span {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 767px) {
+    .gold-nugget {
+        width: 140px;
+        transform: scale(1.5);
+    }
+
+    .digi-corner img {
+        width: 100%;
+        height: auto;
+        transform: scale(1.4);
+        transform-origin: center;
+    }
+
+    .top-right {
+        padding-left: 0px;
+        position: relative;
+        left: 15px;
+    }
+
+    .digi-corner span {
+        font-size: .85rem;
+        position: absolute;
+        transform: none;
+    }
+
+    /* Top-left: icon circle at top-left, text right of circle */
+    .top-left span {
+        left: 50px;
+        top: 2px;
+    }
+
+    /* Top-right: icon circle at top-right, text left of circle */
+    .top-right span {
+        right: 50px;
+        top: 2px;
+    }
+
+    /* Bottom-left: icon at bottom-left, text right of circle */
+    .bottom-left span {
+        left: 50px;
+        bottom: 2px;
+    }
+
+    /* Bottom-right: icon at bottom-right, text left of circle */
+    .bottom-right span {
+        right: 50px;
+        bottom: 2px;
+    }
+
+    /* Hide bracket decorations on small screens */
+    .top-left::after,
+    .top-right::before,
+    .bottom-left::after,
+    .bottom-right::before {
+        display: none;
+    }
+}
+
+@media (max-width: 730px) {
+    .gold-nugget {
+        width: 140px;
+        transform: scale(1.5);
+    }
+
+    .digi-corner img {
+        width: 100%;
+        height: 48px;
+        transform: scale(1.5);
+        transform-origin: center;
+    }
+
+    .top-right {
+        padding-left: 0px;
+        position: relative;
+        left: 38px;
+    }
+
+    .digi-corner span {
+        font-size: .85rem;
+        position: absolute;
+        transform: none;
+    }
+
+    /* Top-left: icon circle at top-left, text right of circle */
+    .top-left span {
+        left: 32px;
+        top: 4px;
+    }
+
+    /* Top-right: icon circle at top-right, text left of circle */
+    .top-right span {
+        right: -22px;
+        top: 7px;
+    }
+
+    /* Bottom-left: icon at bottom-left, text right of circle */
+    .bottom-left span {
+        left: 36px;
+        bottom: 4px;
+    }
+
+    /* Bottom-right: icon at bottom-right, text left of circle */
+    .bottom-right span {
+        right: -20px;
+        bottom: 2px;
+    }
+
+    /* Hide bracket decorations on small screens */
+    .top-left::after,
+    .top-right::before,
+    .bottom-left::after,
+    .bottom-right::before {
+        display: none;
+    }
+}
+
+@media (max-width: 650px) {
+    .gold-nugget {
+        width: 140px;
+        transform: scale(1.3);
+    }
+
+    .digi-corner img {
+        width: 100%;
+        height: 32px;
+        transform: scale(1.4);
+        transform-origin: center;
+    }
+
+    .top-right {
+        padding-left: 0px;
+        position: relative;
+        left: 15px;
+    }
+
+    .digi-corner span {
+        font-size: .85rem;
+        position: absolute;
+        transform: none;
+    }
+
+    /* Top-left: icon circle at top-left, text right of circle */
+    .top-left span {
+        left: 34px;
+        top: 2px;
+    }
+
+    /* Top-right: icon circle at top-right, text left of circle */
+    .top-right span {
+        right: -13px;
+        top: 2px;
+    }
+
+    /* Bottom-left: icon at bottom-left, text right of circle */
+    .bottom-left span {
+        left: 34px;
+        bottom: 2px;
+    }
+
+    /* Bottom-right: icon at bottom-right, text left of circle */
+    .bottom-right span {
+        right: -17px;
+        bottom: 2px;
+    }
+
+    /* Hide bracket decorations on small screens */
+    .top-left::after,
+    .top-right::before,
+    .bottom-left::after,
+    .bottom-right::before {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .gold-nugget {
+        width: 110px;
+    }
+
+    .digi-corner img {
+        width: 100%;
+    }
+
+    .digi-corner span {
+        font-size: .7rem;
+    }
+
+    .top-left span {
+        left: -4px;
+        top: -19px;
+    }
+
+    .top-right span {
+        right: 11px;
+        top: -24px;
+    }
+
+    .bottom-left span {
+        left: -4px;
+        bottom: -24px;
+    }
+
+    .bottom-right span {
+        right: 12px;
+        bottom: -24px;
+    }
+
+    .bottom-right {
+        padding-left: 0px;
+        margin-left: 0px;
+    }
+
+    .digi-gold-layout {
+        gap: 5px;
+    }
+
+    .top-right {
+        left: 7px;
+    }
+
+    .top-left {
+        left: 2px;
+    }
+}
+
+@media (max-width: 400px) {
+    .top-right {
+        left: 6px;
+    }
+
+    .top-left {
+        left: 1px;
+    }
+}
+
+@media (min-width: 1440px) {
+    .digi-gold-layout {
+        gap: 24px 12px;
+        max-width: 860px;
+    }
+
+    .gold-nugget {
+        width: 280px;
+    }
+
+    .digi-corner span {
+        font-size: 1.45rem;
+    }
+
+    .top-left span {
+        left: 82px;
+        top: 66%;
+    }
+
+    .top-right span {
+        right: 0px;
+        top: 78%;
+    }
+
+    .bottom-left span {
+        left: 82px;
+        bottom: 74%;
+    }
+
+    .bottom-right span {
+        right: 14px;
+        bottom: 74%;
+    }
+}
+
+@media (min-width: 1920px) {
+    .digi-gold-layout {
+        gap: 28px 14px;
+        max-width: 980px;
+    }
+
+    .gold-nugget {
+        width: 400px;
+        transform: scale(1.4);
+    }
+
+    .digi-corner span {
+        font-size: 1.65rem;
+    }
+
+    .top-left span {
+        left: 92px;
+        top: 66%;
+    }
+
+    .top-right span {
+        right: 0px;
+        top: 78%;
+    }
+
+    .bottom-left span {
+        left: 92px;
+        bottom: 74%;
+    }
+
+    .bottom-right span {
+        right: 16px;
+        bottom: 74%;
+    }
+}

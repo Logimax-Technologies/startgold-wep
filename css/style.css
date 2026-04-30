@@ -10,6 +10,30 @@
     --red: #e02a2a;
     --serif: 'NumberFont', 'Playfair Display', serif;
     --sans: 'NumberFont', 'Playfair Display', serif;
+
+    /* Typography — Desktop Base */
+    --m-h1-size: 42px;
+    --m-h1-weight: 900;
+    --m-sub-size: 22px;
+    --m-sub-weight: 600;
+    --m-body-size: 18px;
+    --m-small-size: 14px;
+    --m-xsmall-size: 12px;
+    --m-label-size: 24px;
+    --m-stat-size: 43px;
+    --m-stat-text-size: 15px;
+    --m-golden-size: 55px;
+    --m-golden-weight: 700;
+    --m-grow-title-size: 36px;
+    --m-trust-quote-size: 26px;
+    --m-digi-heading-size: 42px;
+    --m-tagline-size: 16px;
+    --m-faq-text-size: 16px;
+    --m-sf-text-size: 13px;
+    --m-addr-head-size: 19px;
+    --m-stat-span-size: 20px;
+    --m-sec-pad: 80px 0;
+    --m-head-mar: 40px;
 }
 
 *,
@@ -51,8 +75,8 @@ img {
 .about-why-title,
 .feat-showcase-heading,
 .slide-heading {
-    font-weight: 900 !important;
-    font-size: 42px !important;
+    font-weight: var(--m-h1-weight);
+    font-size: var(--m-h1-size);
 }
 
 /* All Sub-headings */
@@ -60,8 +84,8 @@ img {
 .stable-invest-sub,
 .sip-sub,
 .about-why-sub {
-    font-weight: 600 !important;
-    font-size: 22px !important;
+    font-weight: var(--m-sub-weight);
+    font-size: var(--m-sub-size);
 }
 
 /* ======== TOP WRAPPER ======== */
@@ -424,8 +448,6 @@ img {
 
 .hero-h1 {
     font-family: var(--serif);
-    font-weight: 900;
-    font-size: 42px;
     line-height: 1.25;
     margin-bottom: 18px;
 }
@@ -452,7 +474,7 @@ img {
 }
 
 .hero-p {
-    font-size: 18px;
+    font-size: var(--m-body-size);
     color: rgba(255, 255, 255, .85);
     line-height: 1.9rem;
     padding-top: 34px;
@@ -495,7 +517,7 @@ img {
 
 .hero-trust-label {
     font-family: var(--sans);
-    font-size: 14px;
+    font-size: var(--m-small-size);
     color: #ffffff;
     font-weight: 500;
 }
@@ -559,10 +581,10 @@ img {
 .golden-heading {
     font-family: var(--serif);
     padding-left: 30px;
-    font-size: 55px;
+    font-size: var(--m-golden-size);
     line-height: 1.25;
     color: var(--dk-green);
-    font-weight: 700;
+    font-weight: var(--m-golden-weight);
 }
 
 .golden-logo {
@@ -600,8 +622,6 @@ img {
 .why-choose-sub {
     display: block;
     font-family: var(--sans);
-    font-weight: 600;
-    font-size: 22px;
     color: var(--dk-green);
     margin-bottom: 10px;
     letter-spacing: .5px;
@@ -611,8 +631,6 @@ img {
     font-family: var(--serif);
     line-height: 1.25;
     color: #136b23;
-    font-size: 42px;
-    font-weight: 900;
 }
 
 /* Grid layout */
@@ -673,7 +691,7 @@ img {
 .wf-label {
     font-family: var(--sans);
     font-weight: 700;
-    font-size: 24px;
+    font-size: var(--m-label-size);
     color: #fff;
     margin: 0;
     line-height: 1.3;
@@ -706,7 +724,7 @@ img {
 }
 
 .why-feature-card-wide .wf-label {
-    font-size: 24px;
+    font-size: var(--m-label-size);
     white-space: nowrap;
 }
 
@@ -734,8 +752,6 @@ img {
 .stable-invest-sub {
     display: block;
     font-family: var(--sans);
-    font-weight: 600;
-    font-size: 22px;
     color: var(--dk-green);
     margin-bottom: 10px;
     letter-spacing: .5px;
@@ -743,17 +759,15 @@ img {
 
 .stable-invest-title {
     font-family: var(--serif);
-    font-size: 42px;
     line-height: 1.25;
     color: #003716E5;
     margin-bottom: 16px;
-    font-weight: 900;
 }
 
 .stable-invest-desc {
     font-family: var(--sans);
-    font-size: 18px;
-    color: #3b3a37;
+    font-size: var(--m-body-size);
+    color: #003716E5;
     line-height: 1.7;
     margin: 0;
 }
@@ -793,7 +807,7 @@ img {
 
 .stat-value {
     font-family: var(--serif);
-    font-size: 43px;
+    font-size: var(--m-stat-size);
     background: linear-gradient(119.58deg, #003716 2.23%, #167525 93.99%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -805,7 +819,7 @@ img {
 
 .stat-text {
     font-family: var(--sans);
-    font-size: 15px;
+    font-size: var(--m-stat-text-size);
     color: var(--dk-green);
     line-height: 1.6;
     margin: 0;
@@ -862,8 +876,6 @@ img {
 .sip-sub {
     display: block;
     font-family: var(--sans);
-    font-weight: 600;
-    font-size: 22px;
     color: var(--dk-green);
     margin-bottom: 10px;
     letter-spacing: .5px;
@@ -871,16 +883,14 @@ img {
 
 .sip-title {
     font-family: var(--serif);
-    font-size: 42px;
     line-height: 1.25;
     color: var(--dk-green);
     margin-bottom: 16px;
-    font-weight: 900;
 }
 
 .sip-desc {
     font-family: var(--sans);
-    font-size: 18px;
+    font-size: var(--m-body-size);
     color: var(--dk-green);
     line-height: 1.7;
     margin: 0;
@@ -901,7 +911,7 @@ img {
 
 .sip-grow-title {
     font-family: var(--serif);
-    font-size: 36px;
+    font-size: var(--m-grow-title-size);
     line-height: 1.3;
     color: var(--dk-green);
     margin-bottom: 20px;
@@ -910,7 +920,7 @@ img {
 
 .sip-grow-text {
     font-family: var(--sans);
-    font-size: 14px;
+    font-size: var(--m-small-size);
     color: var(--dk-green);
     line-height: 1.7;
     margin-bottom: 16px;
@@ -928,7 +938,7 @@ img {
 .sip-plan-heading {
     font-family: var(--sans);
     font-weight: 600;
-    font-size: 22px;
+    font-size: var(--m-sub-size);
     color: var(--dk-green);
     margin-bottom: 20px;
     text-align: right;
@@ -1063,13 +1073,11 @@ img {
 
 .slide-heading {
     font-family: var(--serif);
-    font-size: 42px;
     color: var(--dk-green);
     text-align: center;
     max-width: 900px;
     margin: 0 auto 50px;
     line-height: 1.35;
-    font-weight: 900;
 }
 
 /* 3-column: features | phone | features */
@@ -1142,7 +1150,7 @@ img {
 .sf-title {
     font-family: var(--sans);
     font-weight: 700;
-    font-size: 18px;
+    font-size: var(--m-body-size);
     color: var(--dk-green);
     margin: 0 0 6px;
     line-height: 1.3;
@@ -1150,7 +1158,7 @@ img {
 
 .sf-text {
     font-family: var(--sans);
-    font-size: 13px;
+    font-size: var(--m-sf-text-size);
     color: var(--dk-green);
     line-height: 1.55;
     margin: 0;
@@ -1295,7 +1303,7 @@ img {
 
 .trust-quote-text {
     font-family: var(--sans);
-    font-size: 26px;
+    font-size: var(--m-trust-quote-size);
     color: #FFE1AB;
     line-height: 1.6;
     margin: 0;
@@ -1329,9 +1337,9 @@ img {
 
 .digi-gold-heading {
     font-family: var(--serif);
-    font-size: 42px;
+    font-size: var(--m-digi-heading-size);
     color: #fff;
-    margin-bottom: 80px;
+    margin-bottom: 50px;
     letter-spacing: .5px;
     font-weight: 900;
 }
@@ -1362,7 +1370,7 @@ img {
     height: auto;
     border-radius: 8px;
     filter: drop-shadow(0 8px 30px rgba(212, 160, 23, .3));
-    transform: scale(1.95);
+    transform: scale(1.2);
     /* Visually enlarge without pushing side columns */
     z-index: 2;
     position: relative;
@@ -1371,98 +1379,47 @@ img {
 .digi-corner {
     display: flex;
     align-items: center;
-    gap: 0;
+    justify-content: center;
     position: relative;
+    width: 260px;
+    height: 98px;
 }
 
 .digi-corner img {
-    height: 115px;
-    width: auto;
-    max-width: none;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
     flex-shrink: 0;
 }
 
-.digi-corner span {
-    font-family: var(--serif);
-    font-size: 1.25rem;
-    color: #fff;
-    white-space: nowrap;
-    position: absolute;
-}
-
-/* Corner bracket decorations */
-/* Left corners: icon is on the left side of image, text goes right of icon */
+/* Corner grid placements */
 .top-left {
     grid-column: 1;
     grid-row: 1;
     justify-self: end;
-    padding-right: 17px;
-}
-
-.top-left span {
-    left: 79px;
-    top: 66%;
-    transform: translateY(-165%);
 }
 
 .top-right {
     grid-column: 3;
     grid-row: 1;
     justify-self: start;
-    padding-left: 46px;
-}
-
-.top-right span {
-    right: 30px;
-    top: 65%;
-    transform: translateY(-165%);
-}
-
-.bottom-left,
-.bottom-right {
-    /* container rules */
-}
-
-.bottom-left img,
-.bottom-right img {
-    /* visually scale down to match top icons, without breaking layout bounds */
-    transform: scale(0.91);
-    transform-origin: center;
 }
 
 .bottom-left {
     grid-column: 1;
     grid-row: 2;
     justify-self: end;
-    padding-right: 8px;
-    margin-right: 2px;
-    /* Push left (outward) to visually align Save icon with Buy icon */
-}
-
-.bottom-left span {
-    left: 96px;
-    bottom: 65%;
-    transform: translateY(165%);
 }
 
 .bottom-right {
     grid-column: 3;
     grid-row: 2;
     justify-self: start;
-    padding-left: 10px;
-    margin-left: 22px;
-    /* Pushed to the right to visually align Sell icon scaled center to Grow icon */
-}
-
-.bottom-right span {
-    right: 38px;
-    bottom: 63%;
-    transform: translateY(165%);
 }
 
 .digi-gold-tagline {
     font-family: var(--serif);
-    font-size: 16px;
+    font-size: var(--m-tagline-size);
     color: #fff;
     margin-top: 25px;
     margin-bottom: 0;
@@ -1484,11 +1441,9 @@ img {
 
 .faq-title {
     font-family: var(--serif);
-    font-size: 42px;
     color: var(--dk-green);
     text-align: center;
     margin-bottom: 44px;
-    font-weight: 900;
 }
 
 .faq-accordion {
@@ -1528,7 +1483,7 @@ img {
 
 .faq-question span:first-child {
     font-family: var(--sans);
-    font-size: 14px;
+    font-size: var(--m-small-size);
     color: #1a1a1a;
     line-height: 1.45;
 }
@@ -1592,7 +1547,7 @@ img {
 
 .faq-answer p {
     font-family: var(--sans);
-    font-size: 16px;
+    font-size: var(--m-faq-text-size);
     color: #1a1a1a;
     line-height: 1.65;
     margin: 0;
@@ -1810,7 +1765,7 @@ label {
 
 .footer-social-links a {
     font-family: var(--sans);
-    font-size: 11px;
+    font-size: var(--m-xsmall-size);
     color: rgba(255, 255, 255, .8);
     text-decoration: none;
     transition: color .2s;
@@ -1835,7 +1790,7 @@ label {
 .footer-nav a {
     font-family: var(--sans);
     font-weight: 500;
-    font-size: 14px;
+    font-size: var(--m-small-size);
     color: #fff;
     text-decoration: none;
     transition: color .2s;
@@ -1867,7 +1822,7 @@ label {
 
 .footer-bottom-center a {
     font-family: var(--sans);
-    font-size: 14px;
+    font-size: var(--m-small-size);
     color: #fff;
     text-decoration: none;
     transition: color .2s;
@@ -1892,7 +1847,7 @@ label {
 
 .footer-bottom-right a {
     font-family: var(--sans);
-    font-size: 11px;
+    font-size: var(--m-xsmall-size);
     color: #fff;
     text-decoration: none;
     transition: color .2s;
@@ -1905,7 +1860,7 @@ label {
 
 .footer-copy {
     font-family: var(--sans);
-    font-size: 11px;
+    font-size: var(--m-xsmall-size);
     color: #fff;
     margin: 5px 0 4px;
     line-height: 1.9;
@@ -1913,7 +1868,7 @@ label {
 
 .footer-cin {
     font-family: var(--sans);
-    font-size: 12px;
+    font-size: var(--m-xsmall-size);
     color: #fff;
     margin: 0;
 }
@@ -1969,11 +1924,9 @@ label {
 .about-hero-heading {
     font-family: var(--serif);
     padding-left: 30px;
-    font-size: 42px;
     line-height: 1.25;
     color: var(--dk-green);
     margin-bottom: 24px;
-    font-weight: 900;
 }
 
 .about-hero-desc {
@@ -2019,11 +1972,9 @@ label {
 
 .about-mv-heading {
     font-family: var(--serif);
-    font-size: 42px;
     color: var(--dk-green);
     text-align: center;
     margin-bottom: 50px;
-    font-weight: 900;
 }
 
 .about-mv-grid {
@@ -2096,8 +2047,6 @@ label {
 .about-why-sub {
     display: block;
     font-family: var(--sans);
-    font-weight: 600;
-    font-size: 22px;
     color: var(--dk-green);
     margin-bottom: 10px;
     letter-spacing: .5px;
@@ -2109,10 +2058,8 @@ label {
 
 .about-why-title {
     font-family: var(--serif);
-    font-size: 42px;
     line-height: 1.25;
     color: var(--dk-green);
-    font-weight: 900;
 }
 
 .about-why-grid {
@@ -2163,7 +2110,7 @@ label {
 
 .about-why-card-title {
     font-family: var(--serif);
-    font-size: 18px;
+    font-size: var(--m-body-size);
     color: var(--dk-green);
     margin: 0;
     line-height: 1.3;
@@ -2252,12 +2199,10 @@ label {
 
 .feat-showcase-heading {
     font-family: var(--serif);
-    font-size: 42px;
     line-height: 1.3;
     color: var(--dk-green);
     text-align: center;
     margin-bottom: 30px;
-    font-weight: 900;
 }
 
 .feat-heading-italic {
@@ -2291,7 +2236,7 @@ label {
 .feat-mobile-title {
     font-family: var(--serif);
     color: #b76e00;
-    font-size: 22px;
+    font-size: var(--m-sub-size);
     font-weight: 700;
     margin-bottom: 0px;
 }
@@ -2306,7 +2251,7 @@ label {
 .feat-mobile-desc {
     font-family: var(--serif);
     color: var(--dk-green);
-    font-size: 16px;
+    font-size: var(--m-tagline-size);
     font-weight: 600;
     margin-bottom: 0;
     line-height: 1.4;
@@ -2388,7 +2333,7 @@ label {
 
 .contact-info-text {
     font-family: var(--sans);
-    font-size: 12px;
+    font-size: var(--m-xsmall-size);
     color: rgba(255, 255, 255, .75);
     line-height: 1.8;
     margin: 0;
@@ -3319,7 +3264,7 @@ label {
     justify-content: center;
     background: linear-gradient(135deg, var(--gold) 0%, #b8860b 100%);
     color: #fff;
-    font-size: 18px;
+    font-size: var(--m-body-size);
     box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25);
     transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
@@ -3335,13 +3280,13 @@ label {
 }
 
 .address_head {
-    font-size: 19px;
+    font-size: var(--m-addr-head-size);
     color: var(--gold);
     font-weight: bold;
 }
 
 .stat-value span {
-    font-size: 20px;
+    font-size: var(--m-stat-span-size);
     font-weight: 500;
     margin-left: 6px;
     vertical-align: baseline;
@@ -3362,4 +3307,69 @@ label {
 /* Overridden in .footer-heading sections above */
 .site-footer-new .container {
     /*   max-width: 1080px;*/
+}
+
+/* ============================================================
+   RESPONSIVE TYPOGRAPHY - :root Variable Overrides
+   Single source of truth for all heading/sub-heading sizes.
+   ============================================================ */
+
+/* TABLET-LANDSCAPE */
+@media (max-width: 1050px) {
+    :root {
+        --m-h1-size: 36px;
+        --m-sub-size: 22px;
+        --m-sec-pad: 80px 0;
+        --m-head-mar: 40px;
+    }
+}
+
+/* TABLET (iPad) */
+@media (max-width: 991px) {
+    :root {
+        --m-h1-size: 27px;
+        --m-sub-size: 16px;
+        --m-sec-pad: 60px 0;
+        --m-head-mar: 30px;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 767px) {
+    :root {
+        --m-h1-size: 25px;
+        --m-sub-size: 16px;
+        --m-body-size: 16px;
+        --m-small-size: 13px;
+        --m-xsmall-size: 11px;
+        --m-label-size: 20px;
+        --m-golden-size: 40px;
+        --m-grow-title-size: 28px;
+        --m-trust-quote-size: 20px;
+        --m-digi-heading-size: 34px;
+        --m-sf-text-size: 12px;
+        --m-stat-size: 36px;
+        --m-stat-text-size: 13px;
+        --m-sec-pad: 40px 0;
+        --m-head-mar: 25px;
+    }
+}
+
+/* SMALL MOBILE */
+@media (max-width: 480px) {
+    :root {
+        --m-h1-size: 26px;
+        --m-sub-size: 18px;
+        --m-body-size: 16px;
+        --m-small-size: 13px;
+        --m-xsmall-size: 11px;
+        --m-label-size: 18px;
+        --m-golden-size: 36px;
+        --m-grow-title-size: 26px;
+        --m-trust-quote-size: 18px;
+        --m-digi-heading-size: 30px;
+        --m-sf-text-size: 12px;
+        --m-stat-size: 34px;
+        --m-stat-text-size: 16px;
+    }
 }
