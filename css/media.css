@@ -1,46 +1,99 @@
-/* Responsive Media Queries extracted from style.css */
+/* =============================================================
+   ROOT VARIABLE OVERRIDES (moved from style.css)
+   ============================================================= */
 
-@media (max-width: 768px) {
-    .policy-card {
-        padding: 28px 20px;
-        border-radius: 16px;
-    }
-
-    .policy-contact-card {
-        grid-template-columns: 1fr;
-        padding: 20px;
-    }
-
-    .policy-heading {
-        font-size: 0.98rem;
-    }
-
-    .refund-highlights {
-        grid-template-columns: 1fr;
-    }
-
-    .refund-statement {
-        padding: 18px 18px;
-    }
-
-    .refund-delivery-notice,
-    .refund-timeline-badge {
-        flex-direction: column;
-        text-align: center;
-        gap: 12px;
-    }
-
-    .refund-title {
-        font-size: 1.25rem;
+/* TABLET-LANDSCAPE */
+@media (max-width: 1050px) {
+    :root {
+        --m-h1-size: 36px;
+        --m-sub-size: 22px;
+        --m-sec-pad: 80px 0;
+        --m-head-mar: 40px;
     }
 }
+
+
+/* TABLET (iPad) */
+@media (max-width: 991px) {
+    :root {
+        --m-h1-size: 27px;
+        --m-sub-size: 16px;
+        --m-sec-pad: 60px 0;
+        --m-head-mar: 30px;
+    }
+}
+
+
+/* MOBILE */
+@media (max-width: 767px) {
+    :root {
+        --m-h1-size: 25px;
+        --m-sub-size: 16px;
+        --m-body-size: 16px;
+        --m-small-size: 13px;
+        --m-xsmall-size: 11px;
+        --m-label-size: 20px;
+        --m-golden-size: 40px;
+        --m-grow-title-size: 28px;
+        --m-trust-quote-size: 20px;
+        --m-digi-heading-size: 34px;
+        --m-sf-text-size: 12px;
+        --m-stat-size: 36px;
+        --m-stat-text-size: 13px;
+        --m-sec-pad: 40px 0;
+        --m-head-mar: 25px;
+    }
+}
+
+
+/* SMALL MOBILE */
+@media (max-width: 480px) {
+    :root {
+        --m-h1-size: 26px;
+        --m-sub-size: 18px;
+        --m-body-size: 16px;
+        --m-small-size: 13px;
+        --m-xsmall-size: 11px;
+        --m-label-size: 18px;
+        --m-golden-size: 36px;
+        --m-grow-title-size: 26px;
+        --m-trust-quote-size: 18px;
+        --m-digi-heading-size: 30px;
+        --m-sf-text-size: 12px;
+        --m-stat-size: 34px;
+        --m-stat-text-size: 16px;
+    }
+}
+
+/* =============================================================
+   RESPONSIVE BREAKPOINTS (Desktop-First: largest to smallest)
+   ============================================================= */
+
 
 @media (max-width: 1299px) {
 
     .bottom-right {
         padding-left: 9px;
     }
+
+    /* --- Merged from line 6139 --- */
+    .bottom-right {
+        padding-left: 9px;
+    }
 }
+
+
+@media (max-width: 1200px) {
+
+    .container,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl {
+        max-width: 1569px;
+    }
+}
+
 
 @media (max-width: 1199px) {
 
@@ -78,7 +131,160 @@
         right: 3px !important;
         top: 90px !important
     }
+
+    .hero-h1,
+    .why-choose-title,
+    .stable-invest-title,
+    .sip-title,
+    .faq-title,
+    .about-hero-heading,
+    .about-mv-heading,
+    .about-why-title,
+    .feat-showcase-heading,
+    .slide-heading {
+        font-size: 36px;
+    }
+
+    /* --- Merged from line 6145 --- */
+    .top-right {
+        padding-left: 43px;
+    }
+
+    /* --- Merged from line 6457 --- */
+    .digi-corner {
+        width: 220px;
+        height: 83px;
+    }
 }
+
+
+@media (max-width: 1050px) {
+
+    .top-left span {}
+
+    .top-right span {}
+
+    .bottom-left span {}
+
+    .bottom-right span {}
+
+    .top-right {
+        padding-left: 46px;
+    }
+
+    .hero-phone {
+        margin-bottom: -1px;
+    }
+
+    .marquee-bar {
+        margin-left: 292px;
+        margin-right: 292px;
+    }
+
+    .hero-left {
+        padding-left: 40px;
+    }
+
+    .digi-gold-section .container {
+        max-width: 980px;
+    }
+
+    /* ---- H1-level Headings (1050px) ---- */
+    .hero-h1,
+    .why-choose-title,
+    .stable-invest-title,
+    .sip-title,
+    .faq-title,
+    .about-hero-heading,
+    .about-mv-heading,
+    .about-why-title,
+    .feat-showcase-heading,
+    .slide-heading,
+    .digi-gold-heading {
+        font-size: 35px;
+        font-weight: 900;
+    }
+
+    /* ---- Golden Heading (1050px) ---- */
+    .golden-heading {
+        font-size: 42px;
+        font-weight: 900;
+    }
+
+    /* ---- Sub-headings (1050px) ---- */
+    .why-choose-sub,
+    .stable-invest-sub,
+    .sip-sub,
+    .about-why-sub {
+        font-size: 22px;
+        font-weight: 600;
+    }
+
+    /* ---- Body/Description Text (1050px) ---- */
+    .stable-invest-desc,
+    .sip-desc,
+    .sf-title {
+        font-size: 18px;
+    }
+
+    /* ---- Small Body Text (1050px) ---- */
+    .sip-grow-text {
+        font-size: 14px;
+    }
+
+    /* ---- Trust Quote (1050px) ---- */
+    .trust-quote-text {
+        font-size: 26px;
+    }
+
+    /* All Main Sections Padding */
+    .why-choose-section,
+    .stable-invest-section,
+    .sip-section,
+    .about-mv-section,
+    .about-why-section,
+    .trust-badges-section,
+    .faq-section {
+        padding: var(--m-sec-pad);
+    }
+
+    /* All Section Headers Margin */
+    .why-choose-header,
+    .sip-plan-heading,
+    .faq-title,
+    .about-why-title,
+    .about-mv-heading {
+        margin-bottom: var(--m-head-mar);
+    }
+
+    .faq-section {
+        position: relative;
+        top: -100px;
+        margin-bottom: -147px;
+    }
+
+    .faq-sectionpage {
+        top: 0px !important;
+        margin-bottom: 0px !important;
+    }
+
+    /* --- Merged from line 6151 --- */
+    .top-left span {}
+
+    .top-right span {}
+
+    .bottom-left span {}
+
+    .bottom-right span {}
+
+    .top-right {
+        padding-left: 46px;
+    }
+}
+
+
+@media (max-width: 1000px) {}
+
 
 @media (max-width: 991px) {
 
@@ -94,7 +300,7 @@
     .feat-showcase-heading,
     .slide-heading,
     .digi-gold-heading {
-        font-size: 27px;
+        font-size: 30px;
         font-weight: 900;
     }
 
@@ -183,128 +389,7 @@
         gap: 16px;
         margin-top: 0;
     }
-}
 
-@media (max-width: 767px) {
-    .header-rates {
-        display: none !important;
-    }
-}
-
-@media (max-width: 1050px) {
-
-    .top-left span {}
-
-    .top-right span {}
-
-    .bottom-left span {}
-
-    .bottom-right span {}
-
-    .top-right {
-        padding-left: 46px;
-    }
-
-    .hero-phone {
-        margin-bottom: -1px;
-    }
-
-    .marquee-bar {
-        margin-left: 292px;
-        margin-right: 292px;
-    }
-
-    .hero-left {
-        padding-left: 40px;
-    }
-
-    .digi-gold-section .container {
-        max-width: 980px;
-    }
-
-    /* ---- H1-level Headings (1050px) ---- */
-    .hero-h1,
-    .why-choose-title,
-    .stable-invest-title,
-    .sip-title,
-    .faq-title,
-    .about-hero-heading,
-    .about-mv-heading,
-    .about-why-title,
-    .feat-showcase-heading,
-    .slide-heading,
-    .digi-gold-heading {
-        font-size: 36px;
-        font-weight: 900;
-    }
-
-    /* ---- Golden Heading (1050px) ---- */
-    .golden-heading {
-        font-size: 42px;
-        font-weight: 900;
-    }
-
-    /* ---- Sub-headings (1050px) ---- */
-    .why-choose-sub,
-    .stable-invest-sub,
-    .sip-sub,
-    .about-why-sub {
-        font-size: 22px;
-        font-weight: 600;
-    }
-
-    /* ---- Body/Description Text (1050px) ---- */
-    .stable-invest-desc,
-    .sip-desc,
-    .sf-title {
-        font-size: 18px;
-    }
-
-    /* ---- Small Body Text (1050px) ---- */
-    .sip-grow-text {
-        font-size: 14px;
-    }
-
-    /* ---- Trust Quote (1050px) ---- */
-    .trust-quote-text {
-        font-size: 26px;
-    }
-
-    /* All Main Sections Padding */
-    .why-choose-section,
-    .stable-invest-section,
-    .sip-section,
-    .about-mv-section,
-    .about-why-section,
-    .trust-badges-section,
-    .faq-section {
-        padding: var(--m-sec-pad);
-    }
-
-    /* All Section Headers Margin */
-    .why-choose-header,
-    .sip-plan-heading,
-    .faq-title,
-    .about-why-title,
-    .about-mv-heading {
-        margin-bottom: var(--m-head-mar);
-    }
-
-    .faq-section {
-        position: relative;
-        top: -100px;
-        margin-bottom: -147px;
-    }
-
-    .faq-sectionpage {
-        top: 0px !important;
-        margin-bottom: 0px !important;
-    }
-}
-
-@media (max-width: 1000px) {}
-
-@media (max-width: 991px) {
     .site-header:has(.hamburger.open) .header-bar {}
 
     .header-logo {
@@ -375,94 +460,148 @@
         margin-bottom: -94px;
         top: -79px;
     }
+
+    /* --- Contact wrapper (from Mobile Menu section) --- */
+    .contact-wrapper {
+        display: contents;
+    }
+
+    .contact-form-card {
+        margin-top: 20px;
+    }
+
+    /* --- Global Typography (Tablet) --- */
+    :root {
+        --m-h1-size: 27px;
+        --m-sub-size: 16px;
+        --m-sec-pad: 60px 0;
+        --m-head-mar: 30px;
+    }
+
+    .golden-banner {
+        padding: 100px 0 50px;
+    }
+
+    .contact-page-wrapper {
+        background-size: 102% 104% !important;
+    }
+
+    /* --- Hide <br> on mobile (exceptions below) --- */
+    br {
+        display: none !important;
+    }
+
+    .trust-quote-text br,
+    .faq-answer br,
+    .contact-info-text br,
+    .footer-address br {
+        display: inline !important;
+    }
+
+    /* --- Why Choose section standardization --- */
+    .wf-img,
+    .wf-img-wide {
+        width: 65px !important;
+        height: 65px !important;
+    }
+
+    .wf-label,
+    .why-feature-card-wide .wf-label {
+        font-size: var(--m-stat-text-size) !important;
+    }
+
+    /* --- Why Choose cards layout --- */
+    .why-feature-card,
+    .why-feature-card-wide {
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        padding: 18px 20px !important;
+        gap: 20px !important;
+        text-align: left !important;
+    }
+
+    .wf-label,
+    .why-feature-card-wide .wf-label {
+        white-space: normal !important;
+        text-align: left !important;
+        margin: 0 !important;
+    }
+
+    /* --- Mobile rate chip sizes --- */
+    .mobile-live-rates-container {
+        gap: 20px !important;
+    }
+
+    .mobile-live-rates-container .rate-chip {
+        flex: 1 !important;
+        justify-content: center !important;
+        height: 42px !important;
+        padding: 4px 10px !important;
+    }
+
+    .mobile-live-rates-container .rate-val {
+        font-size: 1.3rem !important;
+        left: 0 !important;
+    }
+
+    .mobile-live-rates-container .rate-coin img {
+        height: 60px !important;
+        margin: -5px -5px -5px -2px !important;
+    }
+
+    .mobile-live-rates-container .rate-live-pill {
+        width: 45px !important;
+        height: 45px !important;
+    }
+
+    /* --- Digi gold section --- */
+    .gold-nugget {
+        width: 214px;
+        transform: scale(1.3);
+    }
+
+    .digi-corner img {
+        width: auto;
+        height: 54px;
+        transform: scale(1.5);
+    }
+
+    .top-left span {
+        left: 29px;
+        top: 75%;
+    }
+
+    .top-right span {
+        right: -23px;
+        top: 83%;
+    }
+
+    .bottom-left span {
+        left: 36px;
+        top: 80%;
+    }
+
+    .bottom-right span {
+        right: -26px;
+        top: 76%;
+    }
+
+    .top-right {
+        padding-left: 40px;
+    }
+
+    .digi-corner span {
+        font-size: var(--m-tagline-size);
+    }
+
+    /* --- Digi corner sizing (Tablet) --- */
+    .digi-corner {
+        width: 195px;
+        height: 73px;
+    }
 }
 
-.sip-plan-tag {
-    font-size: var(--m-xsmall-size);
-}
-
-.stable-invest-content {
-    gap: 40px;
-}
-
-.stable-invest-phones {
-    max-height: 420px;
-}
-
-.sip-content {
-    gap: 40px;
-}
-
-.contact-left,
-.contact-right {
-    padding: 30px 20px;
-}
-
-/* Slider responsive */
-.slide-layout {
-    gap: 20px;
-}
-
-.slide-phone-img {
-    max-height: 420px;
-}
-
-.slide-heading {
-    margin-bottom: 36px;
-}
-
-.sf-title {
-    font-size: .95rem;
-}
-
-.sf-text {
-    font-size: .82rem;
-}
-
-.slide-feature {
-    max-width: 220px;
-}
-
-.trust-badges-row {
-    gap: 50px;
-}
-
-.trust-badge-item {
-    padding: 0 40px;
-}
-
-.trust-logo-icon {
-    width: 42px;
-    height: 42px;
-    font-size: 1.1rem;
-}
-
-/* About page � tablet */
-.about-mv-card {
-    padding: 30px 28px;
-}
-
-.about-why-grid {
-    grid-template-columns: repeat(2, 1fr);
-}
-
-.about-cta-card {
-    padding: 50px 30px;
-}
-
-/* Contact page � tablet */
-.slide-features.right {
-    right: 4px;
-}
-
-.marquee-bar {
-    margin-left: 60px;
-    margin-right: 60px;
-}
-
-.digi-gold-section {
-    margin-top: -170px;
-}
 
 
 @media (max-width: 900px) {
@@ -480,9 +619,57 @@
         margin-bottom: -114px;
         position: relative;
     }
+
+    .header-logo img {
+        height: 36px;
+    }
 }
 
+/* Responsive Media Queries extracted from style.css */
+
+@media (max-width: 768px) {
+    .policy-card {
+        padding: 28px 20px;
+        border-radius: 16px;
+    }
+
+    .policy-contact-card {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+
+    .policy-heading {
+        font-size: 0.98rem;
+    }
+
+    .refund-highlights {
+        grid-template-columns: 1fr;
+    }
+
+    .refund-statement {
+        padding: 18px 18px;
+    }
+
+    .refund-delivery-notice,
+    .refund-timeline-badge {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+
+    .refund-title {
+        font-size: 1.25rem;
+    }
+}
+
+
 @media (max-width: 767px) {
+    .header-rates {
+        display: none !important;
+    }
+
+
+    /* --- Merged from line 641 --- */
 
 
     /* ---- H1-level Headings (767px) ---- */
@@ -1271,7 +1458,175 @@
     .trust-quote-block {
         margin-top: 70px;
     }
+
+    /* --- Merged from line 5881 --- */
+
+    :root {
+        --m-h1-size: 23px;
+        --m-sub-size: 14px;
+        --m-sec-pad: 40px 0;
+        --m-head-mar: 25px;
+    }
+
+    /* Reduce 'Know More' button size on home page mobile view */
+    .btn-start-invest-top .btn-start-invest {
+        padding: 10px 28px !important;
+        font-size: var(--m-small-size) !important;
+        border-radius: 8px !important;
+    }
+
+    /* --- Merged from line 5911 --- */
+
+    .wf-img,
+    .wf-img-wide {
+        width: 58px !important;
+        height: 58px !important;
+    }
+
+    .wf-label,
+    .why-feature-card-wide .wf-label {
+        font-size: var(--m-tagline-size) !important;
+    }
+
+    /* --- Merged from line 5930 --- */
+    .mobile-live-rates-container .rate-chip {
+        height: 30px !important;
+        padding: 3px 6px 3px 2px !important;
+        gap: 2px !important;
+        flex: none !important;
+    }
+
+    .mobile-live-rates-container .rate-val {
+        font-size: .95rem !important;
+    }
+
+    .mobile-live-rates-container .rate-coin img {
+        height: 48px !important;
+        margin: 0 !important;
+    }
+
+    .mobile-live-rates-container .rate-live-pill {
+        width: 36px !important;
+        height: 36px !important;
+    }
+
+    .mobile-live-rates-container {
+        gap: 8px !important;
+    }
+
+    /* --- Merged from line 6101 --- */
+    .about-hero .row {
+        flex-direction: column !important;
+        text-align: center !important;
+    }
+
+    .about-hero .col-md-7,
+    .about-hero .col-md-5 {
+        width: 100% !important;
+        max-width: 100% !important;
+        flex: 0 0 100% !important;
+    }
+
+    .about-hero-heading {
+        max-width: 100% !important;
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    .about-hero-desc {
+        max-width: 100% !important;
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        padding: 0 15px !important;
+    }
+
+    .about-hero-logo {
+        margin-top: 30px !important;
+        max-height: 200px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        display: block !important;
+    }
+
+    /* --- Merged from line 6167 --- */
+    .gold-nugget {
+        width: 140px;
+        transform: scale(1.5);
+    }
+
+    .digi-corner img {
+        width: auto;
+        height: auto;
+        transform: scale(1.4);
+        transform-origin: center;
+    }
+
+    .top-right {
+        padding-left: 0px;
+        position: relative;
+        left: 15px;
+    }
+
+    .digi-corner span {
+        font-size: .85rem;
+        position: absolute;
+        transform: none;
+    }
+
+    /* Top-left: icon circle at top-left, text right of circle */
+    .top-left span {
+        left: 50px;
+        top: 2px;
+    }
+
+    /* Top-right: icon circle at top-right, text left of circle */
+    .top-right span {
+        right: 50px;
+        top: 2px;
+    }
+
+    /* Bottom-left: icon at bottom-left, text right of circle */
+    .bottom-left span {
+        left: 50px;
+        top: 2px;
+    }
+
+    /* Bottom-right: icon at bottom-right, text left of circle */
+    .bottom-right span {
+        right: 50px;
+        top: 2px;
+    }
+
+    /* Hide bracket decorations on small screens */
+    .top-left::after,
+    .top-right::before,
+    .bottom-left::after,
+    .bottom-right::before {
+        display: none;
+    }
+
+    /* --- Merged from line 6467 --- */
+    .digi-corner {
+        width: 155px;
+        height: 58px;
+    }
+
+    .gold-nugget {
+        width: 140px !important;
+        transform: scale(1.5) !important;
+    }
+
+    .digi-gold-layout {
+        gap: 15px 8px !important;
+    }
+
+    .digi-center {
+        padding-top: 20px;
+    }
 }
+
 
 @media (max-width: 750px) {
     .digi-gold-section {
@@ -1320,6 +1675,7 @@
         position: relative;
     }
 }
+
 
 @media (max-width: 730px) {
 
@@ -1786,7 +2142,7 @@
     .stat-text {
         max-width: none;
         text-align: left;
-        font-size: var(--m-sf-text-size);
+        font-size: var(--m-xsmall-size);
     }
 
     .stable-invest-phones {
@@ -2095,9 +2451,105 @@
         margin-bottom: -110px;
         position: relative;
     }
+
+    /* --- Merged from line 6225 --- */
+    .gold-nugget {
+        width: 140px;
+        transform: scale(1.5);
+    }
+
+    .digi-corner img {
+        width: auto;
+        height: 48px;
+        transform: scale(1.5);
+        transform-origin: center;
+    }
+
+    .top-right {
+        padding-left: 0px;
+        position: relative;
+        left: 38px;
+    }
+
+    .digi-corner span {
+        font-size: .85rem;
+        position: absolute;
+        transform: none;
+    }
+
+    /* Top-left: icon circle at top-left, text right of circle */
+    .top-left span {
+        left: 32px;
+        top: 4px;
+    }
+
+    /* Top-right: icon circle at top-right, text left of circle */
+    .top-right span {
+        right: -22px;
+        top: 7px;
+    }
+
+    /* Bottom-left: icon at bottom-left, text right of circle */
+    .bottom-left span {
+        left: 36px;
+        top: 4px;
+    }
+
+    /* Bottom-right: icon at bottom-right, text left of circle */
+    .bottom-right span {
+        right: -20px;
+        top: 2px;
+    }
+
+    /* Hide bracket decorations on small screens */
+    .top-left::after,
+    .top-right::before,
+    .bottom-left::after,
+    .bottom-right::before {
+        display: none;
+    }
 }
 
-@media (max-width: 650px) {
+
+/* --- Mobile (481px - 600px) --- */
+@media (max-width: 600px) {
+    .digi-corner {
+        width: 130px;
+        height: 49px;
+    }
+
+    .gold-nugget {
+        width: 120px !important;
+        transform: scale(1.4) !important;
+    }
+
+    .digi-gold-layout {
+        gap: 10px 5px !important;
+    }
+}
+
+
+/* For extremely large phones in landscape, also cap max-width if they drop below 600px */
+@media (max-width: 599px) {
+
+    .why-grid-row .why-feature-card,
+    .why-grid-row .why-feature-card-wide {
+        max-width: 450px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    /* --- Merged from line 6091 --- */
+    .sip-plan-card {
+        max-width: 450px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        width: 100% !important;
+    }
+}
+
+
+@media (max-width: 556px) {
 
     /* ---- H1-level Headings (650px) ---- */
     .hero-h1,
@@ -2363,7 +2815,7 @@
 
     .hero-phone {
         max-height: 340px;
-        margin-bottom: 10px;
+        margin-bottom: 0px;
     }
 
     .hero-inner .row {
@@ -2863,7 +3315,96 @@
     .menu-overlay {
         right: 10px !important;
     }
+
+    /* --- Merged from line 6283 --- */
+    .gold-nugget {
+        width: 140px;
+        transform: scale(1.3);
+    }
+
+    .digi-corner img {
+        width: auto;
+        height: 32px;
+        transform: scale(1.4);
+        transform-origin: center;
+    }
+
+    .top-right {
+        padding-left: 0px;
+        position: relative;
+        left: 15px;
+    }
+
+    .digi-corner span {
+        font-size: .85rem;
+        position: absolute;
+        transform: none;
+    }
+
+    /* Top-left: icon circle at top-left, text right of circle */
+    .top-left span {
+        left: 34px;
+        top: 2px;
+    }
+
+    /* Top-right: icon circle at top-right, text left of circle */
+    .top-right span {
+        right: -13px;
+        top: 2px;
+    }
+
+    /* Bottom-left: icon at bottom-left, text right of circle */
+    .bottom-left span {
+        left: 34px;
+        top: 2px;
+    }
+
+    /* Bottom-right: icon at bottom-right, text left of circle */
+    .bottom-right span {
+        right: -17px;
+        top: 2px;
+    }
+
+    /* Hide bracket decorations on small screens */
+    .top-left::after,
+    .top-right::before,
+    .bottom-left::after,
+    .bottom-right::before {
+        display: none;
+    }
 }
+
+
+@media (max-width: 540px) {
+    .digi-corner img {
+        width: auto;
+        height: 39px;
+    }
+
+    .top-right {
+        left: 40px;
+    }
+
+    .top-right span {
+        right: -24px;
+        top: 5px;
+    }
+
+    .top-left span {
+        left: 26px;
+        top: 2px;
+    }
+
+    .bottom-left span {
+        left: 26px;
+        top: 2px;
+    }
+
+    .hero-phone {
+        margin-bottom: 0px;
+    }
+}
+
 
 @media (max-width: 520px) {
 
@@ -3635,7 +4176,126 @@
     .menu-overlay {
         right: 10px !important;
     }
+
+    /* --- Merged from line 6030 --- */
+    .digi-corner img {
+        width: auto;
+        height: 39px;
+    }
+
+    .top-right {
+        left: 40px;
+    }
+
+    .top-right span {
+        right: -24px;
+        top: 5px;
+    }
+
+    .top-left span {
+        left: 26px;
+        top: 2px;
+    }
+
+    .bottom-left span {
+        left: 26px;
+        top: 2px;
+    }
+
+    .hero-phone {
+        margin-bottom: 0px;
+    }
+
+    /* --- Merged from line 7035 --- */
+    .digi-corner img {
+        width: auto;
+        height: 39px;
+    }
+
+    .top-right {
+        left: 40px;
+    }
+
+    .top-right span {
+        right: -24px;
+        top: 5px;
+    }
+
+    .top-left span {
+        left: 26px;
+        top: 2px;
+    }
+
+    .bottom-left span {
+        left: 26px;
+        top: 2px;
+    }
+
+    .hero-phone {
+        margin-bottom: 0px;
+    }
 }
+
+
+@media (max-width: 500px) {
+    .digi-corner img {
+        width: auto;
+        height: 39px;
+    }
+
+    .top-right {
+        left: 40px;
+    }
+
+    .top-right span {
+        right: -24px;
+        top: 5px;
+    }
+
+    .top-left span {
+        left: 26px;
+        top: 2px;
+    }
+
+    .bottom-left span {
+        left: 26px;
+        top: 2px;
+    }
+
+    .hero-phone {
+        margin-bottom: 0px;
+    }
+
+    /* --- Merged from line 7065 --- */
+    .digi-corner img {
+        width: auto;
+        height: 39px;
+    }
+
+    .top-right {
+        left: 40px;
+    }
+
+    .top-right span {
+        right: -24px;
+        top: 5px;
+    }
+
+    .top-left span {
+        left: 26px;
+        top: 2px;
+    }
+
+    .bottom-left span {
+        left: 26px;
+        top: 2px;
+    }
+
+    .hero-phone {
+        margin-bottom: 0px;
+    }
+}
+
 
 @media (max-width: 480px) {
 
@@ -3644,7 +4304,6 @@
     .why-choose-title,
     .stable-invest-title,
     .sip-title,
-    .faq-title,
     .about-hero-heading,
     .about-mv-heading,
     .about-why-title,
@@ -3699,6 +4358,10 @@
 
     .header-logo img {
         height: 34px;
+    }
+
+    .faq-title {
+        font-size: 18px;
     }
 
     .bottom-row {
@@ -3940,15 +4603,76 @@
     .footer-top {
         margin-bottom: 22px;
     }
-}
 
-@media (prefers-reduced-motion: reduce) {
-    [data-anim] {
-        opacity: 1 !important;
-        transform: none !important;
-        transition: none !important;
+    /* --- Merged from line 5899 --- */
+
+    :root {
+        --m-h1-size: 24px;
+        --m-sub-size: 16px;
+    }
+
+    /* --- Merged from line 6341 --- */
+    .gold-nugget {
+        width: 110px;
+    }
+
+    .digi-corner img {
+        width: auto;
+    }
+
+    .digi-corner span {
+        font-size: .7rem;
+    }
+
+    .top-left span {
+        left: -4px;
+        top: -19px;
+    }
+
+    .top-right span {
+        right: 11px;
+        top: -24px;
+    }
+
+    .bottom-left span {
+        left: -4px;
+        top: -24px;
+    }
+
+    .bottom-right span {
+        right: 12px;
+        top: -24px;
+    }
+
+    .bottom-right {
+        padding-left: 0px;
+        margin-left: 0px;
+    }
+
+    .digi-gold-layout {
+        gap: 5px;
+    }
+
+    .top-right {
+        left: 7px;
+    }
+
+    .top-left {
+        left: 2px;
+    }
+
+    /* --- Merged from line 6505 --- */
+    .digi-corner {
+        width: 100px;
+        height: 40px;
+    }
+
+    .gold-nugget {
+        width: 110px !important;
+        transform: scale(1.3) !important;
     }
 }
+
 
 @media (max-width: 430px) {
     .faq-section {
@@ -3961,6 +4685,25 @@
         top: -163px;
     }
 }
+
+
+/* --- Extra small mobile (376px - 420px) --- */
+@media (max-width: 420px) {
+    .digi-corner {
+        width: 100px;
+        height: 40px;
+    }
+
+    .gold-nugget {
+        width: 100px !important;
+        transform: scale(1.9) !important;
+    }
+
+    .digi-gold-layout {
+        gap: 8px 4px !important;
+    }
+}
+
 
 @media (max-width: 400px) {
     .top-right {
@@ -3981,11 +4724,439 @@
         margin-bottom: -100px;
         top: -125px;
     }
+
+    /* --- Merged from line 5958 --- */
+    .mobile-live-rates-container {
+        padding-left: 2px !important;
+        padding-right: 2px !important;
+        gap: 4px !important;
+    }
+
+    .mobile-live-rates-container .rate-chip {
+        padding: 2px 4px 2px 2px !important;
+        height: 28px !important;
+        width: 49% !important;
+        /* Force them to stay within screen */
+        justify-content: center !important;
+    }
+
+    .mobile-live-rates-container .rate-val {
+        font-size: 0.8rem !important;
+        /* Slightly smaller to fit */
+        letter-spacing: -0.5px !important;
+        /* Compress text slightly */
+    }
+
+    .mobile-live-rates-container .rate-coin img {
+        height: 38px !important;
+    }
+
+    .mobile-live-rates-container .rate-live-pill {
+        width: 30px !important;
+        height: 30px !important;
+    }
+
+    /* --- Merged from line 6392 --- */
+    .top-right {
+        left: 6px;
+    }
+
+    .top-left {
+        left: 1px;
+    }
+
+    .trust-quote-text {
+        font-size: 15px;
+    }
+
+    /* --- Merged from line 6722 --- */
+    .trust-badges-section {
+        padding-bottom: 170px !important;
+    }
+
+    .digi-gold-section {
+        margin-top: -155px !important;
+        padding-bottom: 0px !important;
+    }
+
+    .faq-section {
+        padding: 20px 0 40px !important;
+    }
 }
+
+
+/* --- Tiny mobile (320px - 375px) --- */
+@media (max-width: 375px) {
+    .digi-corner {
+        width: 95px;
+        height: 36px;
+    }
+
+    .gold-nugget {
+        width: 90px !important;
+        transform: scale(1.9) !important;
+    }
+
+    .digi-gold-layout {
+        gap: 6px 2px !important;
+    }
+}
+
+
+/* --- Ultra small (below 320px) --- */
+@media (max-width: 320px) {
+    .digi-corner {
+        width: 80px;
+        height: 30px;
+    }
+
+    .gold-nugget {
+        width: 80px !important;
+        transform: scale(1.1) !important;
+    }
+}
+
+/* =============================================================
+   COMBINED BREAKPOINTS (Range-based media queries)
+   ============================================================= */
+
+
+/* --- Tablet landscape (901–1050px) --- */
+@media (max-width: 1050px) and (min-width: 901px) {
+    .trust-badges-section {
+        padding-bottom: 200px !important;
+    }
+
+    .digi-gold-section {
+        margin-top: -170px !important;
+        padding-bottom: 0px !important;
+    }
+
+    .faq-section {
+        padding: 20px 0 25px !important;
+    }
+}
+
+
+/* Fix for SIP Cards on iPad and Mobile Landscape: Show side-by-side instead of stacked full-width */
+@media (max-width: 991px) and (min-width: 600px) {
+    .sip-cards-row {
+        flex-direction: row !important;
+        justify-content: center !important;
+        gap: 20px !important;
+    }
+
+    .sip-plan-card {
+        flex: 0 1 calc(50% - 10px) !important;
+        max-width: 50% !important;
+    }
+}
+
+
+/* Fix for iPad and Mobile Landscape: Show 2 cards per row to eliminate excess empty green space */
+@media (max-width: 991px) and (min-width: 600px) {
+
+    .why-grid-row.top-row .why-feature-card,
+    .why-grid-row.bottom-row .why-feature-card,
+    .why-feature-card-wide {
+        flex: 0 1 calc(39% - 12px) !important;
+    }
+
+    .why-grid-row {
+        justify-content: center !important;
+        gap: 20px !important;
+    }
+}
+
+
+/* --- Tablet portrait (768–900px) --- */
+@media (max-width: 900px) and (min-width: 768px) {
+    .trust-badges-section {
+        padding-bottom: 210px !important;
+    }
+
+    .digi-gold-section {
+        margin-top: -180px !important;
+        padding-bottom: 0px !important;
+    }
+
+    .faq-section {
+        padding: 20px 0 40px !important;
+    }
+}
+
+
+/* --- Mobile (651–767px) --- */
+@media (max-width: 767px) and (min-width: 557px) {
+    .trust-badges-section {
+        padding-bottom: 220px !important;
+    }
+
+    .digi-gold-section {
+        margin-top: -200px !important;
+        padding-bottom: 0px !important;
+    }
+
+    .faq-section {
+        padding: 20px 0 40px !important;
+    }
+}
+
+
+@media (max-width: 556px) and (min-width: 541px) {
+    .digi-corner img {
+        width: auto;
+        height: 39px;
+    }
+
+    .top-right {
+        left: 40px;
+    }
+
+    .top-right span {
+        right: -24px;
+        top: 5px;
+    }
+
+    .top-left span {
+        left: 26px;
+        top: 2px;
+    }
+
+    .bottom-left span {
+        left: 26px;
+        top: 2px;
+    }
+
+    .hero-phone {
+        margin-bottom: 0px;
+    }
+}
+
+
+/* --- Mobile (521–556px) --- */
+@media (max-width: 556px) and (min-width: 521px) {
+    .trust-badges-section {
+        padding-bottom: 200px !important;
+    }
+
+    .digi-gold-section {
+        margin-top: -180px !important;
+        padding-bottom: 0px !important;
+    }
+
+    .faq-section {
+        padding: 20px 0 40px !important;
+    }
+}
+
+
+@media (max-width: 540px) and (min-width: 521px) {
+    .digi-corner img {
+        width: auto;
+        height: 39px;
+    }
+
+    .top-right {
+        left: 40px;
+    }
+
+    .top-right span {
+        right: -24px;
+        top: 5px;
+    }
+
+    .top-left span {
+        left: 26px;
+        top: 2px;
+    }
+
+    .bottom-left span {
+        left: 26px;
+        top: 2px;
+    }
+
+    .hero-phone {
+        margin-bottom: 0px;
+    }
+}
+
+
+@media (max-width: 520px) and (min-width: 501px) {
+    .digi-corner img {
+        width: auto;
+        height: 39px;
+    }
+
+    .top-right {
+        left: 40px;
+    }
+
+    .top-right span {
+        right: -24px;
+        top: 5px;
+    }
+
+    .top-left span {
+        left: 26px;
+        top: 2px;
+    }
+
+    .bottom-left span {
+        left: 26px;
+        top: 2px;
+    }
+
+    .hero-phone {
+        margin-bottom: 0px;
+    }
+}
+
+
+/* --- Small mobile (481–520px) --- */
+@media (max-width: 520px) and (min-width: 481px) {
+    .trust-badges-section {
+        padding-bottom: 180px !important;
+    }
+
+    .digi-gold-section {
+        margin-top: -150px !important;
+        padding-bottom: 0px !important;
+    }
+
+    .faq-section {
+        padding: 20px 0 40px !important;
+    }
+}
+
+
+@media (max-width: 500px) and (min-width: 481px) {
+    .digi-corner img {
+        width: auto;
+        height: 39px;
+    }
+
+    .top-right {
+        left: 40px;
+    }
+
+    .top-right span {
+        right: -24px;
+        top: 5px;
+    }
+
+    .top-left span {
+        left: 26px;
+        top: 2px;
+    }
+
+    .bottom-left span {
+        left: 26px;
+        top: 2px;
+    }
+
+    .hero-phone {
+        margin-bottom: 0px;
+    }
+}
+
+
+@media (max-width: 480px) and (min-width: 461px) {
+    .digi-corner img {
+        width: auto;
+        height: 39px;
+    }
+
+    .top-right {
+        left: 40px;
+    }
+
+    .top-right span {
+        right: -24px;
+        top: 5px;
+    }
+
+    .top-left span {
+        left: 26px;
+        top: 2px;
+    }
+
+    .bottom-left span {
+        left: 26px;
+        top: 2px;
+    }
+
+    .hero-phone {
+        margin-bottom: 0px;
+    }
+}
+
+
+/* --- Small mobile (431–480px) --- */
+@media (max-width: 480px) and (min-width: 431px) {
+    .trust-badges-section {
+        padding-bottom: 180px !important;
+    }
+
+    .digi-gold-section {
+        margin-top: -160px !important;
+        padding-bottom: 0px !important;
+    }
+
+    .faq-section {
+        padding: 20px 0 40px !important;
+    }
+}
+
+
+/* --- Extra small mobile (401–430px) --- */
+@media (max-width: 430px) and (min-width: 401px) {
+    .trust-badges-section {
+        padding-bottom: 180px !important;
+    }
+
+    .digi-gold-section {
+        margin-top: -160px !important;
+        padding-bottom: 0px !important;
+    }
+
+    .faq-section {
+        padding: 20px 0 40px !important;
+    }
+}
+
+/* =============================================================
+   MIN-WIDTH BREAKPOINTS (Smallest to largest)
+   ============================================================= */
+
+
+/* --- Desktop (> 1050px) --- */
+@media (min-width: 1051px) {
+    .trust-badges-section {
+        padding-bottom: 220px !important;
+    }
+
+    .digi-gold-section {
+        margin-top: -201px !important;
+        padding-bottom: 30px !important;
+    }
+
+    .faq-section {
+        padding: 0px 0 25px !important;
+    }
+}
+
 
 @media (min-width: 1200px) {
     top: 86px !important;
+
+    /* --- Merged from line 6449 --- */
+    .digi-corner {
+        width: 260px;
+        height: 98px;
+    }
 }
+
 
 @media (min-width: 1300px) {
     .menu-overlay {
@@ -3994,12 +5165,14 @@
     }
 }
 
+
 @media (min-width: 1400px) {
     .menu-overlay {
         right: 99px !important;
         top: 86px !important;
     }
 }
+
 
 @media (min-width: 1440px) {
 
@@ -4118,8 +5291,9 @@
         max-height: 820px;
     }
 
+
     .marquee-bar {
-        top: 100px;
+        top: 124px !important;
         margin-left: 292px;
         margin-right: 292px;
     }
@@ -4701,7 +5875,26 @@
     .gold-nugget {
         transform: scale(1.1);
     }
+
+    .stable-invest-section {
+        background-size: auto;
+    }
+
+    /* --- Merged from line 6738 --- */
+    .trust-badges-section {
+        padding-bottom: 240px !important;
+    }
+
+    .digi-gold-section {
+        margin-top: -201px !important;
+        padding-bottom: 60px !important;
+    }
+
+    .faq-section {
+        padding: 30px 0 40px !important;
+    }
 }
+
 
 @media (min-width: 1500px) {
     .menu-overlay {
@@ -4710,12 +5903,14 @@
     }
 }
 
+
 @media (min-width: 1600px) {
     .menu-overlay {
         right: 178px !important;
         top: 85px !important;
     }
 }
+
 
 @media (min-width: 1700px) {
     .menu-overlay {
@@ -4724,12 +5919,14 @@
     }
 }
 
+
 @media (min-width: 1800px) {
     .menu-overlay {
         right: 278px !important;
         top: 85px !important;
     }
 }
+
 
 @media (min-width: 1920px) {
 
@@ -4798,7 +5995,7 @@
         border-bottom-left-radius: 80px;
         background: url(../img/header_top1.png) no-repeat center;
         background-size: 102% 100% !important;
-        top: -104px;
+        top: -127px;
     }
 
     .footer-cin {
@@ -4863,6 +6060,7 @@
 
     .hero-p {
         font-size: 1.5rem;
+        line-height: 1.9;
     }
 
     .hero-trust-item {
@@ -4908,13 +6106,13 @@
     }
 
     .hero-phone {
-        max-height: 750px;
+        max-height: 850px;
         top: 0px;
-        margin-top: 20px;
+        margin-top: 100px;
     }
 
     .marquee-bar {
-        top: 133px
+        top: 175px !important
     }
 
     .golden-banner {
@@ -5517,1825 +6715,19 @@
     }
 
     .marquee-bar {
-        margin-left: 176px;
-        margin-right: 176px;
-    }
-}
-
-@media (max-width: 1200px) {
-
-    .container,
-    .container-lg,
-    .container-md,
-    .container-sm,
-    .container-xl {
-        max-width: 1569px;
-    }
-}
-
-/* ========================================================
-   Mobile Menu Redesign (max-width: 991px)
-   Matches reference 3jsviz design but keeps Desktop unchanged
-   ======================================================== */
-@media (max-width: 991px) {
-
-    .contact-wrapper {
-        display: contents;
-    }
-
-    .contact-form-card {
-        margin-top: 20px;
-    }
-}
-
-/* ========================================================
-   Global Menu Redesign (Matches reference 3jsviz design)
-   ======================================================== */
-/* 1. Menu Pill Button */
-.hamburger {
-    width: 38px !important;
-    min-width: 38px !important;
-    height: 38px !important;
-    flex-direction: column !important;
-    align-items: flex-end !important;
-    justify-content: space-between !important;
-    background: var(--nav-green) !important;
-    border-radius: 50% !important;
-    padding: 12px 9px !important;
-    position: relative;
-    cursor: pointer;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    flex-shrink: 0;
-}
-
-.hamburger::before {
-    display: none !important;
-}
-
-.hamburger span {
-    display: block !important;
-    position: relative !important;
-    left: auto !important;
-    right: auto !important;
-    transform: none !important;
-    background: #fff !important;
-    transition: .3s !important;
-    height: 2px !important;
-    border-radius: 2px !important;
-}
-
-/* 3 lines staggered design */
-.hamburger span:nth-child(1) {
-    top: auto !important;
-    width: 65% !important;
-}
-
-.hamburger span:nth-child(2) {
-    top: auto !important;
-    width: 100% !important;
-    opacity: 1 !important;
-}
-
-.hamburger span:nth-child(3) {
-    display: block !important;
-    top: auto !important;
-    width: 60% !important;
-}
-
-/* Open state for button */
-.hamburger.open span:nth-child(1) {
-    position: absolute !important;
-    top: 18px;
-    transform: none !important;
-    width: 22px !important;
-    right: 8px !important;
-}
-
-.hamburger.open span:nth-child(2) {
-    opacity: 0 !important;
-}
-
-.hamburger.open span:nth-child(3) {
-    opacity: 0 !important;
-    transform: none !important;
-}
-
-/* 2. Floating Menu Overlay */
-.menu-overlay {
-    top: 80px;
-    right: 73px;
-    left: auto !important;
-    max-height: calc(100vh - 100px) !important;
-    overflow-y: auto !important;
-    overscroll-behavior: contain !important;
-    width: 240px !important;
-    max-width: none !important;
-    border-radius: 30px !important;
-    background: linear-gradient(180deg, #012a12 0%, #003716 100%) !important;
-    padding: 30px 24px 34px !important;
-    transform: translateY(-15px) scale(0.98) !important;
-    opacity: 0 !important;
-    visibility: hidden !important;
-    border: 1px solid rgba(255, 215, 0, 0.15) !important;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-    transition: transform 0.4s cubic-bezier(0.22, 0.68, 0, 1.02), opacity 0.4s ease, visibility 0.4s ease !important;
-}
-
-.menu-overlay.open {
-    transform: translateY(0) scale(1) !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-}
-
-/* 3. Menu Links & Dashed Line */
-.menu-overlay nav {
-    gap: 12px !important;
-    position: relative;
-    flex-direction: column !important;
-}
-
-.menu-overlay nav::before {
-    content: "";
-    position: absolute;
-    left: 2px;
-    top: 16px;
-    bottom: 16px;
-    width: 1px;
-    border-left: 1px dashed rgba(255, 255, 255, 0.2);
-    z-index: 0;
-}
-
-.menu-overlay a {
-    font-family: var(--sans);
-    font-size: 1.15rem !important;
-    color: rgba(255, 255, 255, 0.7) !important;
-    padding: 10px 10px 10px 26px !important;
-    transform: translateX(30px) !important;
-    opacity: 0 !important;
-    position: relative;
-    background: transparent !important;
-    z-index: 1;
-    border-radius: 0 !important;
-    transition-property: transform, opacity, color !important;
-    transition-duration: 0.35s, 0.35s, 0.2s !important;
-    transition-timing-function: cubic-bezier(0.22, 0.68, 0, 1.02), ease, ease !important;
-}
-
-.menu-overlay a::before {
-    content: "" !important;
-    position: absolute !important;
-    left: -1px !important;
-    top: 50% !important;
-    transform: translateY(-50%) scale(0) !important;
-    width: 6px !important;
-    height: 6px !important;
-    border-radius: 50% !important;
-    background: var(--gold) !important;
-    transition: transform 0.2s ease !important;
-}
-
-.menu-overlay a:hover,
-.menu-overlay a.active {
-    color: var(--gold) !important;
-    padding-left: 26px !important;
-}
-
-.menu-overlay a:hover::before,
-.menu-overlay a.active::before {
-    transform: translateY(-50%) scale(1) !important;
-}
-
-.menu-overlay.open a {
-    transform: translateX(0) !important;
-    opacity: 1 !important;
-}
-
-
-/* ==== GLOBAL TYPOGRAPHY GROUPING (Responsive) ==== */
-
-/* TABLET (iPad) */
-@media (max-width: 991px) {
-
-    :root {
-        --m-h1-size: 27px;
-        --m-sub-size: 16px;
-        --m-sec-pad: 60px 0;
-        --m-head-mar: 30px;
-    }
-
-    .golden-banner {
-        padding: 100px 0 50px;
-    }
-
-    .contact-page-wrapper {
-        background-size: 102% 104% !important;
-    }
-}
-
-/* MOBILE */
-@media (max-width: 767px) {
-
-    :root {
-        --m-h1-size: 23px;
-        --m-sub-size: 14px;
-        --m-sec-pad: 40px 0;
-        --m-head-mar: 25px;
-    }
-
-    /* Reduce 'Know More' button size on home page mobile view */
-    .btn-start-invest-top .btn-start-invest {
-        padding: 10px 28px !important;
-        font-size: var(--m-small-size) !important;
-        border-radius: 8px !important;
-    }
-}
-
-/* SMALL MOBILE */
-@media (max-width: 480px) {
-
-    :root {
-        --m-h1-size: 24px;
-        --m-sub-size: 16px;
-    }
-}
-
-/* Hide <br> on mobile devices to prevent awkward text breaks */
-@media (max-width: 991px) {
-    br {
-        display: none !important;
-    }
-
-    /* Exceptions where <br> is required for formatting */
-    .trust-quote-text br,
-    .faq-answer br,
-    .contact-info-text br,
-    .footer-address br {
-        display: inline !important;
-    }
-}
-
-/* Standardize Why Choose section font and image sizes for Tab and Mobile */
-@media (max-width: 991px) {
-
-    .wf-img,
-    .wf-img-wide {
-        width: 65px !important;
-        height: 65px !important;
-    }
-
-    .wf-label,
-    .why-feature-card-wide .wf-label {
-        font-size: var(--m-stat-text-size) !important;
-    }
-}
-
-@media (max-width: 767px) {
-
-    .wf-img,
-    .wf-img-wide {
-        width: 58px !important;
-        height: 58px !important;
-    }
-
-    .wf-label,
-    .why-feature-card-wide .wf-label {
-        font-size: var(--m-tagline-size) !important;
-    }
-}
-
-/* Ensure all Why Choose cards stay side-by-side but fit evenly on mobile */
-@media (max-width: 991px) {
-
-    .why-feature-card,
-    .why-feature-card-wide {
-        flex-direction: row !important;
-        align-items: center !important;
-        justify-content: flex-start !important;
-        padding: 18px 20px !important;
-        gap: 20px !important;
-        text-align: left !important;
-    }
-
-    .wf-label,
-    .why-feature-card-wide .wf-label {
-        white-space: normal !important;
-        text-align: left !important;
-        margin: 0 !important;
-    }
-}
-
-
-/* Increase mobile rate chip sizes */
-@media (max-width: 991px) {
-    .mobile-live-rates-container {
-        gap: 20px !important;
-    }
-
-    .mobile-live-rates-container .rate-chip {
-        flex: 1 !important;
-        justify-content: center !important;
-        height: 42px !important;
-        padding: 4px 10px !important;
-    }
-
-    .mobile-live-rates-container .rate-val {
-        font-size: 1.3rem !important;
-        left: 0 !important;
-    }
-
-    .mobile-live-rates-container .rate-coin img {
-        height: 60px !important;
-        margin: -5px -5px -5px -2px !important;
-    }
-
-    .mobile-live-rates-container .rate-live-pill {
-        width: 45px !important;
-        height: 45px !important;
-    }
-}
-
-@media (max-width: 767px) {
-    .mobile-live-rates-container .rate-chip {
-        height: 30px !important;
-        padding: 3px 6px 3px 2px !important;
-        gap: 2px !important;
-        flex: none !important;
-    }
-
-    .mobile-live-rates-container .rate-val {
-        font-size: .95rem !important;
-    }
-
-    .mobile-live-rates-container .rate-coin img {
-        height: 48px !important;
-        margin: 0 !important;
-    }
-
-    .mobile-live-rates-container .rate-live-pill {
-        width: 36px !important;
-        height: 36px !important;
-    }
-
-    .mobile-live-rates-container {
-        gap: 8px !important;
-    }
-}
-
-/* Ensure live rate chips do not overflow on very small devices (<400px) */
-@media (max-width: 400px) {
-    .mobile-live-rates-container {
-        padding-left: 2px !important;
-        padding-right: 2px !important;
-        gap: 4px !important;
-    }
-
-    .mobile-live-rates-container .rate-chip {
-        padding: 2px 4px 2px 2px !important;
-        height: 28px !important;
-        width: 49% !important;
-        /* Force them to stay within screen */
-        justify-content: center !important;
-    }
-
-    .mobile-live-rates-container .rate-val {
-        font-size: 0.8rem !important;
-        /* Slightly smaller to fit */
-        letter-spacing: -0.5px !important;
-        /* Compress text slightly */
-    }
-
-    .mobile-live-rates-container .rate-coin img {
-        height: 38px !important;
-    }
-
-    .mobile-live-rates-container .rate-live-pill {
-        width: 30px !important;
-        height: 30px !important;
-    }
-}
-
-/* Fix for iPad and Mobile Landscape: Show 2 cards per row to eliminate excess empty green space */
-@media (max-width: 991px) and (min-width: 600px) {
-
-    .why-grid-row.top-row .why-feature-card,
-    .why-grid-row.bottom-row .why-feature-card,
-    .why-feature-card-wide {
-        flex: 0 1 calc(39% - 12px) !important;
-    }
-
-    .why-grid-row {
-        justify-content: center !important;
-        gap: 20px !important;
-    }
-}
-
-/* For extremely large phones in landscape, also cap max-width if they drop below 600px */
-@media (max-width: 599px) {
-
-    .why-grid-row .why-feature-card,
-    .why-grid-row .why-feature-card-wide {
-        max-width: 450px !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
-    }
-}
-
-/* Fix for SIP Cards on iPad and Mobile Landscape: Show side-by-side instead of stacked full-width */
-@media (max-width: 991px) and (min-width: 600px) {
-    .sip-cards-row {
-        flex-direction: row !important;
-        justify-content: center !important;
-        gap: 20px !important;
-    }
-
-    .sip-plan-card {
-        flex: 0 1 calc(50% - 10px) !important;
-        max-width: 50% !important;
-    }
-}
-
-@media (max-width: 520px) {
-    .digi-corner img {
-        width: auto;
-        height: 39px;
-    }
-
-    .top-right {
-        left: 40px;
-    }
-
-    .top-right span {
-        right: -24px;
-        top: 5px;
-    }
-
-    .top-left span {
-        left: 26px;
-        top: 2px;
-    }
-
-    .bottom-left span {
-        left: 26px;
-        top: 2px;
-    }
-
-    .hero-phone {
-        margin-bottom: 0px;
-    }
-}
-
-@media (max-width: 500px) {
-    .digi-corner img {
-        width: auto;
-        height: 39px;
-    }
-
-    .top-right {
-        left: 40px;
-    }
-
-    .top-right span {
-        right: -24px;
-        top: 5px;
-    }
-
-    .top-left span {
-        left: 26px;
-        top: 2px;
-    }
-
-    .bottom-left span {
-        left: 26px;
-        top: 2px;
-    }
-
-    .hero-phone {
-        margin-bottom: 0px;
-    }
-}
-
-/* For extreme landscape on small phones, cap the width so it doesn't stretch 100% and leave empty green space */
-@media (max-width: 599px) {
-    .sip-plan-card {
-        max-width: 450px !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
-        width: 100% !important;
-    }
-}
-
-/* Fix About Page layout for iPad and Mobile Landscape */
-@media (max-width: 767px) {
-    .about-hero .row {
-        flex-direction: column !important;
-        text-align: center !important;
-    }
-
-    .about-hero .col-md-7,
-    .about-hero .col-md-5 {
-        width: 100% !important;
-        max-width: 100% !important;
-        flex: 0 0 100% !important;
-    }
-
-    .about-hero-heading {
-        max-width: 100% !important;
-        text-align: center !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
-    }
-
-    .about-hero-desc {
-        max-width: 100% !important;
-        text-align: center !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
-        padding: 0 15px !important;
-    }
-
-    .about-hero-logo {
-        margin-top: 30px !important;
-        max-height: 200px !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
-        display: block !important;
-    }
-}
-
-/* --- Added from stagingtest for digi-gold layout --- */
-@media (max-width: 1299px) {
-    .bottom-right {
-        padding-left: 9px;
-    }
-}
-
-@media (max-width: 1199px) {
-    .top-right {
-        padding-left: 43px;
-    }
-}
-
-@media (max-width: 1050px) {
-    .top-left span {}
-
-    .top-right span {}
-
-    .bottom-left span {}
-
-    .bottom-right span {}
-
-    .top-right {
-        padding-left: 46px;
-    }
-}
-
-@media (max-width: 991px) {
-    .gold-nugget {
-        width: 214px;
-        transform: scale(1.3);
-    }
-
-    .digi-corner img {
-        width: auto;
-        height: 54px;
-        transform: scale(1.5);
-    }
-
-    .top-left span {
-        left: 29px;
-        top: 75%;
-    }
-
-    .top-right span {
-        right: -23px;
-        top: 83%;
-    }
-
-    .bottom-left span {
-        left: 36px;
-        top: 80%;
-    }
-
-    .bottom-right span {
-        right: -26px;
-        top: 76%;
-    }
-
-    .top-right {
-        padding-left: 40px;
-    }
-
-    .digi-corner span {
-        font-size: var(--m-tagline-size);
-    }
-}
-
-@media (max-width: 767px) {
-    .gold-nugget {
-        width: 140px;
-        transform: scale(1.5);
-    }
-
-    .digi-corner img {
-        width: auto;
-        height: auto;
-        transform: scale(1.4);
-        transform-origin: center;
-    }
-
-    .top-right {
-        padding-left: 0px;
-        position: relative;
-        left: 15px;
-    }
-
-    .digi-corner span {
-        font-size: .85rem;
-        position: absolute;
-        transform: none;
-    }
-
-    /* Top-left: icon circle at top-left, text right of circle */
-    .top-left span {
-        left: 50px;
-        top: 2px;
-    }
-
-    /* Top-right: icon circle at top-right, text left of circle */
-    .top-right span {
-        right: 50px;
-        top: 2px;
-    }
-
-    /* Bottom-left: icon at bottom-left, text right of circle */
-    .bottom-left span {
-        left: 50px;
-        top: 2px;
-    }
-
-    /* Bottom-right: icon at bottom-right, text left of circle */
-    .bottom-right span {
-        right: 50px;
-        top: 2px;
-    }
-
-    /* Hide bracket decorations on small screens */
-    .top-left::after,
-    .top-right::before,
-    .bottom-left::after,
-    .bottom-right::before {
-        display: none;
-    }
-}
-
-@media (max-width: 730px) {
-    .gold-nugget {
-        width: 140px;
-        transform: scale(1.5);
-    }
-
-    .digi-corner img {
-        width: auto;
-        height: 48px;
-        transform: scale(1.5);
-        transform-origin: center;
-    }
-
-    .top-right {
-        padding-left: 0px;
-        position: relative;
-        left: 38px;
-    }
-
-    .digi-corner span {
-        font-size: .85rem;
-        position: absolute;
-        transform: none;
-    }
-
-    /* Top-left: icon circle at top-left, text right of circle */
-    .top-left span {
-        left: 32px;
-        top: 4px;
-    }
-
-    /* Top-right: icon circle at top-right, text left of circle */
-    .top-right span {
-        right: -22px;
-        top: 7px;
-    }
-
-    /* Bottom-left: icon at bottom-left, text right of circle */
-    .bottom-left span {
-        left: 36px;
-        top: 4px;
-    }
-
-    /* Bottom-right: icon at bottom-right, text left of circle */
-    .bottom-right span {
-        right: -20px;
-        top: 2px;
-    }
-
-    /* Hide bracket decorations on small screens */
-    .top-left::after,
-    .top-right::before,
-    .bottom-left::after,
-    .bottom-right::before {
-        display: none;
-    }
-}
-
-@media (max-width: 650px) {
-    .gold-nugget {
-        width: 140px;
-        transform: scale(1.3);
-    }
-
-    .digi-corner img {
-        width: auto;
-        height: 32px;
-        transform: scale(1.4);
-        transform-origin: center;
-    }
-
-    .top-right {
-        padding-left: 0px;
-        position: relative;
-        left: 15px;
-    }
-
-    .digi-corner span {
-        font-size: .85rem;
-        position: absolute;
-        transform: none;
-    }
-
-    /* Top-left: icon circle at top-left, text right of circle */
-    .top-left span {
-        left: 34px;
-        top: 2px;
-    }
-
-    /* Top-right: icon circle at top-right, text left of circle */
-    .top-right span {
-        right: -13px;
-        top: 2px;
-    }
-
-    /* Bottom-left: icon at bottom-left, text right of circle */
-    .bottom-left span {
-        left: 34px;
-        top: 2px;
-    }
-
-    /* Bottom-right: icon at bottom-right, text left of circle */
-    .bottom-right span {
-        right: -17px;
-        top: 2px;
-    }
-
-    /* Hide bracket decorations on small screens */
-    .top-left::after,
-    .top-right::before,
-    .bottom-left::after,
-    .bottom-right::before {
-        display: none;
-    }
-}
-
-@media (max-width: 480px) {
-    .gold-nugget {
-        width: 110px;
-    }
-
-    .digi-corner img {
-        width: auto;
-    }
-
-    .digi-corner span {
-        font-size: .7rem;
-    }
-
-    .top-left span {
-        left: -4px;
-        top: -19px;
-    }
-
-    .top-right span {
-        right: 11px;
-        top: -24px;
-    }
-
-    .bottom-left span {
-        left: -4px;
-        top: -24px;
-    }
-
-    .bottom-right span {
-        right: 12px;
-        top: -24px;
-    }
-
-    .bottom-right {
-        padding-left: 0px;
-        margin-left: 0px;
-    }
-
-    .digi-gold-layout {
-        gap: 5px;
-    }
-
-    .top-right {
-        left: 7px;
-    }
-
-    .top-left {
-        left: 2px;
-    }
-}
-
-@media (max-width: 400px) {
-    .top-right {
-        left: 6px;
-    }
-
-    .top-left {
-        left: 1px;
-    }
-
-    .trust-quote-text {
-        font-size: 15px;
-    }
-}
-
-@media (min-width: 1440px) {
-
-    /* ---- H1-level Headings (1440px) ---- */
-    .hero-h1,
-    .why-choose-title,
-    .stable-invest-title,
-    .sip-title,
-    .faq-title,
-    .about-hero-heading,
-    .about-mv-heading,
-    .about-why-title,
-    .feat-showcase-heading,
-    .slide-heading,
-    .digi-gold-heading {
-        font-size: 36px;
-        font-weight: 900;
-    }
-
-    /* ---- Golden Heading (1440px) ---- */
-    .golden-heading {
-        font-size: 43px;
-        font-weight: 900;
-    }
-
-    /* ---- Sub-headings (1440px) ---- */
-    .why-choose-sub,
-    .stable-invest-sub,
-    .sip-sub,
-    .about-why-sub {
-        font-size: 17px;
-        font-weight: 600;
-    }
-
-    /* ---- Body/Description Text (1440px) ---- */
-    .stable-invest-desc,
-    .sip-desc,
-    .sf-title {
-        font-size: 18px;
-    }
-
-    /* ---- Small Body Text (1440px) ---- */
-    .sip-grow-text {
-        font-size: 16px;
-    }
-
-    .digi-gold-layout {
-        gap: 24px 12px;
-        max-width: 860px;
-    }
-
-    .gold-nugget {
-        width: 280px;
-    }
-
-    .digi-corner span {
-        font-size: 1.45rem;
-    }
-
-    .top-left span {
-        left: 82px;
-        top: 66%;
-    }
-
-    .top-right span {
-        right: 0px;
-        top: 78%;
-    }
-
-    .bottom-left span {
-        left: 82px;
-        top: 74%;
-    }
-
-    .bottom-right span {
-        right: 14px;
-        top: 74%;
-    }
-}
-
-@media (min-width: 1920px) {
-
-    /* ---- H1-level Headings (1920px) ---- */
-    .hero-h1,
-    .why-choose-title,
-    .stable-invest-title,
-    .sip-title,
-    .faq-title,
-    .about-hero-heading,
-    .about-mv-heading,
-    .about-why-title,
-    .feat-showcase-heading,
-    .slide-heading,
-    .digi-gold-heading {
-        font-size: 44px;
-        font-weight: 900;
-    }
-
-    /* ---- Golden Heading (1920px) ---- */
-    .golden-heading {
-        font-size: 65px;
-        font-weight: 900;
-    }
-
-    /* ---- Sub-headings (1920px) ---- */
-    .why-choose-sub,
-    .stable-invest-sub,
-    .sip-sub,
-    .about-why-sub {
-        font-size: 20px;
-        font-weight: 600;
-    }
-
-    /* ---- Body/Description Text (1920px) ---- */
-    .stable-invest-desc,
-    .sip-desc,
-    .sf-title {
-        font-size: 20px;
-    }
-
-    /* ---- Small Body Text (1920px) ---- */
-    .sip-grow-text {
-        font-size: 19px;
-    }
-
-    /* ---- Trust Quote (1920px) ---- */
-    .trust-quote-text {
-        font-size: 40px;
-    }
-
-    .digi-gold-layout {
-        gap: 28px 14px;
-        max-width: 980px;
-    }
-
-    .gold-nugget {
-        width: 400px;
-        transform: scale(1.4);
-    }
-
-    .digi-corner span {
-        font-size: 1.65rem;
-    }
-
-    .top-left span {
-        left: 92px;
-        top: 71%;
-    }
-
-    .top-right span {
-        right: 0px;
-        top: 78%;
-    }
-
-    .bottom-left span {
-        left: 110px;
-        top: 76%;
-    }
-
-    .bottom-right span {
-        right: 16px;
-        top: 77%;
-    }
-}
-
-
-/* =========================================
-   2K / QHD RESOLUTION (min-width: 2560px)
-   ========================================= */
-@media (min-width: 2560px) and (max-width: 3839px) {
-
-    .container,
-    .container-lg,
-    .container-md,
-    .container-sm,
-    .container-xl {
-        max-width: 1800px !important;
-    }
-
-    body,
-    .why-choose-wrapper,
-    .app-slide[data-bg="gold"],
-    .about-top-wrapper,
-    .digi-gold-section,
-    .site-footer-new,
-    .hero-section {
-        background-size: cover !important;
-        background-position: center top !important;
-    }
-
-    /* ALL HEADINGS (1.5x) */
-    h1,
-    .hero-h1,
-    .why-choose-title,
-    .stable-invest-title,
-    .sip-title,
-    .faq-title,
-    .about-hero-heading,
-    .about-mv-heading,
-    .about-why-title,
-    .feat-showcase-heading,
-    .slide-heading,
-    .digi-gold-heading,
-    .how-title {
-        font-size: 64px !important;
-    }
-
-    .golden-heading {
-        font-size: 84px !important;
-        font-weight: 900;
-    }
-
-    h2,
-    h3,
-    .why-feature-title,
-    .digi-gold-tagline,
-    .step-title,
-    .contact-info-title {
-        font-size: 46px !important;
-    }
-
-    h4,
-    h5,
-    .sf-title,
-    .sip-plan-title,
-    .accordion-button {
-        font-size: 36px !important;
-    }
-
-    /* ALL TEXT / PARAGRAPHS (1.5x) */
-    .hero-desc,
-    .why-feature-desc,
-    .faq-question span,
-    .faq-answer,
-    .sf-desc,
-    .how-desc,
-    .step-desc,
-    .stable-invest-desc,
-    .sip-desc,
-    .accordion-body,
-    .form-control {
-        font-size: 32px !important;
-    }
-
-    .stable-list-item,
-    .sip-plan-value,
-    .sip-plan-period {
-        font-size: 32px !important;
-    }
-
-    .nav-link,
-    .hero-badge,
-    .footer-link,
-    .footer-desc,
-    .rate-chip,
-    .form-label,
-    .contact-info-text {
-        font-size: 24px !important;
-    }
-
-    .footer-heading {
-        font-size: 32px !important;
-    }
-
-    /* Fix Overlaps */
-    .marquee-bar {
-        margin-top: 150px !important;
-        margin-left: 376px;
-        margin-right: 376px;
-        top: 150px;
-    }
-
-    .sip-section {
-        margin-top: 0 !important;
-        padding: 150px 0 !important;
-    }
-
-    .app-slider-section {
-        padding: 0px 0 50px !important;
-        overflow: visible !important;
-    }
-
-    .app-slide {
-        padding-top: 100px !important;
-    }
-
-    .digi-gold-section {
-        margin-top: -170px;
+        margin-left: 177px;
+        margin-right: 177px;
     }
 
     .stable-invest-section {
-        margin-left: -22px;
-        margin-right: -22px;
-        background-size: cover !important;
-    }
-
-    .top-wrapper {
-        top: -151px;
-    }
-
-    /* ALL IMAGES & ICONS (1.5x) */
-    .header-logo img,
-    .footer-logo img {
-        height: 80px !important;
-    }
-
-    .header-app-icon,
-    .header-app-icon img,
-    .play-store-btn img,
-    .apple-store-btn img {
-        height: 48px !important;
-    }
-
-    .gold-nugget {
-        max-width: 500px !important;
-        transform: scale(1.1);
-    }
-
-    .app-screen,
-    .app-screen img,
-    .stable-img-box img {
-        max-width: 500px !important;
-    }
-
-    .feature-icon,
-    .sf-icon,
-    .sf-icon img,
-    .step-icon,
-    .step-icon img,
-    .faq-icon img {
-        width: 100px !important;
-        height: 100px !important;
-    }
-
-    .trust-cert-group img {
-        height: 60px !important;
-    }
-
-    .social-link img {
-        width: 32px !important;
-        height: 32px !important;
-    }
-
-    /* Hamburger Menu (1.5x) */
-    .hamburger {
-        width: 45px !important;
-        height: 33px !important;
-    }
-
-    .hamburger span {
-        height: 5px !important;
-        border-radius: 5px !important;
-    }
-
-    .hamburger.open span:nth-child(1) {
-        transform: translateY(14px) rotate(45deg) !important;
-    }
-
-    .hamburger.open span:nth-child(3) {
-        transform: translateY(-14px) rotate(-45deg) !important;
-    }
-
-
-    /* Layout/Padding */
-    .header-bar {
-        padding: 24px 50px !important;
-        border-radius: 80px !important;
-    }
-
-    .hero-section {
-        padding: 280px 0 120px !important;
-    }
-
-    .why-feature-card,
-    .why-feature-card-wide {
-        padding: 60px !important;
-        border-radius: 40px !important;
-    }
-
-    .digi-gold-card {
-        padding: 100px 120px !important;
-        border-radius: 80px !important;
-    }
-
-    .start-btn {
-        padding: 24px 50px !important;
-        font-size: 28px !important;
-        border-radius: 40px !important;
-    }
-}
-
-/* =========================================
-   4K / UHD RESOLUTION (min-width: 3840px)
-   ========================================= */
-@media (min-width: 3840px) {
-
-    .container,
-    .container-lg,
-    .container-md,
-    .container-sm,
-    .container-xl {
-        max-width: 2000px !important;
-    }
-
-    body,
-    .why-choose-wrapper,
-    .app-slide[data-bg="gold"],
-    .about-top-wrapper,
-    .digi-gold-section,
-    .site-footer-new,
-    .hero-section {
-        background-size: cover !important;
-        background-position: center top !important;
-    }
-
-    /* ALL HEADINGS (2x) */
-    h1,
-    .hero-h1,
-    .why-choose-title,
-    .stable-invest-title,
-    .sip-title,
-    .faq-title,
-    .about-hero-heading,
-    .about-mv-heading,
-    .about-why-title,
-    .feat-showcase-heading,
-    .slide-heading,
-    .digi-gold-heading,
-    .how-title {
-        font-size: 84px !important;
-    }
-
-    .golden-heading {
-        font-size: 110px !important;
-        font-weight: 900;
-    }
-
-    h2,
-    h3,
-    .why-feature-title,
-    .digi-gold-tagline,
-    .step-title,
-    .contact-info-title {
-        font-size: 64px !important;
-    }
-
-    h4,
-    h5,
-    .sf-title,
-    .sip-plan-title,
-    .accordion-button {
-        font-size: 48px !important;
-    }
-
-    /* ALL TEXT / PARAGRAPHS (2x) */
-    p,
-    .hero-desc,
-    .why-feature-desc,
-    .faq-question span,
-    .faq-answer,
-    .sf-desc,
-    .how-desc,
-    .step-desc,
-    .stable-invest-desc,
-    .sip-desc,
-    .accordion-body,
-    .form-control {
-        font-size: 42px !important;
-    }
-
-    li,
-    .stable-list-item,
-    .sip-plan-value,
-    .sip-plan-period {
-        font-size: 42px !important;
-    }
-
-
-    .nav-link,
-    .hero-badge,
-    .footer-link,
-    .footer-desc,
-    .rate-chip,
-    .form-label,
-    .contact-info-text {
-        font-size: 32px !important;
-    }
-
-    .footer-heading {
-        font-size: 48px !important;
-    }
-
-    /* Fix Overlaps */
-    .marquee-bar {
-        margin-top: 250px !important;
-        margin-left: 0 !important;
-    }
-
-    .sip-section {
-        margin-top: 0 !important;
-        padding: 250px 0 !important;
+        background-size: auto !important;
     }
 
     .app-slider-section {
-        padding: 250px 0 250px !important;
-        overflow: visible !important;
+        padding: 0px !important;
     }
 
-    .app-slide {
-        padding-top: 150px !important;
-    }
-
-    .stable-invest-section {
-        margin-left: -30px;
-        margin-right: -30px;
-        background-size: cover !important;
-    }
-
-    .top-wrapper {
-        top: -200px;
-    }
-
-    /* ALL IMAGES & ICONS (2x) */
-    .header-logo img,
-    .footer-logo img {
-        height: 120px !important;
-    }
-
-    .header-app-icon,
-    .header-app-icon img,
-    .play-store-btn img,
-    .apple-store-btn img {
-        height: 72px !important;
-    }
-
-    .gold-nugget {
-        max-width: 750px !important;
-        transform: scale(1.3);
-    }
-
-    .app-screen,
-    .app-screen img,
-    .stable-img-box img {
-        max-width: 750px !important;
-    }
-
-    .feature-icon,
-    .sf-icon,
-    .sf-icon img,
-    .step-icon,
-    .step-icon img,
-    .faq-icon img {
-        width: 160px !important;
-        height: 160px !important;
-    }
-
-    .trust-cert-group img {
-        height: 80px !important;
-    }
-
-    .social-link img {
-        width: 48px !important;
-        height: 48px !important;
-    }
-
-    /* Hamburger Menu (2x) */
-    .hamburger {
-        width: 60px !important;
-        height: 44px !important;
-    }
-
-    .hamburger span {
-        height: 6px !important;
-        border-radius: 6px !important;
-    }
-
-    .hamburger.open span:nth-child(1) {
-        transform: translateY(19px) rotate(45deg) !important;
-    }
-
-    .hamburger.open span:nth-child(3) {
-        transform: translateY(-19px) rotate(-45deg) !important;
-    }
-
-
-    /* Layout/Padding */
-    .header-bar {
-        padding: 36px 80px !important;
-        border-radius: 100px !important;
-    }
-
-    .hero-section {
-        padding: 400px 0 180px !important;
-    }
-
-    .why-feature-card,
-    .why-feature-card-wide {
-        padding: 100px !important;
-        border-radius: 60px !important;
-    }
-
-    .digi-gold-card {
-        padding: 150px 200px !important;
-        border-radius: 100px !important;
-    }
-
-    .start-btn {
-        padding: 36px 80px !important;
-        font-size: 36px !important;
-        border-radius: 60px !important;
-    }
-}
-
-/* ============================================================
-   DIGI-CORNER IMAGE-ONLY OVERRIDES (spans removed from HTML)
-   Overrides all scattered digi-corner span/img rules above.
-   All corners get identical box dimensions via width+height
-   on .digi-corner so left/right sides align evenly.
-   ============================================================ */
-
-/* Safety: hide any leftover spans (they're removed from HTML) */
-.digi-corner span {
-    display: none !important;
-}
-
-/* Reset all transform/scale/height hacks on corner images */
-.digi-corner img {
-    width: 100% !important;
-    height: 100% !important;
-    transform: none !important;
-    transform-origin: center;
-    object-fit: contain;
-}
-
-/* Reset position offsets that were for old text alignment */
-.top-right {
-    padding-left: 0 !important;
-    left: auto !important;
-}
-
-.bottom-right {
-    padding-left: 0 !important;
-    margin-left: 0 !important;
-}
-
-.bottom-left {
-    padding-right: 0 !important;
-    margin-right: 0 !important;
-}
-
-.top-left {
-    padding-right: 0 !important;
-    left: auto !important;
-}
-
-/* --- Desktop (1200px+): large images --- */
-@media (min-width: 1200px) {
-    .digi-corner {
-        width: 260px;
-        height: 98px;
-    }
-}
-
-/* --- Tablet landscape (992px - 1199px) --- */
-@media (max-width: 1199px) {
-    .digi-corner {
-        width: 220px;
-        height: 83px;
-    }
-}
-
-/* --- Tablet (768px - 991px) --- */
-@media (max-width: 991px) {
-    .digi-corner {
-        width: 195px;
-        height: 73px;
-    }
-}
-
-/* --- Mobile landscape / large phone (601px - 767px) --- */
-@media (max-width: 767px) {
-    .digi-corner {
-        width: 155px;
-        height: 58px;
-    }
-
-    .gold-nugget {
-        width: 140px !important;
-        transform: scale(1.5) !important;
-    }
-
-    .digi-gold-layout {
-        gap: 15px 8px !important;
-    }
-
-    .digi-center {
-        padding-top: 20px;
-    }
-}
-
-/* --- Mobile (481px - 600px) --- */
-@media (max-width: 600px) {
-    .digi-corner {
-        width: 130px;
-        height: 49px;
-    }
-
-    .gold-nugget {
-        width: 120px !important;
-        transform: scale(1.4) !important;
-    }
-
-    .digi-gold-layout {
-        gap: 10px 5px !important;
-    }
-}
-
-/* --- Small mobile (421px - 480px) --- */
-@media (max-width: 480px) {
-    .digi-corner {
-        width: 100px;
-        height: 40px;
-    }
-
-    .gold-nugget {
-        width: 110px !important;
-        transform: scale(1.3) !important;
-    }
-}
-
-/* --- Extra small mobile (376px - 420px) --- */
-@media (max-width: 420px) {
-    .digi-corner {
-        width: 100px;
-        height: 40px;
-    }
-
-    .gold-nugget {
-        width: 100px !important;
-        transform: scale(1.9) !important;
-    }
-
-    .digi-gold-layout {
-        gap: 8px 4px !important;
-    }
-}
-
-/* --- Tiny mobile (320px - 375px) --- */
-@media (max-width: 375px) {
-    .digi-corner {
-        width: 95px;
-        height: 36px;
-    }
-
-    .gold-nugget {
-        width: 90px !important;
-        transform: scale(1.9) !important;
-    }
-
-    .digi-gold-layout {
-        gap: 6px 2px !important;
-    }
-}
-
-/* --- Ultra small (below 320px) --- */
-@media (max-width: 320px) {
-    .digi-corner {
-        width: 80px;
-        height: 30px;
-    }
-
-    .gold-nugget {
-        width: 80px !important;
-        transform: scale(1.1) !important;
-    }
-}
-
-/* --- 4K / large screens --- */
-@media (min-width: 2560px) {
-    .digi-corner {
-        width: 380px;
-        height: 143px;
-    }
-}
-
-/* ============================================================
-   SECTION SPACING FIX — trust-badges → digi-gold → faq
-   
-   Problem: scattered top/margin-bottom hacks caused overlapping
-   and gaps on different devices.
-   
-   Solution: Use margin-top ONLY for the digi-gold overlap.
-   margin-top collapses flow (no gap left behind).
-   FAQ section flows naturally — no compensation needed.
-   ============================================================ */
-
-/* --- Global reset: kill ALL top/margin-bottom hacks --- */
-.digi-gold-section {
-    top: auto !important;
-}
-
-.faq-section {
-    top: auto !important;
-    margin-bottom: 0 !important;
-}
-
-/* --- Desktop (> 1050px) --- */
-@media (min-width: 1051px) {
-    .trust-badges-section {
-        padding-bottom: 220px !important;
-    }
-
-    .digi-gold-section {
-        margin-top: -201px !important;
-        padding-bottom: 30px !important;
-    }
-
-    .faq-section {
-        padding: 0px 0 25px !important;
-    }
-}
-
-/* --- Tablet landscape (901–1050px) --- */
-@media (max-width: 1050px) and (min-width: 901px) {
-    .trust-badges-section {
-        padding-bottom: 200px !important;
-    }
-
-    .digi-gold-section {
-        margin-top: -170px !important;
-        padding-bottom: 0px !important;
-    }
-
-    .faq-section {
-        padding: 20px 0 25px !important;
-    }
-}
-
-/* --- Tablet portrait (768–900px) --- */
-@media (max-width: 900px) and (min-width: 768px) {
-    .trust-badges-section {
-        padding-bottom: 210px !important;
-    }
-
-    .digi-gold-section {
-        margin-top: -180px !important;
-        padding-bottom: 0px !important;
-    }
-
-    .faq-section {
-        padding: 20px 0 40px !important;
-    }
-}
-
-/* --- Mobile (651–767px) --- */
-@media (max-width: 767px) and (min-width: 651px) {
-    .trust-badges-section {
-        padding-bottom: 220px !important;
-    }
-
-    .digi-gold-section {
-        margin-top: -200px !important;
-        padding-bottom: 0px !important;
-    }
-
-    .faq-section {
-        padding: 20px 0 40px !important;
-    }
-}
-
-/* --- Mobile (521–650px) --- */
-@media (max-width: 650px) and (min-width: 521px) {
-    .trust-badges-section {
-        padding-bottom: 200px !important;
-    }
-
-    .digi-gold-section {
-        margin-top: -180px !important;
-        padding-bottom: 0px !important;
-    }
-
-    .faq-section {
-        padding: 20px 0 40px !important;
-    }
-}
-
-/* --- Small mobile (481–520px) --- */
-@media (max-width: 520px) and (min-width: 481px) {
-    .trust-badges-section {
-        padding-bottom: 180px !important;
-    }
-
-    .digi-gold-section {
-        margin-top: -150px !important;
-        padding-bottom: 0px !important;
-    }
-
-    .faq-section {
-        padding: 20px 0 40px !important;
-    }
-}
-
-/* --- Small mobile (431–480px) --- */
-@media (max-width: 480px) and (min-width: 431px) {
-    .trust-badges-section {
-        padding-bottom: 180px !important;
-    }
-
-    .digi-gold-section {
-        margin-top: -160px !important;
-        padding-bottom: 0px !important;
-    }
-
-    .faq-section {
-        padding: 20px 0 40px !important;
-    }
-}
-
-/* --- Extra small mobile (401–430px) --- */
-@media (max-width: 430px) and (min-width: 401px) {
-    .trust-badges-section {
-        padding-bottom: 180px !important;
-    }
-
-    .digi-gold-section {
-        margin-top: -160px !important;
-        padding-bottom: 0px !important;
-    }
-
-    .faq-section {
-        padding: 20px 0 40px !important;
-    }
-}
-
-/* --- Tiny mobile (≤ 400px) --- */
-@media (max-width: 400px) {
-    .trust-badges-section {
-        padding-bottom: 170px !important;
-    }
-
-    .digi-gold-section {
-        margin-top: -155px !important;
-        padding-bottom: 0px !important;
-    }
-
-    .faq-section {
-        padding: 20px 0 40px !important;
-    }
-}
-
-/* --- Large desktop (1440px+) --- */
-@media (min-width: 1440px) {
-    .trust-badges-section {
-        padding-bottom: 240px !important;
-    }
-
-    .digi-gold-section {
-        margin-top: -201px !important;
-        padding-bottom: 60px !important;
-    }
-
-    .faq-section {
-        padding: 30px 0 40px !important;
-    }
-}
-
-/* --- Full HD (1920px+) --- */
-@media (min-width: 1920px) {
+    /* --- Merged from line 6754 --- */
     .trust-badges-section {
         padding-bottom: 280px !important;
     }
@@ -7346,12 +6738,19 @@
     }
 
     .faq-section {
-        padding: 30px 0 40px !important;
+        padding: 0px 0 40px !important;
     }
 }
 
-/* --- 2K+ (2560px+) --- */
+
+/* --- 4K / large screens --- */
 @media (min-width: 2560px) {
+    .digi-corner {
+        width: 380px;
+        height: 143px;
+    }
+
+    /* --- Merged from line 6770 --- */
     .trust-badges-section {
         padding-bottom: 320px !important;
     }
@@ -7365,6 +6764,7 @@
         padding: 40px 0 50px !important;
     }
 }
+
 
 /* --- 4K (3840px+) --- */
 @media (min-width: 3840px) {
@@ -7382,298 +6782,11 @@
     }
 }
 
-/* --- faq-sectionpage override (faq.html full page) --- */
-.faq-sectionpage {
-    top: auto !important;
-    margin-bottom: 0 !important;
-    margin-top: 0 !important;
-    padding: 40px 0 15px !important;
-    position: static !important;
-}
 
-/* ============================================================
-   GLOBAL FOOTER SPACING — applies to ALL pages equally
-   Ensures the same tight gap between any page's last section
-   and the footer component.
-   ============================================================ */
-#footer-slot {
-    margin-top: 0 !important;
-}
-
-.site-footer-new {
-    padding-top: 0px !important;
-    margin-top: 0 !important;
-}
-
-/*
-.digi-corner img {
-    width: auto;
-    height: 70px;
-}
-
-.top-right {
-    left: 40px;
-}
-
-.top-right span {
-    left: 44px;
-    top: 7px;
-
-}
-
-.top-left span {
-    left: 26px;
-    top: 2px;
-}
-
-.bottom-left span {
-    left: 26px;
-    top: 2px;
-}
-
-.hero-phone {
-    margin-bottom: 0px;
-}
-}
-
-@media (max-width: 640px) {
-    .digi-corner img {
-        width: auto;
-        height: 39px;
-    }
-
-    .top-right {
-        left: 40px;
-    }
-
-    .top-right span {
-        right: -24px;
-        top: 5px;
-    }
-
-    .top-left span {
-        left: 26px;
-        top: 2px;
-    }
-
-    .bottom-left span {
-        left: 26px;
-        top: 2px;
-    }
-
-    .hero-phone {
-        margin-bottom: 0px;
+@media (prefers-reduced-motion: reduce) {
+    [data-anim] {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
     }
 }
-
-@media (max-width: 620px) {
-    .digi-corner img {
-        width: auto;
-        height: 39px;
-    }
-
-    .top-right {
-        left: 40px;
-    }
-
-    .top-right span {
-        right: -24px;
-        top: 5px;
-    }
-
-    .top-left span {
-        left: 26px;
-        top: 2px;
-    }
-
-    .bottom-left span {
-        left: 26px;
-        top: 2px;
-    }
-
-    .hero-phone {
-        margin-bottom: 0px;
-    }
-}
-
-@media (max-width: 600px) {
-    .digi-corner img {
-        width: auto;
-        height: 39px;
-    }
-
-    .top-right {
-        left: 40px;
-    }
-
-    .top-right span {
-        right: -24px;
-        top: 5px;
-    }
-
-    .top-left span {
-        left: 26px;
-        top: 2px;
-    }
-
-    .bottom-left span {
-        left: 26px;
-        top: 2px;
-    }
-
-    .hero-phone {
-        margin-bottom: 0px;
-    }
-}
-
-@media (max-width: 580px) {
-    .digi-corner img {
-        width: auto;
-        height: 39px;
-    }
-
-    .top-right {
-        left: 40px;
-    }
-
-    .top-right span {
-        right: -24px;
-        top: 5px;
-    }
-
-    .top-left span {
-        left: 26px;
-        top: 2px;
-    }
-
-    .bottom-left span {
-        left: 26px;
-        top: 2px;
-    }
-
-    .hero-phone {
-        margin-bottom: 0px;
-    }
-}
-
-@media (max-width: 560px) {
-    .digi-corner img {
-        width: auto;
-        height: 39px;
-    }
-
-    .top-right {
-        left: 40px;
-    }
-
-    .top-right span {
-        right: -24px;
-        top: 5px;
-    }
-
-    .top-left span {
-        left: 26px;
-        top: 2px;
-    }
-
-    .bottom-left span {
-        left: 26px;
-        top: 2px;
-    }
-
-    .hero-phone {
-        margin-bottom: 0px;
-    }
-}
-
-@media (max-width: 540px) {
-    .digi-corner img {
-        width: auto;
-        height: 39px;
-    }
-
-    .top-right {
-        left: 40px;
-    }
-
-    .top-right span {
-        right: -24px;
-        top: 5px;
-    }
-
-    .top-left span {
-        left: 26px;
-        top: 2px;
-    }
-
-    .bottom-left span {
-        left: 26px;
-        top: 2px;
-    }
-
-    .hero-phone {
-        margin-bottom: 0px;
-    }
-}
-
-@media (max-width: 520px) {
-    .digi-corner img {
-        width: auto;
-        height: 39px;
-    }
-
-    .top-right {
-        left: 40px;
-    }
-
-    .top-right span {
-        right: -24px;
-        top: 5px;
-    }
-
-    .top-left span {
-        left: 26px;
-        top: 2px;
-    }
-
-    .bottom-left span {
-        left: 26px;
-        top: 2px;
-    }
-
-    .hero-phone {
-        margin-bottom: 0px;
-    }
-}
-
-@media (max-width: 500px) {
-    .digi-corner img {
-        width: auto;
-        height: 39px;
-    }
-
-    .top-right {
-        left: 40px;
-    }
-
-    .top-right span {
-        right: -24px;
-        top: 5px;
-    }
-
-    .top-left span {
-        left: 26px;
-        top: 2px;
-    }
-
-    .bottom-left span {
-        left: 26px;
-        top: 2px;
-    }
-
-    .hero-phone {
-        margin-bottom: 0px;
-    }
-}
-
-*/

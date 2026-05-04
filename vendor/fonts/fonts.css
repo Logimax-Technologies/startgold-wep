@@ -16,15 +16,15 @@
 }
 
 /* ======== Lora — Numbers Only (via unicode-range) ======== */
-/* This @font-face will ONLY activate for digits, currency symbols, and numeric punctuation */
+/* This @font-face will ONLY activate for digits 0-9.
+   ₹ (U+20B9) is intentionally excluded so it renders in Playfair Display. */
 @font-face {
   font-family: 'NumberFont';
   font-style: normal;
   font-weight: 400 700;
   font-display: swap;
   src: url("Lora (1)/Lora-VariableFont_wght.ttf") format('truetype');
-  unicode-range: U+0030-0039;
-  /* 0-9 only */
+  unicode-range: U+0030-0039; /* 0-9 only */
 }
 
 @font-face {
@@ -33,7 +33,7 @@
   font-weight: 400 700;
   font-display: swap;
   src: url("Lora (1)/Lora-Italic-VariableFont_wght.ttf") format('truetype');
-  unicode-range: U+0030-0039;
+  unicode-range: U+0030-0039; /* 0-9 only */
 }
 
 /* ======== Lora (full — kept for backward compat) ======== */

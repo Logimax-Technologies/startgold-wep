@@ -13,14 +13,14 @@
     <link rel="stylesheet" href="vendor/bootstrap-icons/bootstrap-icons.css">
     <link rel="stylesheet" href="css/style.css?v=3">
     <link rel="stylesheet" href="css/media.css?v=3">
-    <script src="js/viewport-scale.js"></script>
+    <script src="js/viewport-scale.js" defer></script>
 </head>
 
 <body>
 
     <!-- ===== HEADER (via common.js) ===== -->
+    <div id="header-slot"></div>
     <div class="about-top-wrapper">
-        <div id="header-slot"></div>
 
         <!-- ===== PRIVACY HERO BANNER ===== -->
         <section class="about-hero">
@@ -38,7 +38,7 @@
                         </p>
                     </div>
 					<div class="col-lg-5 col-md-5 text-lg-end text-center">
-                        <img src="img/logobody.png" alt="startGOLD" class="about-hero-logo">
+                        <img loading="lazy" src="img/logobody.png" alt="startGOLD" class="about-hero-logo">
                     </div>
                 </div>
             </div>
@@ -338,7 +338,7 @@
     <div id="footer-slot"></div>
 
     <script src="vendor/bootstrap/bootstrap.bundle.min.js"></script>
-    <script src="js/common.js"></script>
+    <script src="js/common.js" defer></script>
 </body>
 
 </html>

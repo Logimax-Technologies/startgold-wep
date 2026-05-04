@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="vendor/bootstrap-icons/bootstrap-icons.css">
     <link rel="stylesheet" href="css/style.css?v=3">
     <link rel="stylesheet" href="css/media.css?v=3">
-    <script src="js/viewport-scale.js"></script>
+    <script src="js/viewport-scale.js" defer></script>
 </head>
 
 <body>
@@ -36,7 +36,7 @@
                         </p>
                     </div>
                     <div class="col-lg-5 col-md-5 text-lg-end text-center">
-                        <img src="img/logobody.png" alt="FAQ startGOLD" class="about-hero-logo">
+                        <img loading="lazy" src="img/logobody.png" alt="FAQ startGOLD" class="about-hero-logo">
                     </div>
                 </div>
             </div>
@@ -254,7 +254,7 @@
                         <span class="faq-icon"></span>
                     </button>
                     <div class="faq-answer">
-                        <p>You can start investing in gold with as little as ₹10, depending on current gold rates.</p>
+                        <p>You can start investing in gold with as little as <span class="rupee">₹</span>10, depending on current gold rates.</p>
                     </div>
                 </div>
                 <div class="faq-item ">
@@ -312,7 +312,7 @@
             });
         });
     </script>
-    <script src="js/common.js"></script>
+    <script src="js/common.js" defer></script>
 </body>
 
 </html>

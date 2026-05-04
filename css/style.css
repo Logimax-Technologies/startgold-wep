@@ -36,6 +36,11 @@
     --m-head-mar: 40px;
 }
 
+/* Rupee symbol — always Playfair Display */
+.rupee {
+    font-family: 'Lora', serif;
+}
+
 *,
 *::before,
 *::after {
@@ -313,7 +318,7 @@ img {
     overscroll-behavior: contain;
     scrollbar-width: none;
     /* Firefox */
-    border-bottom-left-radius: 20px;
+    border-radius: 30px !important;
 }
 
 .menu-overlay::-webkit-scrollbar {
@@ -1444,6 +1449,7 @@ img {
     color: var(--dk-green);
     text-align: center;
     margin-bottom: 44px;
+    font-size: var(--m-grow-title-size);
 }
 
 .faq-accordion {
@@ -3286,8 +3292,7 @@ label {
 }
 
 .stat-value span {
-    font-size: var(--m-stat-span-size);
-    font-weight: 500;
+    font-size: var(--m-stat-size);
     margin-left: 6px;
     vertical-align: baseline;
 }
@@ -3312,64 +3317,386 @@ label {
 /* ============================================================
    RESPONSIVE TYPOGRAPHY - :root Variable Overrides
    Single source of truth for all heading/sub-heading sizes.
+
+/* =============================================================
+   ADDITIONAL STYLES (moved from media.css)
+   ============================================================= */
+
+.sip-plan-tag {
+    font-size: var(--m-xsmall-size);
+}
+
+.stable-invest-content {
+    gap: 40px;
+}
+
+.stable-invest-phones {
+    max-height: 420px;
+}
+
+.sip-content {
+    gap: 40px;
+}
+
+.contact-left,
+.contact-right {
+    padding: 30px 20px;
+}
+
+/* Slider responsive */
+.slide-layout {
+    gap: 20px;
+}
+
+.slide-phone-img {
+    max-height: 420px;
+}
+
+.slide-heading {
+    margin-bottom: 36px;
+}
+
+.sf-title {
+    font-size: .95rem;
+}
+
+.sf-text {
+    font-size: .82rem;
+}
+
+.slide-feature {
+    max-width: 220px;
+}
+
+.trust-badges-row {
+    gap: 50px;
+}
+
+.trust-badge-item {
+    padding: 0 40px;
+}
+
+.trust-logo-icon {
+    width: 42px;
+    height: 42px;
+    font-size: 1.1rem;
+}
+
+/* About page � tablet */
+.about-mv-card {
+    padding: 30px 28px;
+}
+
+.about-why-grid {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.about-cta-card {
+    padding: 50px 30px;
+}
+
+/* Contact page � tablet */
+.slide-features.right {
+    right: 4px;
+}
+
+.marquee-bar {
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
+.digi-gold-section {
+    margin-top: -170px;
+}
+
+
+/* ========================================================
+   Mobile Menu Redesign (max-width: 991px)
+   Matches reference 3jsviz design but keeps Desktop unchanged
+   — Rules moved to consolidated @media (max-width: 991px) block
+   ======================================================== */
+
+/* ========================================================
+   Global Menu Redesign (Matches reference 3jsviz design)
+   ======================================================== */
+/* 1. Menu Pill Button */
+.hamburger {
+    width: 38px !important;
+    min-width: 38px !important;
+    height: 38px !important;
+    flex-direction: column !important;
+    align-items: flex-end !important;
+    justify-content: space-between !important;
+    background: var(--nav-green) !important;
+    border-radius: 50% !important;
+    padding: 12px 9px !important;
+    position: relative;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    flex-shrink: 0;
+}
+
+.hamburger::before {
+    display: none !important;
+}
+
+.hamburger span {
+    display: block !important;
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+    background: #fff !important;
+    transition: .3s !important;
+    height: 2px !important;
+    border-radius: 2px !important;
+}
+
+/* 3 lines staggered design */
+.hamburger span:nth-child(1) {
+    top: auto !important;
+    width: 65% !important;
+}
+
+.hamburger span:nth-child(2) {
+    top: auto !important;
+    width: 100% !important;
+    opacity: 1 !important;
+}
+
+.hamburger span:nth-child(3) {
+    display: block !important;
+    top: auto !important;
+    width: 60% !important;
+}
+
+/* Open state for button */
+.hamburger.open span:nth-child(1) {
+    position: absolute !important;
+    top: 18px;
+    transform: none !important;
+    width: 22px !important;
+    right: 8px !important;
+}
+
+.hamburger.open span:nth-child(2) {
+    opacity: 0 !important;
+}
+
+.hamburger.open span:nth-child(3) {
+    opacity: 0 !important;
+    transform: none !important;
+}
+
+/* 2. Floating Menu Overlay */
+.menu-overlay {
+    top: 80px;
+    right: 73px;
+    left: auto !important;
+    max-height: calc(100vh - 100px) !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain !important;
+    width: 240px !important;
+    max-width: none !important;
+    border-radius: 30px !important;
+    background: linear-gradient(180deg, #012a12 0%, #003716 100%) !important;
+    padding: 30px 24px 34px !important;
+    transform: translateY(-15px) scale(0.98) !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    border: 1px solid rgba(255, 215, 0, 0.15) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    transition: transform 0.4s cubic-bezier(0.22, 0.68, 0, 1.02), opacity 0.4s ease, visibility 0.4s ease !important;
+}
+
+.menu-overlay.open {
+    transform: translateY(0) scale(1) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* 3. Menu Links & Dashed Line */
+.menu-overlay nav {
+    gap: 12px !important;
+    position: relative;
+    flex-direction: column !important;
+}
+
+.menu-overlay nav::before {
+    content: "";
+    position: absolute;
+    left: 2px;
+    top: 16px;
+    bottom: 16px;
+    width: 1px;
+    border-left: 1px dashed rgba(255, 255, 255, 0.2);
+    z-index: 0;
+}
+
+.menu-overlay a {
+    font-family: var(--sans);
+    font-size: 1.15rem !important;
+    color: rgba(255, 255, 255, 0.7) !important;
+    padding: 10px 10px 10px 26px !important;
+    transform: translateX(30px) !important;
+    opacity: 0 !important;
+    position: relative;
+    background: transparent !important;
+    z-index: 1;
+    border-radius: 0 !important;
+    transition-property: transform, opacity, color !important;
+    transition-duration: 0.35s, 0.35s, 0.2s !important;
+    transition-timing-function: cubic-bezier(0.22, 0.68, 0, 1.02), ease, ease !important;
+}
+
+.menu-overlay a::before {
+    content: "" !important;
+    position: absolute !important;
+    left: -1px !important;
+    top: 50% !important;
+    transform: translateY(-50%) scale(0) !important;
+    width: 6px !important;
+    height: 6px !important;
+    border-radius: 50% !important;
+    background: var(--gold) !important;
+    transition: transform 0.2s ease !important;
+}
+
+.menu-overlay a:hover,
+.menu-overlay a.active {
+    color: var(--gold) !important;
+    padding-left: 26px !important;
+}
+
+.menu-overlay a:hover::before,
+.menu-overlay a.active::before {
+    transform: translateY(-50%) scale(1) !important;
+}
+
+.menu-overlay.open a {
+    transform: translateX(0) !important;
+    opacity: 1 !important;
+}
+
+
+/* ============================================================
+   DIGI-CORNER IMAGE-ONLY OVERRIDES (spans removed from HTML)
+   Overrides all scattered digi-corner span/img rules above.
+   All corners get identical box dimensions via width+height
+   on .digi-corner so left/right sides align evenly.
    ============================================================ */
 
-/* TABLET-LANDSCAPE */
-@media (max-width: 1050px) {
-    :root {
-        --m-h1-size: 36px;
-        --m-sub-size: 22px;
-        --m-sec-pad: 80px 0;
-        --m-head-mar: 40px;
-    }
+/* Safety: hide any leftover spans (they're removed from HTML) */
+.digi-corner span {
+    display: none !important;
 }
 
-/* TABLET (iPad) */
-@media (max-width: 991px) {
-    :root {
-        --m-h1-size: 27px;
-        --m-sub-size: 16px;
-        --m-sec-pad: 60px 0;
-        --m-head-mar: 30px;
-    }
+/* Reset all transform/scale/height hacks on corner images */
+.digi-corner img {
+    width: 100% !important;
+    height: 100% !important;
+    transform: none !important;
+    transform-origin: center;
+    object-fit: contain;
 }
 
-/* MOBILE */
-@media (max-width: 767px) {
-    :root {
-        --m-h1-size: 25px;
-        --m-sub-size: 16px;
-        --m-body-size: 16px;
-        --m-small-size: 13px;
-        --m-xsmall-size: 11px;
-        --m-label-size: 20px;
-        --m-golden-size: 40px;
-        --m-grow-title-size: 28px;
-        --m-trust-quote-size: 20px;
-        --m-digi-heading-size: 34px;
-        --m-sf-text-size: 12px;
-        --m-stat-size: 36px;
-        --m-stat-text-size: 13px;
-        --m-sec-pad: 40px 0;
-        --m-head-mar: 25px;
-    }
+/* Reset position offsets that were for old text alignment */
+.top-right {
+    padding-left: 0 !important;
+    left: auto !important;
 }
 
-/* SMALL MOBILE */
-@media (max-width: 480px) {
-    :root {
-        --m-h1-size: 26px;
-        --m-sub-size: 18px;
-        --m-body-size: 16px;
-        --m-small-size: 13px;
-        --m-xsmall-size: 11px;
-        --m-label-size: 18px;
-        --m-golden-size: 36px;
-        --m-grow-title-size: 26px;
-        --m-trust-quote-size: 18px;
-        --m-digi-heading-size: 30px;
-        --m-sf-text-size: 12px;
-        --m-stat-size: 34px;
-        --m-stat-text-size: 16px;
-    }
+.bottom-right {
+    padding-left: 0 !important;
+    margin-left: 0 !important;
 }
+
+.bottom-left {
+    padding-right: 0 !important;
+    margin-right: 0 !important;
+}
+
+.top-left {
+    padding-right: 0 !important;
+    left: auto !important;
+}
+
+
+/* ============================================================
+   SECTION SPACING FIX — trust-badges → digi-gold → faq
+   
+   Problem: scattered top/margin-bottom hacks caused overlapping
+   and gaps on different devices.
+   
+   Solution: Use margin-top ONLY for the digi-gold overlap.
+   margin-top collapses flow (no gap left behind).
+   FAQ section flows naturally — no compensation needed.
+   ============================================================ */
+
+/* --- Global reset: kill ALL top/margin-bottom hacks --- */
+.digi-gold-section {
+    top: auto !important;
+}
+
+.faq-section {
+    top: auto !important;
+    margin-bottom: 0 !important;
+}
+
+
+/* --- faq-sectionpage override (faq.html full page) --- */
+.faq-sectionpage {
+    top: auto !important;
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
+    padding: 40px 0 15px !important;
+    position: static !important;
+}
+
+/* ============================================================
+   GLOBAL FOOTER SPACING — applies to ALL pages equally
+   Ensures the same tight gap between any page's last section
+   and the footer component.
+   ============================================================ */
+#footer-slot {
+    margin-top: 0 !important;
+}
+
+.site-footer-new {
+    padding-top: 0px !important;
+    margin-top: 0 !important;
+}
+
+/*
+.digi-corner img {
+    width: auto;
+    height: 70px;
+}
+
+.top-right {
+    left: 40px;
+}
+
+.top-right span {
+    left: 44px;
+    top: 7px;
+
+}
+
+.top-left span {
+    left: 26px;
+    top: 2px;
+}
+
+.bottom-left span {
+    left: 26px;
+    top: 2px;
+}
+
+.hero-phone {
+    margin-bottom: 0px;
+}
+}
+
+
+*/

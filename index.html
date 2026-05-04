@@ -14,7 +14,11 @@
     <link rel="stylesheet" href="vendor/bootstrap-icons/bootstrap-icons.css">
     <link rel="stylesheet" href="css/style.css?v=3">
     <link rel="stylesheet" href="css/media.css?v=3">
-    <script src="js/viewport-scale.js"></script>
+    <script src="js/viewport-scale.js" defer></script>
+
+    <!-- Performance: Preload critical resources -->
+    <link rel="preload" href="img/hero-phone.png" as="image">
+    <link rel="preload" href="css/style.css?v=3" as="style">
 </head>
 
 <body>
@@ -36,12 +40,12 @@
                 style="position: relative; z-index: 10; white-space: normal;">
                 <div class="rate-chip">
                     <span class="rate-live-pill"><img src="img/live.gif" alt="Live" class="live-gif"></span>
-                    <span class="rate-val rate-val-gold">₹ --/gm</span>
+                    <span class="rate-val rate-val-gold"><span class="rupee">₹</span> --/gm</span>
                     <span class="rate-coin coin-gold"><img src="img/gold.gif" alt="Gold" class="hero-phone"></span>
                 </div>
                 <div class="rate-chip">
                     <span class="rate-live-pill"><img src="img/live.gif" alt="Live" class="live-gif"></span>
-                    <span class="rate-val rate-val-silver">₹ --/gm</span>
+                    <span class="rate-val rate-val-silver"><span class="rupee">₹</span> --/gm</span>
                     <span class="rate-coin coin-silver"><img src="img/silver.gif" alt="Silver"
                             class="hero-phone"></span>
                 </div>
@@ -58,7 +62,7 @@
                         </h1>
                         <p class="hero-p">
                             Start investing in gold starting as<br class="d-none d-sm-block">
-                            low as <span class="clr-gold fw-bold">₹10.</span>
+                            low as <span class="clr-gold fw-bold"><span class="rupee">₹</span>10.</span>
                         </p>
                         <div class="hero-trust-row">
                             <div class="hero-trust-item">
@@ -86,7 +90,7 @@
                     <h1 class="golden-heading in-view" data-anim="fade-up">Save today, <br>Golden tomorrow</h1>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6 text-center">
-                    <img src="img/logobody.png" alt="startGOLD" class="golden-logo in-view" data-anim="zoom-in">
+                    <img loading="lazy" src="img/logobody.png" alt="startGOLD" class="golden-logo in-view" data-anim="zoom-in">
                 </div>
             </div>
         </div>
@@ -101,25 +105,25 @@
             <div class="why-grid">
                 <div class="why-grid-row top-row">
                     <div class="why-feature-card">
-                        <div class="wf-img"><img src="img/gold_checkmark.png" alt="Complete Transparency"></div>
+                        <div class="wf-img"><img loading="lazy" src="img/gold_checkmark.png" alt="Complete Transparency"></div>
                         <h4 class="wf-label">Complete <br>Transparency</h4>
                     </div>
                     <div class="why-feature-card">
-                        <div class="wf-img"><img src="img/bg_removal.png" alt="Trusted &amp; Compliant"></div>
+                        <div class="wf-img"><img loading="lazy" src="img/bg_removal.png" alt="Trusted &amp; Compliant"></div>
                         <h4 class="wf-label">Trusted <br>&amp; Compliant</h4>
                     </div>
                     <div class="why-feature-card">
-                        <div class="wf-img"><img src="img/security.png" alt="Bank Grade Security"></div>
+                        <div class="wf-img"><img loading="lazy" src="img/security.png" alt="Bank Grade Security"></div>
                         <h4 class="wf-label">Bank Grade <br>Security</h4>
                     </div>
                 </div>
                 <div class="why-grid-row bottom-row">
                     <div class="why-feature-card why-feature-card-wide">
-                        <div class="wf-img wf-img-wide"><img src="img/heap_gold.png" alt="Easy Redeem"></div>
+                        <div class="wf-img wf-img-wide"><img loading="lazy" src="img/heap_gold.png" alt="Easy Redeem"></div>
                         <h4 class="wf-label">Easy Redeem</h4>
                     </div>
                     <div class="why-feature-card why-feature-card-wide">
-                        <div class="wf-img wf-img-wide"><img src="img/refer_earn.png" alt="Refer &amp; Earn"></div>
+                        <div class="wf-img wf-img-wide"><img loading="lazy" src="img/refer_earn.png" alt="Refer &amp; Earn"></div>
                         <h4 class="wf-label">Refer &amp; Earn</h4>
                     </div>
                 </div>
@@ -138,11 +142,11 @@
             </div>
             <div class="stable-invest-content">
                 <div class="stable-invest-left">
-                    <img src="img/investing.png" alt="StartGold App" class="stable-invest-phones">
+                    <img loading="lazy" src="img/investing.png" alt="StartGold App" class="stable-invest-phones">
                 </div>
                 <div class="stable-invest-right">
                     <div class="stat-block">
-                        <h3 class="stat-value">₹10</h3>
+                        <h3 class="stat-value"><span class="rupee">₹</span>10</h3>
                         <p class="stat-text">is all you need to start investing, <br>withdraw anytime.</p>
                     </div>
                     <div class="stat-block">
@@ -150,7 +154,7 @@
                         <p class="stat-text">Own 24K digital gold &amp; 999 silver <br>in just seconds.</p>
                     </div>
                     <a href="#" class="btn-start-invest">
-                        Start investing <img src="img/android.png" alt="Android"> <img src="img/apple.png" alt="Apple">
+                        Start investing <img loading="lazy" src="img/android.png" alt="Android"> <img loading="lazy" src="img/apple.png" alt="Apple">
                     </a>
                 </div>
             </div>
@@ -175,7 +179,7 @@
                         pause, or cancel anytime—you're always in complete control while your goals run effortlessly on
                         autopilot.</p>
                     <a href="#" class="btn-start-invest">
-                        Start SIP <img src="img/android.png" alt="Android"> <img src="img/apple.png" alt="Apple">
+                        Start SIP <img loading="lazy" src="img/android.png" alt="Android"> <img loading="lazy" src="img/apple.png" alt="Apple">
                     </a>
                 </div>
                 <div class="sip-content-right">
@@ -193,7 +197,7 @@
                             </div>
                             <p class="sip-plan-tag">Good for beginners</p>
                             <p class="sip-plan-mix">80% Gold / 20% Silver</p>
-                            <p class="sip-plan-price">₹10 daily</p>
+                            <p class="sip-plan-price"><span class="rupee">₹</span>10 daily</p>
                         </div>
                         <div class="sip-plan-card">
                             <div class="sip-plan-header-row">
@@ -218,27 +222,27 @@
                 <div class="slide-layout">
                     <div class="slide-features left">
                         <div class="slide-feature">
-                            <div class="sf-icon"><img src="img/alwaysreadytohelp.svg" alt="Support"></div>
+                            <div class="sf-icon"><img loading="lazy" src="img/alwaysreadytohelp.svg" alt="Support"></div>
                             <h4 class="sf-title">Always ready to help</h4>
                             <p class="sf-text">Our support team is available 24/7 at info@startgold.com</p>
                         </div>
                         <div class="slide-feature">
-                            <div class="sf-icon"><img src="img/secure.svg" alt="Secure"></div>
+                            <div class="sf-icon"><img loading="lazy" src="img/secure.svg" alt="Secure"></div>
                             <h4 class="sf-title">100% Protected & Secure</h4>
                             <p class="sf-text">Your gold is kept in top-notch insured vaults and 24/7 Surveillance.</p>
                         </div>
                     </div>
                     <div class="slide-phone">
-                        <img src="img/Gold Mobile.png" alt="Gold App Screen" class="slide-phone-img">
+                        <img loading="lazy" src="img/Gold Mobile.png" alt="Gold App Screen" class="slide-phone-img">
                     </div>
                     <div class="slide-features right">
                         <div class="slide-feature">
-                            <div class="sf-icon"><img src="img/easy_cash_withdrawal.svg" alt="Withdrawal"></div>
+                            <div class="sf-icon"><img loading="lazy" src="img/easy_cash_withdrawal.svg" alt="Withdrawal"></div>
                             <h4 class="sf-title">Easy cash withdrawal</h4>
                             <p class="sf-text">Withdraw your funds instantly, anytime with ease.</p>
                         </div>
                         <div class="slide-feature">
-                            <div class="sf-icon"><img src="img/referearn.svg" alt="Refer"></div>
+                            <div class="sf-icon"><img loading="lazy" src="img/referearn.svg" alt="Refer"></div>
                             <h4 class="sf-title">Refer & Earn</h4>
                             <p class="sf-text">Invite friends and earn rewards every time they start investing in gold.
                             </p>
@@ -254,28 +258,28 @@
                 <div class="slide-layout">
                     <div class="slide-features left">
                         <div class="slide-feature">
-                            <div class="sf-icon"><img src="img/alwaysreadytohelp.svg" alt="Support"></div>
+                            <div class="sf-icon"><img loading="lazy" src="img/alwaysreadytohelp.svg" alt="Support"></div>
                             <h4 class="sf-title">Always ready to help</h4>
                             <p class="sf-text">Our support team is available 24/7 at info@startgold.com</p>
                         </div>
                         <div class="slide-feature">
-                            <div class="sf-icon"><img src="img/secure.svg" alt="Secure"></div>
+                            <div class="sf-icon"><img loading="lazy" src="img/secure.svg" alt="Secure"></div>
                             <h4 class="sf-title">100% Protected & Secure</h4>
                             <p class="sf-text">Your silver is kept in top-notch insured vaults and 24/7 Surveillance.
                             </p>
                         </div>
                     </div>
                     <div class="slide-phone">
-                        <img src="img/Silver Mobile.png" alt="Silver App Screen" class="slide-phone-img">
+                        <img loading="lazy" src="img/Silver Mobile.png" alt="Silver App Screen" class="slide-phone-img">
                     </div>
                     <div class="slide-features right">
                         <div class="slide-feature">
-                            <div class="sf-icon"><img src="img/easy_cash_withdrawal.svg" alt="Withdrawal"></div>
+                            <div class="sf-icon"><img loading="lazy" src="img/easy_cash_withdrawal.svg" alt="Withdrawal"></div>
                             <h4 class="sf-title">Easy cash withdrawal</h4>
                             <p class="sf-text">Withdraw your funds instantly, anytime with ease.</p>
                         </div>
                         <div class="slide-feature">
-                            <div class="sf-icon"><img src="img/referearn.svg" alt="Refer"></div>
+                            <div class="sf-icon"><img loading="lazy" src="img/referearn.svg" alt="Refer"></div>
                             <h4 class="sf-title">Refer & Earn</h4>
                             <p class="sf-text">Invite friends and earn rewards every time they start investing in gold.
                             </p>
@@ -293,17 +297,17 @@
                 <div class="trust-badge-item">
                     <span class="trust-label">Secured by</span>
                     <div class="trust-badge-content">
-                        <img src="img/mmtc.png" alt="MMTC-PAMP" class="trust-logo-img">
+                        <img loading="lazy" src="img/mmtc.png" alt="MMTC-PAMP" class="trust-logo-img">
                     </div>
                 </div>
                 <div class="trust-badge-item">
                     <span class="trust-label">Certified by</span>
                     <div class="trust-cert-group">
                         <div class="trust-cert-item">
-                            <img src="img/bis.png" alt="BIS 24K Hallmark" class="trust-logo-img">
+                            <img loading="lazy" src="img/bis.png" alt="BIS 24K Hallmark" class="trust-logo-img">
                         </div>
                         <div class="trust-cert-item">
-                            <img src="img/iso.png" alt="ISO 27001" class="trust-logo-img">
+                            <img loading="lazy" src="img/iso.png" alt="ISO 27001" class="trust-logo-img">
                         </div>
                     </div>
                 </div>
@@ -326,19 +330,19 @@
                         class="clr-gold">GOLD</span></h1>
                 <div class="digi-gold-layout">
                     <div class="digi-corner top-left">
-                        <img src="img/buy.svg" alt="Buy">
+                        <img loading="lazy" src="img/buy.svg" alt="Buy">
                     </div>
                     <div class="digi-corner top-right">
-                        <img src="img/grow.svg" alt="Grow">
+                        <img loading="lazy" src="img/grow.svg" alt="Grow">
                     </div>
                     <div class="digi-center">
-                        <img src="img/goldstone.gif" alt="Gold Nugget" class="gold-nugget">
+                        <img loading="lazy" src="img/goldstone.gif" alt="Gold Nugget" class="gold-nugget">
                     </div>
                     <div class="digi-corner bottom-left">
-                        <img src="img/save.svg" alt="Save">
+                        <img loading="lazy" src="img/save.svg" alt="Save">
                     </div>
                     <div class="digi-corner bottom-right">
-                        <img src="img/sell.svg" alt="Sell">
+                        <img loading="lazy" src="img/sell.svg" alt="Sell">
                     </div>
                 </div>
                 <p class="digi-gold-tagline">Secured, Transparent &amp; Backed by 100% Physical Reserves
@@ -455,7 +459,7 @@
     <!-- Footer -->
     <div id="footer-slot"></div>
 
-    <script src="js/common.js"></script>
+    <script src="js/common.js" defer></script>
 </body>
 
 </html>

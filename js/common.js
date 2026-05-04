@@ -15,42 +15,42 @@ document.addEventListener('DOMContentLoaded', async () => {
         const s = document.createElement('style');
         s.textContent = `
             :root { --sf: ${scaleOverride}; }
-            .container,.container-lg,.container-md,.container-sm,.container-xl { max-width: calc(1140px * var(--sf)) !important; }
-            .hero-h1,.why-choose-title,.stable-invest-title,.sip-title,.faq-title,.about-hero-heading,.about-mv-heading,.golden-heading,.slide-heading,.digi-gold-heading,.how-title { font-size: calc(42px * var(--sf)) !important; }
-            h2,h3,.why-feature-title,.step-title,.contact-info-title,.wf-label,.stable-invest-sub,.sip-sub { font-size: calc(22px * var(--sf)) !important; }
-            .sip-grow-title { font-size: calc(36px * var(--sf)) !important; }
-            .stat-value { font-size: calc(43px * var(--sf)) !important; }
-            .golden-banner-heading { font-size: calc(55px * var(--sf)) !important; }
-            .digi-gold-tagline { font-size: calc(16px * var(--sf)) !important; }
-            .hero-desc,.hero-p,.why-feature-desc,.stable-invest-desc,.sip-desc,.sf-desc,.how-desc,.step-desc,.accordion-body,.form-control { font-size: calc(18px * var(--sf)) !important; }
-            .faq-question span,.faq-answer p,.sip-grow-text,.hero-trust-label,.stat-text,.sf-text { font-size: calc(14px * var(--sf)) !important; }
-            li,.stable-list-item,.sip-plan-value,.sip-plan-period { font-size: calc(18px * var(--sf)) !important; }
-            .menu-overlay a { font-size: calc(21px * var(--sf)) !important; }
-            .footer-heading { font-size: calc(32px * var(--sf)) !important; }
-            .footer-link,.footer-desc { font-size: calc(14px * var(--sf)) !important; }
-            .marquee-track span { font-size: calc(14px * var(--sf)) !important; }
-            .start-btn,.btn-start-invest { font-size: calc(16px * var(--sf)) !important; }
-            .trust-quote-text { font-size: calc(26px * var(--sf)) !important; }
-            .trust-logo-text { font-size: calc(14px * var(--sf)) !important; }
-            .accordion-button { font-size: calc(14px * var(--sf)) !important; }
-            .contact-info-text,.form-label { font-size: calc(16px * var(--sf)) !important; }
-            .sf-title { font-size: calc(18px * var(--sf)) !important; }
-            .sip-plan-title { font-size: calc(22px * var(--sf)) !important; }
-            .hero-badge { font-size: calc(14px * var(--sf)) !important; padding: calc(6px * var(--sf)) calc(14px * var(--sf)) !important; }
-            .footer-logo img { height: calc(44px * var(--sf)) !important; }
-            .gold-nugget { width: calc(380px * var(--sf)) !important; }
-            .feature-icon,.sf-icon,.sf-icon img,.step-icon,.step-icon img,.faq-icon img { width: calc(48px * var(--sf)) !important; height: calc(48px * var(--sf)) !important; }
-            .trust-cert-group img { height: calc(40px * var(--sf)) !important; }
-            .social-link img { width: calc(24px * var(--sf)) !important; height: calc(24px * var(--sf)) !important; }
-            .hero-section { padding: calc(160px * var(--sf)) 0 calc(60px * var(--sf)) !important; }
-            .marquee-bar { margin-top: calc(90px * var(--sf)) !important; margin-left: calc(124px * var(--sf)) !important; margin-right: calc(124px * var(--sf)) !important; top: calc(114px * var(--sf)) !important; }
-            .sip-section { margin-top: calc(-48px * var(--sf)) !important; padding: calc(100px * var(--sf)) 0 calc(90px * var(--sf)) !important; }
-            .app-slider-section { padding: 0 0 calc(90px * var(--sf)) !important; }
-            .why-feature-card,.why-feature-card-wide { padding: calc(30px * var(--sf)) !important; border-radius: calc(24px * var(--sf)) !important; }
-            .digi-gold-card { padding: calc(50px * var(--sf)) calc(60px * var(--sf)) !important; border-radius: calc(40px * var(--sf)) !important; }
-            .digi-gold-section .container { max-width: calc(1100px * var(--sf)) !important; }
-            .site-footer-new .container { max-width: calc(1080px * var(--sf)) !important; }
-            .stable-invest-section { background-size: cover !important; }
+            .container,.container-lg,.container-md,.container-sm,.container-xl { max-width: calc(1140px * var(--sf)); }
+            .hero-h1,.why-choose-title,.stable-invest-title,.sip-title,.faq-title,.about-hero-heading,.about-mv-heading,.golden-heading,.slide-heading,.digi-gold-heading,.how-title { font-size: calc(42px * var(--sf)); }
+            h2,h3,.why-feature-title,.step-title,.contact-info-title,.wf-label,.stable-invest-sub,.sip-sub { font-size: calc(22px * var(--sf)); }
+            .sip-grow-title { font-size: calc(36px * var(--sf)); }
+            .stat-value { font-size: calc(43px * var(--sf)); }
+            .golden-banner-heading { font-size: calc(55px * var(--sf)); }
+            .digi-gold-tagline { font-size: calc(16px * var(--sf)); }
+            .hero-desc,.hero-p,.why-feature-desc,.stable-invest-desc,.sip-desc,.sf-desc,.how-desc,.step-desc,.accordion-body,.form-control { font-size: calc(18px * var(--sf)); }
+            .faq-question span,.faq-answer p,.sip-grow-text,.hero-trust-label,.stat-text,.sf-text { font-size: calc(14px * var(--sf)); }
+            li,.stable-list-item,.sip-plan-value,.sip-plan-period { font-size: calc(18px * var(--sf)); }
+            .menu-overlay a { font-size: calc(21px * var(--sf)); }
+            .footer-heading { font-size: calc(32px * var(--sf)); }
+            .footer-link,.footer-desc { font-size: calc(14px * var(--sf)); }
+            .marquee-track span { font-size: calc(14px * var(--sf)); }
+            .start-btn,.btn-start-invest { font-size: calc(16px * var(--sf)); }
+            .trust-quote-text { font-size: calc(26px * var(--sf)); }
+            .trust-logo-text { font-size: calc(14px * var(--sf)); }
+            .accordion-button { font-size: calc(14px * var(--sf)); }
+            .contact-info-text,.form-label { font-size: calc(16px * var(--sf)); }
+            .sf-title { font-size: calc(18px * var(--sf)); }
+            .sip-plan-title { font-size: calc(22px * var(--sf)); }
+            .hero-badge { font-size: calc(14px * var(--sf)); padding: calc(6px * var(--sf)) calc(14px * var(--sf)); }
+            .footer-logo img { height: calc(44px * var(--sf)); }
+            .gold-nugget { width: calc(380px * var(--sf)); }
+            .feature-icon,.sf-icon,.sf-icon img,.step-icon,.step-icon img,.faq-icon img { width: calc(48px * var(--sf)); height: calc(48px * var(--sf)); }
+            .trust-cert-group img { height: calc(40px * var(--sf)); }
+            .social-link img { width: calc(24px * var(--sf)); height: calc(24px * var(--sf)); }
+            .hero-section { padding: calc(160px * var(--sf)) 0 calc(60px * var(--sf)); }
+            .marquee-bar { margin-top: calc(90px * var(--sf)); margin-left: calc(124px * var(--sf)); margin-right: calc(124px * var(--sf)); top: calc(114px * var(--sf)); }
+            .sip-section { margin-top: calc(-48px * var(--sf)); padding: calc(100px * var(--sf)) 0 calc(90px * var(--sf)); }
+            .app-slider-section { padding: 0 0 calc(90px * var(--sf)); }
+            .why-feature-card,.why-feature-card-wide { padding: calc(30px * var(--sf)); border-radius: calc(24px * var(--sf)); }
+            .digi-gold-card { padding: calc(50px * var(--sf)) calc(60px * var(--sf)); border-radius: calc(40px * var(--sf)); }
+            .digi-gold-section .container { max-width: calc(1100px * var(--sf)); }
+            .site-footer-new .container { max-width: calc(1080px * var(--sf)); }
+            .stable-invest-section { background-size: cover; }
         `;
         document.head.appendChild(s);
         console.log('[StartGOLD] Scale test mode: --sf = ' + scaleOverride);
@@ -212,11 +212,11 @@ function initLiveRates() {
             const buyPrice = parts[3];
             if (id === '1') {
                 document.querySelectorAll('#rateGold, .rate-val-gold').forEach(el => {
-                    el.textContent = '₹ ' + formatPrice(buyPrice) + '/gm';
+                    el.innerHTML = '<span class="rupee">₹</span> ' + formatPrice(buyPrice) + '/gm';
                 });
             } else if (id === '3') {
                 document.querySelectorAll('#rateSilver, .rate-val-silver').forEach(el => {
-                    el.textContent = '₹ ' + formatPrice(buyPrice) + '/gm';
+                    el.innerHTML = '<span class="rupee">₹</span> ' + formatPrice(buyPrice) + '/gm';
                 });
             }
         });
