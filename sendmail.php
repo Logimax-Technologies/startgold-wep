@@ -48,12 +48,33 @@ if (!$data) {
     $data = $_POST;
 }
 
-// ===== CAPTCHA VALIDATION =====
-$captchaAnswer = isset($data['captchaAnswer']) ? trim($data['captchaAnswer']) : '';
-$captchaExpected = isset($data['captchaExpected']) ? trim($data['captchaExpected']) : '';
+// ===== GOOGLE RECAPTCHA VALIDATION =====
+$recaptchaResponse = isset($data['recaptchaResponse']) ? trim($data['recaptchaResponse']) : '';
+if (empty($recaptchaResponse)) {
+    echo json_encode(['success' => false, 'message' => 'Please verify that you are not a robot.']);
+    exit;
+}
 
-if ($captchaAnswer === '' || $captchaExpected === '' || $captchaAnswer !== $captchaExpected) {
-    echo json_encode(['success' => false, 'message' => 'Invalid CAPTCHA. Please try again.']);
+$recaptchaSecret = '6LcCMtgsAAAAAMXve5PhqDyKpvcI2mkXwUhQ803Z';
+$verifyUrl = 'https://www.google.com/recaptcha/api/siteverify';
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $verifyUrl);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query([
+    'secret' => $recaptchaSecret,
+    'response' => $recaptchaResponse
+]));
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+$verifyResponse = curl_exec($ch);
+curl_close($ch);
+
+$verifyData = json_decode($verifyResponse);
+
+if (!$verifyData || !$verifyData->success) {
+    echo json_encode(['success' => false, 'message' => 'CAPTCHA verification failed. Please try again.']);
     exit;
 }
 

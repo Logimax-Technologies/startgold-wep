@@ -23,27 +23,17 @@
     const pincodeEl = document.getElementById('pincode');
     const addressEl = document.getElementById('address');
     const messageEl = document.getElementById('message');
-    const captchaEl = document.getElementById('captcha');
-    const captchaNum1El = document.getElementById('captchaNum1');
-    const captchaNum2El = document.getElementById('captchaNum2');
-    const captchaRefreshBtn = document.getElementById('captchaRefresh');
+
 
     if (!countryEl || !stateEl || !cityEl || !form) return;
 
-    // ===== MATH CAPTCHA =====
-    let captchaExpected = 0;
-
-    function generateCaptcha() {
-        const a = Math.floor(Math.random() * 20) + 1;
-        const b = Math.floor(Math.random() * 15) + 1;
-        captchaExpected = a + b;
-        if (captchaNum1El) captchaNum1El.textContent = a;
-        if (captchaNum2El) captchaNum2El.textContent = b;
-        if (captchaEl) { captchaEl.value = ''; clearError('captcha'); }
+    // ===== GOOGLE RECAPTCHA =====
+    function resetCaptcha() {
+        if (typeof grecaptcha !== 'undefined') {
+            grecaptcha.reset();
+        }
+        clearError('captcha');
     }
-
-    generateCaptcha();
-    if (captchaRefreshBtn) captchaRefreshBtn.addEventListener('click', generateCaptcha);
 
     // ===== INTL TEL INPUT =====
     let iti = null;
@@ -212,9 +202,8 @@
     }
 
     function validateCaptcha() {
-        const val = captchaEl ? captchaEl.value.trim() : '';
-        if (!val) { showError('captcha', 'Please answer the CAPTCHA'); return false; }
-        if (parseInt(val, 10) !== captchaExpected) { showError('captcha', 'Incorrect answer. Please try again'); return false; }
+        const response = typeof grecaptcha !== 'undefined' ? grecaptcha.getResponse() : '';
+        if (!response) { showError('captcha', 'Please verify that you are not a robot'); return false; }
         clearError('captcha');
         return true;
     }
@@ -362,18 +351,7 @@
     // Email: clear error on input
     if (emailEl) emailEl.addEventListener('input', () => clearError('email'));
 
-    // Captcha: numbers only, max 2 digits
-    if (captchaEl) {
-        captchaEl.addEventListener('keypress', e => {
-            if (!/[0-9]/.test(e.key) && e.key !== 'Backspace' && e.key !== 'Delete' && e.key !== 'Tab') {
-                e.preventDefault();
-            }
-        });
-        captchaEl.addEventListener('input', () => {
-            captchaEl.value = captchaEl.value.replace(/[^0-9]/g, '').slice(0, 2);
-            clearError('captcha');
-        });
-    }
+
 
     // Selects: clear error on change
     [countryEl, stateEl, cityEl, townEl].forEach(el => {
@@ -387,7 +365,7 @@
     if (emailEl) emailEl.addEventListener('blur', () => validateEmail());
     if (pincodeEl) pincodeEl.addEventListener('blur', () => validatePincode());
     if (addressEl) addressEl.addEventListener('blur', () => validateAddress());
-    if (captchaEl) captchaEl.addEventListener('blur', () => validateCaptcha());
+
 
     // ===== CASCADING DROPDOWNS =====
     function resetSelectEl(el, placeholder) {
@@ -495,7 +473,7 @@
         countryEl.value = DEFAULT_COUNTRY;
         loadStates(DEFAULT_COUNTRY);
         clearAllErrors();
-        generateCaptcha();
+        resetCaptcha();
         const btn = document.getElementById('contactSubmitBtn');
         btn.textContent = 'Submit';
         btn.disabled = false;
@@ -549,8 +527,7 @@
             pincode: pincodeEl ? pincodeEl.value.trim() : '',
             address: addressEl ? addressEl.value.trim() : '',
             message: messageEl ? messageEl.value.trim() : '',
-            captchaAnswer: String(captchaExpected),
-            captchaExpected: String(captchaExpected)
+            recaptchaResponse: typeof grecaptcha !== 'undefined' ? grecaptcha.getResponse() : ''
         };
 
         try {
@@ -579,14 +556,14 @@
                 alert(result.message || 'Failed to send. Please try again.');
                 btn.textContent = 'Submit';
                 btn.disabled = false;
-                generateCaptcha();
+                resetCaptcha();
             }
         } catch (err) {
             console.error('Submit error:', err);
             alert('Network error. Please check your connection and try again.');
             btn.textContent = 'Submit';
             btn.disabled = false;
-            generateCaptcha();
+            resetCaptcha();
         }
     });
 

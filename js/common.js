@@ -1,7 +1,50 @@
 /**
  * StartGOLD — Common Header/Footer Loader
  * Include this script on every page to automatically load shared components.
+ *
+ * WHAT THIS HANDLES:
+ * 1. Injects common <head> CSS/font/analytics (from components/head-assets.html)
+ * 2. Loads header HTML (from components/header.html)
+ * 3. Loads footer HTML (from components/footer.html)
+ * 4. Loads footer scripts (bootstrap.bundle.min.js)
+ *
+ * NOTE: google-site-verification meta must stay in each page's static HTML
+ *       because Google's crawler doesn't execute JavaScript.
  */
+
+// ── STEP 0: Inject common <head> assets from components/head-assets.html ──
+// Uses sync XHR so CSS loads before first paint (avoids FOUC).
+// To add/remove CSS, fonts, or analytics — edit components/head-assets.html.
+(function injectHeadAssets() {
+    try {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'components/head-assets.html', false);
+        xhr.send();
+        if (xhr.status !== 200) return;
+
+        var parser = new DOMParser();
+        var doc = parser.parseFromString(xhr.responseText, 'text/html');
+
+        // Inject all <link> tags
+        doc.querySelectorAll('link').forEach(function(link) {
+            var href = link.getAttribute('href');
+            if (href && !document.querySelector('link[href="' + href + '"]')) {
+                document.head.appendChild(link.cloneNode(true));
+            }
+        });
+
+        // Inject all <script> tags (async external + inline)
+        doc.querySelectorAll('script').forEach(function(orig) {
+            var s = document.createElement('script');
+            Array.from(orig.attributes).forEach(function(a) { s.setAttribute(a.name, a.value); });
+            if (orig.textContent) s.textContent = orig.textContent;
+            document.head.appendChild(s);
+        });
+    } catch (e) {
+        console.error('[StartGOLD] Failed to load head-assets.html:', e);
+    }
+})();
+
 document.addEventListener('DOMContentLoaded', async () => {
 
     // === SCALE FACTOR TEST OVERRIDE ===
@@ -77,6 +120,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         } catch (e) {
             console.error('Failed to load footer:', e);
         }
+    }
+
+    // ── Inject common footer scripts (bootstrap.bundle) ──
+    if (!document.querySelector('script[src*="bootstrap.bundle"]')) {
+        const bsScript = document.createElement('script');
+        bsScript.src = 'vendor/bootstrap/bootstrap.bundle.min.js';
+        document.body.appendChild(bsScript);
     }
 
     // Initialize scroll animations after a small delay to let layout settle
