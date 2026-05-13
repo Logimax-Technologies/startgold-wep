@@ -55,7 +55,7 @@ if (empty($recaptchaResponse)) {
     exit;
 }
 
-$recaptchaSecret = '6LcCMtgsAAAAAMXve5PhqDyKpvcI2mkXwUhQ803Z';
+$recaptchaSecret = '6LclitUsAAAAAKBkw8269TbD3Hz6VoAJSQ4SNOvp';
 $verifyUrl = 'https://www.google.com/recaptcha/api/siteverify';
 
 $ch = curl_init();

@@ -169,12 +169,12 @@ function initHeader() {
             let currentColor = 'rgba(2, 42, 22, 0.95)'; // Default Dark Green
 
             const elements = document.querySelectorAll(sectionColors.map(s => s.selector).join(', '));
-            
+
             elements.forEach(el => {
                 const rect = el.getBoundingClientRect();
                 const top = rect.top + scrollY;
                 const bottom = top + rect.height;
-                
+
                 if (headerCenter >= top && headerCenter <= bottom) {
                     for (const item of sectionColors) {
                         if (el.matches(item.selector)) {
@@ -259,14 +259,14 @@ function initLiveRates() {
             const parts = item.split('|');
             if (parts.length < 5 || parts[0] !== '3') return;
             const id = parts[1];
-            const buyPrice = parts[3];
+            const sellprice = parts[4];
             if (id === '1') {
                 document.querySelectorAll('#rateGold, .rate-val-gold').forEach(el => {
-                    el.innerHTML = '<span class="rupee">₹</span> ' + formatPrice(buyPrice) + '/gm';
+                    el.innerHTML = '<span class="rupee">₹</span> ' + formatPrice(sellprice) + '/gm';
                 });
             } else if (id === '3') {
                 document.querySelectorAll('#rateSilver, .rate-val-silver').forEach(el => {
-                    el.innerHTML = '<span class="rupee">₹</span> ' + formatPrice(buyPrice) + '/gm';
+                    el.innerHTML = '<span class="rupee">₹</span> ' + formatPrice(sellprice) + '/gm';
                 });
             }
         });
