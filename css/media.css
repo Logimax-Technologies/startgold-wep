@@ -1194,7 +1194,7 @@
         font-weight: 700;
     }
 
-    /* About page � mobile */
+    /* About page ï¿½ mobile */
     .about-hero {
         padding: 20px 0 0px;
     }
@@ -1238,7 +1238,7 @@
         font-size: 1.3rem;
     }
 
-    /* Features page � mobile */
+    /* Features page ï¿½ mobile */
     .features-hero-img {
         max-height: 200px;
         margin-top: 24px;
@@ -1249,7 +1249,7 @@
     }
 
 
-    /* Contact page � mobile */
+    /* Contact page ï¿½ mobile */
     .contact-section {
         padding: 30px 0 60px;
     }
@@ -1336,7 +1336,7 @@
         order: 1;
     }
 
-    /* Footer top row � stack on mobile */
+    /* Footer top row ï¿½ stack on mobile */
     .footer-top-row {
         flex-direction: column;
         align-items: flex-start;
@@ -2201,7 +2201,7 @@
         font-weight: 700;
     }
 
-    /* About page � mobile */
+    /* About page ï¿½ mobile */
     .about-hero {
         padding: 20px 0 0px;
     }
@@ -2245,7 +2245,7 @@
         font-size: 1.3rem;
     }
 
-    /* Features page � mobile */
+    /* Features page ï¿½ mobile */
     .features-hero-img {
         max-height: 200px;
         margin-top: 24px;
@@ -2256,7 +2256,7 @@
     }
 
 
-    /* Contact page � mobile */
+    /* Contact page ï¿½ mobile */
     .contact-section {
         padding: 30px 0 60px;
     }
@@ -2336,7 +2336,7 @@
         order: 1;
     }
 
-    /* Footer top row � stack on mobile */
+    /* Footer top row ï¿½ stack on mobile */
     .footer-top-row {
         flex-direction: column;
         align-items: flex-start;
@@ -3071,7 +3071,7 @@
         font-weight: 700;
     }
 
-    /* About page � mobile */
+    /* About page ï¿½ mobile */
     .about-hero {
         padding: 20px 0 0px;
     }
@@ -3114,7 +3114,7 @@
         font-size: 1.3rem;
     }
 
-    /* Features page � mobile */
+    /* Features page ï¿½ mobile */
     .features-hero-img {
         max-height: 200px;
         margin-top: 24px;
@@ -3124,7 +3124,7 @@
         padding: 50px 0 60px;
     }
 
-    /* Contact page � mobile */
+    /* Contact page ï¿½ mobile */
     .contact-section {
         padding: 30px 0 60px;
     }
@@ -3207,7 +3207,7 @@
         order: 1;
     }
 
-    /* Footer top row � stack on mobile */
+    /* Footer top row ï¿½ stack on mobile */
     .footer-top-row {
         flex-direction: column;
         align-items: flex-start;
@@ -3932,7 +3932,7 @@
         font-weight: 700;
     }
 
-    /* About page � mobile */
+    /* About page ï¿½ mobile */
     .about-hero {
         padding: 20px 0 0px;
     }
@@ -3975,7 +3975,7 @@
         font-size: 1.3rem;
     }
 
-    /* Features page � mobile */
+    /* Features page ï¿½ mobile */
     .features-hero-img {
         max-height: 200px;
         margin-top: 24px;
@@ -3985,7 +3985,7 @@
         padding: 50px 0 60px;
     }
 
-    /* Contact page � mobile */
+    /* Contact page ï¿½ mobile */
     .contact-section {
         padding: 30px 0 60px;
     }
@@ -4068,7 +4068,7 @@
         order: 1;
     }
 
-    /* Footer top row � stack on mobile */
+    /* Footer top row ï¿½ stack on mobile */
     .footer-top-row {
         flex-direction: column;
         align-items: flex-start;
@@ -4320,6 +4320,7 @@
         font-weight: 900;
         text-align: center;
         margin-top: 40px;
+        padding-right: 26px;
     }
 
     /* ---- Sub-headings (480px) ---- */
@@ -4499,7 +4500,7 @@
         font-size: 1rem;
     }
 
-    /* About page � small mobile */
+    /* About page ï¿½ small mobile */
 
     .about-hero-desc {
         font-size: var(--m-sf-text-size);
@@ -4821,7 +4822,7 @@
    ============================================================= */
 
 
-/* --- Tablet landscape (901–1050px) --- */
+/* --- Tablet landscape (901â€“1050px) --- */
 @media (max-width: 1050px) and (min-width: 901px) {
     .trust-badges-section {
         padding-bottom: 200px !important;
@@ -4869,7 +4870,7 @@
 }
 
 
-/* --- Tablet portrait (768–900px) --- */
+/* --- Tablet portrait (768â€“900px) --- */
 @media (max-width: 900px) and (min-width: 768px) {
     .trust-badges-section {
         padding-bottom: 210px !important;
@@ -4886,7 +4887,7 @@
 }
 
 
-/* --- Mobile (651–767px) --- */
+/* --- Mobile (651â€“767px) --- */
 @media (max-width: 767px) and (min-width: 557px) {
     .trust-badges-section {
         padding-bottom: 220px !important;
@@ -4934,7 +4935,7 @@
 }
 
 
-/* --- Mobile (521–556px) --- */
+/* --- Mobile (521â€“556px) --- */
 @media (max-width: 556px) and (min-width: 521px) {
     .trust-badges-section {
         padding-bottom: 200px !important;
@@ -5013,7 +5014,7 @@
 }
 
 
-/* --- Small mobile (481–520px) --- */
+/* --- Small mobile (481â€“520px) --- */
 @media (max-width: 520px) and (min-width: 481px) {
     .trust-badges-section {
         padding-bottom: 180px !important;
@@ -5092,7 +5093,7 @@
 }
 
 
-/* --- Small mobile (431–480px) --- */
+/* --- Small mobile (431â€“480px) --- */
 @media (max-width: 480px) and (min-width: 431px) {
     .trust-badges-section {
         padding-bottom: 180px !important;
@@ -5109,7 +5110,7 @@
 }
 
 
-/* --- Extra small mobile (401–430px) --- */
+/* --- Extra small mobile (401â€“430px) --- */
 @media (max-width: 430px) and (min-width: 401px) {
     .trust-badges-section {
         padding-bottom: 180px !important;

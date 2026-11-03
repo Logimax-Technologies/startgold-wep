@@ -1,5 +1,5 @@
 /* ============================================================
-   StartGOLD — Full Landing Page
+   StartGOLD -- Full Landing Page
    ============================================================ */
 :root {
     --dk-green: #003716;
@@ -11,7 +11,7 @@
     --serif: 'NumberFont', 'Playfair Display', serif;
     --sans: 'NumberFont', 'Playfair Display', serif;
 
-    /* Typography — Desktop Base */
+    /* Typography â€” Desktop Base */
     --m-h1-size: 42px;
     --m-h1-weight: 900;
     --m-sub-size: 22px;
@@ -36,7 +36,7 @@
     --m-head-mar: 40px;
 }
 
-/* Rupee symbol — always Playfair Display */
+/* Rupee symbol â€” always Playfair Display */
 .rupee {
     font-family: 'Lora', serif;
 }
@@ -114,21 +114,37 @@ img {
     width: 100%;
     z-index: 220;
     padding: 14px 0;
-    transition: background .3s, padding .3s;
-    /*backdrop-filter: blur(12px);*/
+    transition: padding .3s;
 }
 
 .site-header.scrolled {
-    background: rgba(2, 42, 22, 0.95);
-    /* Dark green to allow blur effect to show through */
-    backdrop-filter: blur(40px);
-    -webkit-backdrop-filter: blur(40px);
     padding: 14px 0 0px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 .header-bar {
-    background: var(--nav-green);
+    /* Liquid-glass translucency: a light, neutral tint (not the site's
+       dark green) plus a live blur and saturation boost of whatever is
+       actually behind the bar. A neutral white tint is what actually
+       keeps this reading as "glass" consistently across every section
+       colour -- a dark tint only looks glassy where it's sitting on
+       something lighter than itself, so it read fine over the gold
+       sections but flat/muddy over the dark green hero. It also happens
+       to solve the wordmark's legibility on its own: "start" is a
+       mid-toned green, which nearly disappeared against a dark backdrop
+       but reads clearly once the glass itself is light -- no glow or
+       outline hack needed on the logo at all. The top-edge highlight
+       (inset box-shadow) and outer drop shadow are what sell the
+       "sitting above the page, catching light along its rim" read
+       instead of a plain translucent rectangle. */
+    background: rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(22px) saturate(160%);
+    -webkit-backdrop-filter: blur(22px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-top-color: rgba(255, 255, 255, 0.6);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.4),
+        inset 0 -1px 8px rgba(0, 0, 0, 0.06),
+        0 10px 30px rgba(0, 0, 0, 0.2);
     border-radius: 60px;
     padding: 10px 28px;
     display: flex;
@@ -214,23 +230,37 @@ img {
 
 /* Header Apps Actions */
 .header-right-actions {
-    gap: 30px;
+    gap: 20px;
 }
 
 .header-apps {
-    gap: 22px;
+    gap: 12px;
 }
 
 .header-app-icon {
-    height: 28px;
-    width: auto;
+    height: 24px;
+    width: 24px;
     object-fit: contain;
     flex-shrink: 0;
-    transition: transform 0.2s ease;
+    transition: transform 0.2s ease, background 0.2s ease;
+    /* These icon assets are pale/near-white silhouettes -- they read fine
+       against the site's old solid dark-green header, but wash out
+       completely over lighter backgrounds now that the header itself is
+       translucent (the white-glass tint over a gold section, for
+       instance, leaves almost no contrast at all). Rather than a
+       per-section hack, giving each icon its own small permanent dark
+       badge is the same fix the rate chips already use successfully --
+       it guarantees contrast regardless of whatever's actually behind
+       the glass. */
+    background: rgba(1, 57, 22, 0.55);
+    border-radius: 50%;
+    padding: 6px;
+    box-sizing: content-box;
 }
 
 .header-app-icon:hover {
     transform: translateY(-2px);
+    background: rgba(1, 57, 22, 0.75);
 }
 
 /* Hamburger */
@@ -304,9 +334,14 @@ img {
     right: 0;
     width: 320px;
     height: auto;
-    background: linear-gradient(180deg, #012a12 0%, #003716 40%, #013916 100%);
-    border-left: 1px solid rgba(255, 215, 0, .15);
-    box-shadow: -8px 0 40px rgba(0, 0, 0, .5);
+    background: rgba(2, 42, 22, 0.6);
+    backdrop-filter: blur(28px) saturate(160%);
+    -webkit-backdrop-filter: blur(28px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-top-color: rgba(255, 255, 255, 0.32);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.18),
+        -8px 0 40px rgba(0, 0, 0, .5);
     z-index: 210;
     display: flex;
     flex-direction: column;
@@ -394,6 +429,301 @@ img {
     background: linear-gradient(180deg, #ffd700, #c5981a);
     border-radius: 0 3px 3px 0;
     transition: transform .25s ease;
+}
+
+/* ======== APP-STORE QR MODAL ======== */
+/* Shown when the clicked store doesn't match the visitor's own platform --
+   see initAppLinks() in js/common.js for the routing logic. Deliberately a
+   dark glass panel (matching the mobile-menu treatment) rather than the
+   header's light glass, since its content is white text + a white QR
+   card, not a green wordmark. */
+.qr-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .6);
+    z-index: 400;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .3s ease, visibility .3s ease;
+}
+
+.qr-modal-backdrop.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.qr-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(.95);
+    width: min(360px, 88vw);
+    background: rgba(2, 42, 22, 0.85);
+    backdrop-filter: blur(28px) saturate(160%);
+    -webkit-backdrop-filter: blur(28px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, .2);
+    border-top-color: rgba(255, 255, 255, .35);
+    border-radius: 28px;
+    padding: 36px 30px 30px;
+    text-align: center;
+    z-index: 401;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .3s ease, transform .3s cubic-bezier(.22, .68, 0, 1.02), visibility .3s ease;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, .18),
+        0 20px 60px rgba(0, 0, 0, .5);
+}
+
+.qr-modal.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.qr-modal-close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, .7);
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 6px 10px;
+    transition: color .2s ease;
+}
+
+.qr-modal-close:hover {
+    color: #fff;
+}
+
+.qr-modal-title {
+    font-family: var(--serif);
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 22px;
+}
+
+.qr-modal-sub {
+    color: rgba(255, 255, 255, .85);
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0 0 18px;
+}
+
+.qr-modal-code {
+    background: #fff;
+    border-radius: 16px;
+    padding: 14px;
+    display: inline-block;
+    margin-bottom: 16px;
+    line-height: 0;
+}
+
+.qr-modal-code img {
+    display: block;
+    width: 220px;
+    height: 220px;
+    max-width: 100%;
+    height: auto;
+}
+
+.qr-copy-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, .08);
+    border: 1px solid rgba(255, 255, 255, .22);
+    color: rgba(255, 255, 255, .9);
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 13px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background .2s ease, border-color .2s ease, color .2s ease;
+}
+
+.qr-copy-btn i {
+    font-size: 14px;
+}
+
+.qr-copy-btn:hover {
+    background: rgba(255, 255, 255, .16);
+    border-color: rgba(255, 255, 255, .35);
+}
+
+.qr-copy-btn.copied {
+    background: rgba(212, 160, 23, .18);
+    border-color: rgba(212, 160, 23, .6);
+    color: var(--gold);
+}
+
+/* Dual QR modal -- same glass treatment as .qr-modal, just wider to hold
+   both store codes side by side (stacks on narrow screens). */
+.dual-qr-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(.95);
+    width: min(560px, 92vw);
+    background: rgba(2, 42, 22, 0.85);
+    backdrop-filter: blur(28px) saturate(160%);
+    -webkit-backdrop-filter: blur(28px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, .2);
+    border-top-color: rgba(255, 255, 255, .35);
+    border-radius: 28px;
+    padding: 36px 30px 30px;
+    text-align: center;
+    z-index: 401;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .3s ease, transform .3s cubic-bezier(.22, .68, 0, 1.02), visibility .3s ease;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, .18),
+        0 20px 60px rgba(0, 0, 0, .5);
+}
+
+.dual-qr-modal.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.dual-qr-row {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 36px;
+    flex-wrap: wrap;
+}
+
+.dual-qr-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 190px;
+}
+
+.dual-qr-item .qr-modal-code {
+    margin-bottom: 14px;
+}
+
+.dual-qr-item .qr-modal-sub {
+    margin: 0 0 14px;
+    font-size: 14px;
+}
+
+@media (max-width: 480px) {
+    .dual-qr-row {
+        gap: 24px;
+    }
+
+    .dual-qr-item {
+        width: 150px;
+    }
+
+    .dual-qr-item .qr-modal-code img {
+        width: 140px;
+        height: 140px;
+    }
+}
+
+/* ======== "NEW VERSION AVAILABLE" TOAST ======== */
+/* See initVersionCheck() in js/common.js. Sits low and out of the way,
+   glass-styled to match the rest of the site's UI language, and slides up
+   into view only when a real deploy is actually detected. */
+.version-toast {
+    position: fixed;
+    left: 50%;
+    bottom: 24px;
+    transform: translate(-50%, 140%);
+    z-index: 500;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: rgba(2, 42, 22, 0.88);
+    backdrop-filter: blur(24px) saturate(160%);
+    -webkit-backdrop-filter: blur(24px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, .2);
+    border-top-color: rgba(255, 255, 255, .35);
+    border-radius: 999px;
+    padding: 12px 14px 12px 22px;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, .18),
+        0 14px 40px rgba(0, 0, 0, .4);
+    transition: transform .4s cubic-bezier(.22, .68, 0, 1.02);
+    max-width: min(440px, 92vw);
+}
+
+.version-toast.show {
+    transform: translate(-50%, 0);
+}
+
+.version-toast-text {
+    color: #fff;
+    font-family: var(--sans);
+    font-size: 14px;
+    flex: 1 1 auto;
+}
+
+.version-toast-reload {
+    flex: 0 0 auto;
+    background: linear-gradient(180deg, #FEE45A, #D4A017);
+    color: var(--dk-green);
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 13px;
+    border: none;
+    border-radius: 999px;
+    padding: 8px 18px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: transform .15s ease;
+}
+
+.version-toast-reload:hover {
+    transform: translateY(-1px);
+}
+
+.version-toast-close {
+    flex: 0 0 auto;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, .6);
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 4px 6px;
+    transition: color .2s ease;
+}
+
+.version-toast-close:hover {
+    color: #fff;
+}
+
+@media (max-width: 480px) {
+    .version-toast {
+        left: 16px;
+        right: 16px;
+        bottom: 16px;
+        transform: translateY(140%);
+        max-width: none;
+        flex-wrap: wrap;
+        padding: 14px 16px 14px 20px;
+    }
+
+    .version-toast.show {
+        transform: translateY(0);
+    }
+
+    .version-toast-text {
+        width: 100%;
+    }
 }
 
 .menu-overlay a:hover::before,
@@ -554,6 +884,456 @@ img {
 
 }
 
+/* ======== HERO SLIDER (Bootstrap Carousel) ======== */
+/* Cursor affordance: clicking the slide pauses/resumes it (see the
+   click-to-hold script) -- the indicator dots override this back to their
+   own pointer, which is the same value anyway. */
+.hero-carousel {
+    cursor: pointer;
+}
+
+/* Slides fade in place; keep overflow visible so the phone/graphic
+   art can bleed outside the row exactly like the original static hero. */
+.hero-carousel .carousel-inner,
+.hero-carousel .carousel-item {
+    overflow: visible;
+}
+
+/* Equal-height fix: stack both slides in the same CSS Grid cell instead of
+   letting the carousel auto-size to only the active slide. Without this,
+   slide 1 (tall phone-in-hand photo) and slide 2 (shorter graphic + more
+   text) naturally resolve to different total heights, so the hero section
+   -- and everything below it -- visibly jumps/resizes on every transition,
+   most noticeably on large/2K+ and tall mobile screens. Grid auto-sizing
+   accounts for every item placed in a cell (even the ones hidden via
+   opacity), so the row always reserves space for the taller of the two and
+   height stays constant across slides. */
+.hero-carousel .carousel-inner {
+    display: grid;
+}
+
+.hero-carousel .carousel-item {
+    grid-area: 1 / 1;
+    width: 100%;
+    /* Override Bootstrap's default display:none on inactive items --
+       opacity + pointer-events below already handle visibility, and both
+       slides must stay in normal layout for the grid row to size to the
+       tallest one. */
+    display: block !important;
+    opacity: 0;
+}
+
+.hero-carousel .carousel-item.active {
+    opacity: 1;
+}
+
+/* Keep inactive slides out of click range even though they're still laid
+   out (for height purposes). */
+.hero-carousel .carousel-item:not(.active) {
+    pointer-events: none;
+}
+
+/* Sequential fade instead of Bootstrap's default crossfade: Bootstrap's
+   stock .carousel-fade keeps the outgoing slide at full opacity for the
+   ENTIRE transition and only snaps it away at the very end, while the
+   incoming slide ramps up to full opacity over that same window -- so for
+   most of the transition both slides sit at high opacity on top of each
+   other, and with two differently-laid-out text blocks that reads as a
+   confusing overlap/ghosting rather than a clean fade. These rules replace
+   that with two distinct phases: the outgoing slide fades fully to 0
+   first, then the incoming slide fades in from 0 -- the two are never both
+   substantially visible at the same time. Total duration still ~0.6s so
+   the pacing matches the original crossfade. */
+.hero-carousel.carousel-fade .carousel-item {
+    transition: opacity .3s ease-in-out;
+}
+
+.hero-carousel.carousel-fade .carousel-item.active {
+    transition: opacity .3s ease-in-out;
+}
+
+/* Outgoing slide: fades out first (0 - 300ms). The extra `visibility`
+   transition entry doesn't change how anything looks (visibility has only
+   two states, and 0s duration means it flips instantly) -- it exists only
+   so Bootstrap's own JS, which waits for this element's *longest* declared
+   transition before finalizing the slide change, waits the full 600ms
+   instead of finalizing the DOM swap right after the 300ms opacity fade
+   completes (which would cut off the incoming slide's fade-in partway
+   through). */
+.hero-carousel.carousel-fade .active.carousel-item-start,
+.hero-carousel.carousel-fade .active.carousel-item-end {
+    opacity: 0;
+    transition: opacity .3s ease-in-out, visibility 0s .6s;
+}
+
+/* Incoming slide: stays invisible for the first 300ms (matching the
+   outgoing slide's fade-out), then fades in over the second 300ms. */
+.hero-carousel.carousel-fade .carousel-item-next.carousel-item-start,
+.hero-carousel.carousel-fade .carousel-item-prev.carousel-item-end {
+    opacity: 1;
+    transition: opacity .3s ease-in-out .3s;
+}
+
+.hero-slide2-img {
+    max-height: 460px;
+}
+
+/* --- Slide 2: editorial stat + status offer block --- */
+.offer-tagline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--gold);
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    margin-bottom: 16px;
+}
+
+.offer-tagline i {
+    font-size: 14px;
+}
+
+.offer-stat-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 28px;
+}
+
+.offer-stat-num {
+    font-family: var(--serif);
+    font-weight: 900;
+    font-size: 54px;
+    line-height: 1;
+    background: linear-gradient(180deg, #FFF6D6, #FEE45A 40%, #D4A017 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #D4A017;
+}
+
+.offer-stat-col {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.offer-stat-days {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 19px;
+    color: #fff;
+    line-height: 1.2;
+}
+
+.offer-stat-sub {
+    font-family: var(--sans);
+    font-size: 13px;
+    color: rgba(255, 255, 255, .6);
+}
+
+.offer-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, .06);
+    border: 1px solid rgba(212, 160, 23, .55);
+    color: #fff;
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+    padding: 8px 16px;
+    border-radius: 999px;
+    white-space: nowrap;
+}
+
+.offer-status-dot {
+    flex: 0 0 auto;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--gold);
+    animation: offerDotPulse 1.6s ease-out infinite;
+}
+
+@keyframes offerDotPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(254, 228, 90, .55);
+    }
+
+    70% {
+        box-shadow: 0 0 0 8px rgba(254, 228, 90, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(254, 228, 90, 0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .offer-status-dot {
+        animation: none;
+    }
+}
+
+/* --- Slide 2: tighter heading so 2-line offers don't overflow --- */
+.hero-h1-tight {
+    line-height: 1.18;
+    margin-bottom: 18px;
+}
+
+/* --- Slide 2: shimmering gold / silver word highlights in the heading --- */
+.txt-shine-gold,
+.txt-shine-silver {
+    background-size: 200% auto;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-position: 0% center;
+    animation: heroTextShine 3.2s linear infinite;
+}
+
+.txt-shine-gold {
+    background-image: linear-gradient(90deg, #C8860A 0%, #FEE45A 25%, #FFF6D6 45%, #FEE45A 65%, #C8860A 100%);
+    color: #D4A017;
+}
+
+.txt-shine-silver {
+    background-image: linear-gradient(90deg, #8D93A0 0%, #E8ECF1 25%, #FFFFFF 45%, #E8ECF1 65%, #8D93A0 100%);
+    color: #cfd3d8;
+}
+
+@keyframes heroTextShine {
+    to {
+        background-position: -200% center;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .txt-shine-gold,
+    .txt-shine-silver {
+        animation: none;
+    }
+}
+
+/* --- Slide 2: thin divider rule under the heading --- */
+.hero-slide2-rule {
+    width: 100%;
+    max-width: 380px;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, .3), rgba(255, 255, 255, 0));
+    margin: 0 0 24px;
+}
+
+/* --- Slide 2: short value statement replacing the old feature list --- */
+.hero-slide2-value {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 1.4;
+    color: #fff;
+    margin: 0;
+}
+
+/* --- Slide 2: feature list --- */
+.hero-slide2-features,
+.hero-slide2-features li {
+    list-style: none !important;
+    list-style-type: none !important;
+}
+
+.hero-slide2-features {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.hero-slide2-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    text-align: left;
+}
+
+.hero-slide2-icon {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(212, 160, 23, 0.12);
+    border: 1px solid rgba(212, 160, 23, 0.55);
+    color: var(--gold);
+    font-size: 18px;
+}
+
+.hero-slide2-text {
+    font-family: var(--sans);
+    font-size: var(--m-body-size);
+    color: rgba(255, 255, 255, .85);
+    line-height: 1.5;
+    padding-top: 6px;
+    text-align: left;
+}
+
+/* --- Indicators: modern animated progress-bar pills ---
+   Reset Bootstrap's default absolute-positioned/tiny-tick indicator styles
+   first (they normally sit pinned to the bottom edge of the carousel),
+   then rebuild as a centered row of capsule tracks that fill up over the
+   slide's dwell time (kept in sync via the --hero-interval custom
+   property set on #heroCarousel, matching data-bs-interval). */
+.hero-carousel .carousel-indicators {
+    position: relative;
+    right: auto;
+    left: auto;
+    bottom: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin: 22px 0 34px;
+    padding: 0;
+    z-index: 4;
+}
+
+.hero-carousel .carousel-indicators [data-bs-target] {
+    position: relative;
+    flex: 0 0 auto;
+    width: 34px;
+    height: 6px;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    border-radius: 999px;
+    background-color: rgba(255, 255, 255, .28);
+    opacity: 1;
+    text-indent: 0;
+    overflow: hidden;
+    cursor: pointer;
+    transition: background-color .25s ease, width .25s ease;
+}
+
+.hero-carousel .carousel-indicators [data-bs-target]:hover {
+    background-color: rgba(255, 255, 255, .45);
+}
+
+.hero-carousel .carousel-indicators [data-bs-target]::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #FEE45A, #D4A017);
+}
+
+.hero-carousel .carousel-indicators [data-bs-target].active {
+    width: 44px;
+}
+
+/* Fully-filled track for a slide already passed (only relevant while the
+   next one is mid-fill) keeps the row reading as a left-to-right progress
+   set rather than isolated dots. */
+.hero-carousel .carousel-indicators [data-bs-target].active::after {
+    animation: heroIndicatorFill var(--hero-interval, 6s) linear forwards;
+}
+
+/* Autoplay never pauses on hover (data-bs-pause="false") -- it only pauses
+   when the slide itself is clicked (see the click-to-hold script), which
+   toggles this class so the indicator's progress-fill visually pauses in
+   step with the actual autoplay pause. */
+.hero-carousel.is-paused .carousel-indicators [data-bs-target].active::after {
+    animation-play-state: paused;
+}
+
+@keyframes heroIndicatorFill {
+    from {
+        width: 0%;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-carousel .carousel-indicators [data-bs-target].active::after {
+        animation: none;
+        width: 100%;
+    }
+}
+
+@media (max-width: 767px) {
+    .offer-tagline {
+        font-size: 11px;
+        margin-bottom: 12px;
+    }
+
+    .offer-stat-row {
+        justify-content: center;
+        gap: 14px;
+        margin-bottom: 20px;
+    }
+
+    .offer-stat-num {
+        font-size: 40px;
+    }
+
+    .offer-stat-days {
+        font-size: 16px;
+    }
+
+    .offer-stat-sub {
+        font-size: 12px;
+    }
+
+    .offer-status {
+        font-size: 12px;
+        padding: 7px 14px;
+    }
+
+    .hero-slide2-features {
+        gap: 14px;
+        align-items: center;
+    }
+
+    .hero-slide2-feature {
+        max-width: 320px;
+    }
+
+    .hero-slide2-icon {
+        width: 34px;
+        height: 34px;
+        font-size: 15px;
+    }
+
+    .hero-slide2-text {
+        font-size: 15px;
+        padding-top: 3px;
+    }
+
+    .hero-slide2-value {
+        font-size: 17px;
+    }
+
+    .hero-carousel-indicators {
+        margin: 18px 0 26px;
+    }
+}
+
 /* ======== BOTTOM CURVE ======== */
 .curve-wrap {
     position: relative;
@@ -703,7 +1483,7 @@ img {
     text-align: left;
 }
 
-/* Wide bottom-row cards — 2 per row, centered */
+/* Wide bottom-row cards â€” 2 per row, centered */
 .why-feature-card-wide {
     flex: 0 0 calc(30.333% - 17.333px);
 }
@@ -777,7 +1557,7 @@ img {
     margin: 0;
 }
 
-/* Content — two columns */
+/* Content â€” two columns */
 .stable-invest-content {
     display: flex;
     align-items: center;
@@ -901,7 +1681,7 @@ img {
     margin: 0;
 }
 
-/* SIP Content — two columns */
+/* SIP Content â€” two columns */
 .sip-content {
     display: flex;
     gap: 60px;
@@ -935,7 +1715,7 @@ img {
     margin-top: 12px;
 }
 
-/* SIP Right — plan picker */
+/* SIP Right â€” plan picker */
 .sip-content-right {
     flex: 1;
 }
@@ -1781,7 +2561,7 @@ label {
     color: var(--gold);
 }
 
-/* Nav row — spread with dashed border */
+/* Nav row â€” spread with dashed border */
 .footer-nav {
     display: flex;
     flex-wrap: wrap;
@@ -1806,7 +2586,7 @@ label {
     color: var(--gold);
 }
 
-/* Bottom row — 3 columns */
+/* Bottom row â€” 3 columns */
 .footer-bottom {
     display: flex;
     justify-content: space-between;
@@ -2039,7 +2819,7 @@ label {
     margin: 0;
 }
 
-/* ======== ABOUT — WHY STARTGOLD ======== */
+/* ======== ABOUT â€” WHY STARTGOLD ======== */
 .about-why-section {
     background: linear-gradient(134.11deg, #FFF8E4 15.42%, #FFDF92 109.23%);
     padding: 50px 0 90px;
@@ -3115,7 +3895,7 @@ label {
 
 /* ======== SCROLL ANIMATIONS ======== */
 
-/* Base hidden state — all animated elements start invisible */
+/* Base hidden state â€” all animated elements start invisible */
 [data-anim] {
     opacity: 0;
     will-change: transform, opacity;
@@ -3382,7 +4162,7 @@ label {
     font-size: 1.1rem;
 }
 
-/* About page � tablet */
+/* About page ï¿½ tablet */
 .about-mv-card {
     padding: 30px 28px;
 }
@@ -3395,7 +4175,7 @@ label {
     padding: 50px 30px;
 }
 
-/* Contact page � tablet */
+/* Contact page ï¿½ tablet */
 .slide-features.right {
     right: 4px;
 }
@@ -3413,7 +4193,7 @@ label {
 /* ========================================================
    Mobile Menu Redesign (max-width: 991px)
    Matches reference 3jsviz design but keeps Desktop unchanged
-   — Rules moved to consolidated @media (max-width: 991px) block
+   â€” Rules moved to consolidated @media (max-width: 991px) block
    ======================================================== */
 
 /* ========================================================
@@ -3499,13 +4279,18 @@ label {
     width: 240px !important;
     max-width: none !important;
     border-radius: 30px !important;
-    background: linear-gradient(180deg, #012a12 0%, #003716 100%) !important;
+    background: rgba(2, 42, 22, 0.6) !important;
+    backdrop-filter: blur(28px) saturate(160%) !important;
+    -webkit-backdrop-filter: blur(28px) saturate(160%) !important;
     padding: 30px 24px 34px !important;
     transform: translateY(-15px) scale(0.98) !important;
     opacity: 0 !important;
     visibility: hidden !important;
-    border: 1px solid rgba(255, 215, 0, 0.15) !important;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-top-color: rgba(255, 255, 255, 0.35) !important;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.18),
+        0 20px 40px rgba(0, 0, 0, 0.5);
     transition: transform 0.4s cubic-bezier(0.22, 0.68, 0, 1.02), opacity 0.4s ease, visibility 0.4s ease !important;
 }
 
@@ -3536,7 +4321,7 @@ label {
 .menu-overlay a {
     font-family: var(--sans);
     font-size: 1.15rem !important;
-    color: rgba(255, 255, 255, 0.7) !important;
+    color: rgba(255, 255, 255, 0.92) !important;
     padding: 10px 10px 10px 26px !important;
     transform: translateX(30px) !important;
     opacity: 0 !important;
@@ -3623,14 +4408,14 @@ label {
 
 
 /* ============================================================
-   SECTION SPACING FIX — trust-badges → digi-gold → faq
+   SECTION SPACING FIX â€” trust-badges â†’ digi-gold â†’ faq
    
    Problem: scattered top/margin-bottom hacks caused overlapping
    and gaps on different devices.
    
    Solution: Use margin-top ONLY for the digi-gold overlap.
    margin-top collapses flow (no gap left behind).
-   FAQ section flows naturally — no compensation needed.
+   FAQ section flows naturally â€” no compensation needed.
    ============================================================ */
 
 /* --- Global reset: kill ALL top/margin-bottom hacks --- */
@@ -3654,7 +4439,7 @@ label {
 }
 
 /* ============================================================
-   GLOBAL FOOTER SPACING — applies to ALL pages equally
+   GLOBAL FOOTER SPACING â€” applies to ALL pages equally
    Ensures the same tight gap between any page's last section
    and the footer component.
    ============================================================ */

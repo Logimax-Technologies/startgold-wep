@@ -9,6 +9,36 @@
     <title>Contact Us - StartGOLD | Get in Touch</title>
     <meta name="description"
         content="Contact StartGOLD — reach out for support, queries, or feedback. We're here to help you on your gold investment journey.">
+    <!-- Path-safety fix: every asset on this site (css/, img/, js/, components/) is
+         referenced with a relative path like "css/style.css". Relative paths resolve
+         against the CURRENT URL's folder -- but only if that URL ends in "/". Load this
+         page at e.g. https://startgold.com/test (no trailing slash) instead of
+         https://startgold.com/test/, and the browser treats "test" as a FILE in the
+         root folder rather than a folder itself, so every relative asset silently
+         resolves one level up (https://startgold.com/css/... instead of
+         https://startgold.com/test/css/...) -- serving whatever is at that same path in
+         production instead of this folder's own files. This one-line fix pins a <base>
+         tag to this document's actual folder before anything else loads, so every
+         relative path below resolves correctly regardless of a missing trailing slash,
+         which subfolder/staging path this is deployed under, or environment. Must stay
+         the very first thing in <head>, before any relative <link>/<script src>.
+    -->
+    <script>
+        document.write('<base href="' + (function () {
+            var path = location.pathname;
+            if (path.charAt(path.length - 1) !== '/') {
+                var lastSegment = path.substring(path.lastIndexOf('/') + 1);
+                // No "." in the last segment means it reads as a folder name
+                // ("/test") rather than a file ("/test/index.html" or
+                // "/about.html") -- append the missing trailing slash instead
+                // of stripping down to the parent folder.
+                path = lastSegment.indexOf('.') === -1
+                    ? path + '/'
+                    : path.substring(0, path.lastIndexOf('/') + 1);
+            }
+            return location.origin + path;
+        })() + '">');
+    </script>
     <script src="js/common.js"></script>
     <link rel="stylesheet" href="vendor/intl-tel-input/intlTelInput.css">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>

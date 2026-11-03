@@ -6,9 +6,39 @@
     <meta name="google-site-verification" content="BbC-nKT3wPJDlN66nUnDt_HHox5hEfvXDhA4WOoMl2M" />
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>Terms & Conditions - StartGOLD | Digital Gold Investment Platform</title>
+    <title>Terms & Conditions - startGOLD | Pure Gold Savings Platform</title>
     <meta name="description"
-        content="Read StartGOLD's Terms and Conditions outlining the rules, eligibility, and policies for using our digital gold investment platform.">
+        content="Read startGOLD's Terms and Conditions outlining the rules, eligibility, and policies for using our pure gold savings platform.">
+    <!-- Path-safety fix: every asset on this site (css/, img/, js/, components/) is
+         referenced with a relative path like "css/style.css". Relative paths resolve
+         against the CURRENT URL's folder -- but only if that URL ends in "/". Load this
+         page at e.g. https://startgold.com/test (no trailing slash) instead of
+         https://startgold.com/test/, and the browser treats "test" as a FILE in the
+         root folder rather than a folder itself, so every relative asset silently
+         resolves one level up (https://startgold.com/css/... instead of
+         https://startgold.com/test/css/...) -- serving whatever is at that same path in
+         production instead of this folder's own files. This one-line fix pins a <base>
+         tag to this document's actual folder before anything else loads, so every
+         relative path below resolves correctly regardless of a missing trailing slash,
+         which subfolder/staging path this is deployed under, or environment. Must stay
+         the very first thing in <head>, before any relative <link>/<script src>.
+    -->
+    <script>
+        document.write('<base href="' + (function () {
+            var path = location.pathname;
+            if (path.charAt(path.length - 1) !== '/') {
+                var lastSegment = path.substring(path.lastIndexOf('/') + 1);
+                // No "." in the last segment means it reads as a folder name
+                // ("/test") rather than a file ("/test/index.html" or
+                // "/about.html") -- append the missing trailing slash instead
+                // of stripping down to the parent folder.
+                path = lastSegment.indexOf('.') === -1
+                    ? path + '/'
+                    : path.substring(0, path.lastIndexOf('/') + 1);
+            }
+            return location.origin + path;
+        })() + '">');
+    </script>
     <script src="js/common.js"></script>
 </head>
 
@@ -53,7 +83,7 @@
                         application, website, products, and related services offered by <strong>STARTGOLD CAPITAL
                             SOLUTIONS PRIVATE LIMITED</strong>, having its address at #477-482, Anna Salai, 1st Floor,
                         Khivraj Complex-2, Chennai 600 035, Tamil Nadu, India.</p>
-                    <p>By registering, accessing, browsing, or using the StartGOLD App or any related services, the user
+                    <p>By registering, accessing, browsing, or using the startGOLD App or any related services, the user
                         agrees to be bound by these Terms and Conditions, the Privacy Policy, and any other policies or
                         guidelines published by the Company from time to time.</p>
                 </div>
@@ -106,7 +136,7 @@
                 <!-- 4. Nature of Services -->
                 <div class="policy-section" id="services">
                     <h1 class="policy-heading"><span class="policy-num">4.</span> Nature of Services</h1>
-                    <p>The StartGOLD App enables users to access digital precious metal related services that may
+                    <p>The startGOLD App enables users to access the saved precious metal related services that may
                         include purchase, accumulation, holdings display, rewards, referrals, sale, redemption,
                         withdrawal, payment support, and related customer services, subject to product availability,
                         partner arrangements, operational feasibility, and applicable law.</p>
@@ -313,7 +343,7 @@
                 <!-- 18. Privacy -->
                 <div class="policy-section" id="privacy">
                     <h1 class="policy-heading"><span class="policy-num">18.</span> Privacy</h1>
-                    <p>Use of the App is also governed by the <strong>StartGOLD Privacy Policy</strong>, as updated from
+                    <p>Use of the App is also governed by the <strong>startGOLD Privacy Policy</strong>, as updated from
                         time to time. By using the Platform, the user acknowledges that personal data may be collected,
                         used, shared, stored, and processed in accordance with the Privacy Policy and applicable law.
                     </p>

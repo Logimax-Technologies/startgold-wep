@@ -5,9 +5,39 @@
     <meta charset="UTF-8">
     <meta name="google-site-verification" content="BbC-nKT3wPJDlN66nUnDt_HHox5hEfvXDhA4WOoMl2M" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>Features - StartGOLD | Digital Gold Investment Platform</title>
+    <title>Features - startGOLD | Pure Gold Savings Platform</title>
     <meta name="description"
-        content="Explore StartGOLD features — live pricing, secure gold staking, instant redemption, SIP automation and more. Full control over your 24K gold journey.">
+        content="Explore startGOLD features — live pricing, secure gold savings, instant redemption, AutoGold automation and more. Full control over your 24K pure gold journey.">
+    <!-- Path-safety fix: every asset on this site (css/, img/, js/, components/) is
+         referenced with a relative path like "css/style.css". Relative paths resolve
+         against the CURRENT URL's folder -- but only if that URL ends in "/". Load this
+         page at e.g. https://startgold.com/test (no trailing slash) instead of
+         https://startgold.com/test/, and the browser treats "test" as a FILE in the
+         root folder rather than a folder itself, so every relative asset silently
+         resolves one level up (https://startgold.com/css/... instead of
+         https://startgold.com/test/css/...) -- serving whatever is at that same path in
+         production instead of this folder's own files. This one-line fix pins a <base>
+         tag to this document's actual folder before anything else loads, so every
+         relative path below resolves correctly regardless of a missing trailing slash,
+         which subfolder/staging path this is deployed under, or environment. Must stay
+         the very first thing in <head>, before any relative <link>/<script src>.
+    -->
+    <script>
+        document.write('<base href="' + (function () {
+            var path = location.pathname;
+            if (path.charAt(path.length - 1) !== '/') {
+                var lastSegment = path.substring(path.lastIndexOf('/') + 1);
+                // No "." in the last segment means it reads as a folder name
+                // ("/test") rather than a file ("/test/index.html" or
+                // "/about.html") -- append the missing trailing slash instead
+                // of stripping down to the parent folder.
+                path = lastSegment.indexOf('.') === -1
+                    ? path + '/'
+                    : path.substring(0, path.lastIndexOf('/') + 1);
+            }
+            return location.origin + path;
+        })() + '">');
+    </script>
     <script src="js/common.js"></script>
 </head>
 
@@ -29,7 +59,7 @@
                     <div class="col-lg-7 col-md-7">
                         <h1 class="about-hero-heading">Empowering <br>Gold Ownership.</h1>
                         <p class="about-hero-desc">
-                            StartGold is built to make gold savings intuitive, secure, and rewarding. From
+                            startGOLD is built to make gold savings intuitive, secure, and rewarding. From
                             live pricing to staking, every feature is designed to give users full control over
                             their gold — whether you're saving for the future or redeeming today.
                         </p>
@@ -54,51 +84,53 @@
             <!-- Desktop Image -->
             <div class="feat-showcase-image d-none d-lg-block">
                 <img loading="lazy" src="img/Group 1171277086-1.png"
-                    alt="StartGold App Features — Invest Gold, Buy & Sell, Auto Invest" id="feat-showcase-img">
+                    alt="StartGold App Features — Save Gold, Buy & Sell, Auto-Save" id="feat-showcase-img">
             </div>
 
             <!-- Mobile Layout -->
             <div class="feat-mobile-showcase d-block d-lg-none">
                 <div class="feat-mobile-item">
-                    <img loading="lazy" src="img/feature1.png" alt="Invest Gold" class="feat-mobile-img">
+                    <img loading="lazy" src="img/feature1.png" alt="Save Gold" class="feat-mobile-img">
                 </div>
                 <div class="feat-mobile-item">
                     <img loading="lazy" src="img/feature2.png" alt="Buy &amp; Sell" class="feat-mobile-img">
                 </div>
                 <div class="feat-mobile-item">
-                    <img loading="lazy" src="img/feature3.png" alt="Auto Invest" class="feat-mobile-img">
+                    <img loading="lazy" src="img/feature3.png" alt="Auto-Save" class="feat-mobile-img">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== SIP SECTION ===== -->
+    <!-- ===== AutoGold SECTION ===== -->
     <section class="sip-section sip-section-new">
         <div class="container">
             <div class="sip-header">
-                <span class="sip-sub">Too Busy to Invest?</span>
+                <span class="sip-sub">Too Busy to Save Your Money?</span>
                 <h1 class="sip-title">Automate money like never before</h1>
-                <p class="sip-desc">Introducing a seamless blend of SIPs, round-ups, and auto-invest to automate your
-                    investments effortlessly<br>and worry-free.</p>
+                <p class="sip-desc">Introducing a seamless blend of AutoGold plans, round-ups, and auto-save to automate your
+                    savings effortlessly<br>and worry-free.</p>
             </div>
             <div class="sip-content">
                 <div class="sip-content-left">
-                    <h3 class="sip-grow-title">Your money grows,<br>automatically with SIPs.</h3>
-                    <p class="sip-grow-text">SIP investors can build 2-3x more wealth over time through the power of
-                        compounding—choose your plan, set your frequency, and automate your investments with ease.</p>
+                    <h3 class="sip-grow-title">Your money grows,<br>automatically with AutoGold plans.</h3>
+                    <p class="sip-grow-text">AutoGold customers can build 2-3x more wealth over time through the power of
+                        compounding—choose your plan, set your frequency, and automate your savings with ease.</p>
                     <p class="sip-grow-text">Stored in safe &amp; secure vaults, with the flexibility to withdraw,
                         pause, or cancel anytime—you're always in complete control while your goals run effortlessly on
                         autopilot.</p>
-                    <a href="#" class="btn-start-invest">
-                        Start SIP <img loading="lazy" src="img/android.png" alt="Android"> <img loading="lazy" src="img/apple.png" alt="Apple">
+                    <a href="#" class="btn-start-invest js-store-cta">
+                        Start AutoGold <img loading="lazy" src="img/android.png" alt="Android"> <img loading="lazy"
+                            src="img/apple.png" alt="Apple">
                     </a>
                 </div>
                 <div class="sip-content-right">
-                    <h4 class="sip-plan-heading">Choose your SIP plan</h4>
+                    <h4 class="sip-plan-heading">Choose your AutoGold plan</h4>
                     <div class="sip-toggle">
                         <button class="sip-pill active">Daily</button>
                         <button class="sip-pill">Weekly</button>
                         <button class="sip-pill">Monthly</button>
+                        <button class="sip-pill">Flexi</button>
                     </div>
                     <div class="sip-cards-row">
                         <div class="sip-plan-card">
@@ -113,7 +145,7 @@
                         <div class="sip-plan-card">
                             <div class="sip-plan-header-row">
                                 <div class="sip-plan-icon"><i class="bi bi-gear-fill"></i></div>
-                                <h5 class="sip-plan-name">Custom</h5>
+                                <h5 class="sip-plan-name">Flexi</h5>
                             </div>
                             <p class="sip-plan-tag">Design your own strategy</p>
                             <p class="sip-plan-mix">Choose amount, frequency<br>&amp; mix.</p>
@@ -129,7 +161,7 @@
         <!-- Slide 1: Gold -->
         <div class="app-slide active" data-bg="gold">
             <div class="container">
-                <h1 class="slide-heading">Welcome to a golden world of investing—like<br>never before.</h1>
+                <h1 class="slide-heading">Welcome to a golden world of savings like<br>never before.</h1>
                 <div class="slide-layout">
                     <div class="slide-features left">
                         <div class="slide-feature">
@@ -150,12 +182,12 @@
                         <div class="slide-feature">
                             <div class="sf-icon"><img loading="lazy" src="img/easy_cash_withdrawal.svg" alt="Withdrawal"></div>
                             <h4 class="sf-title">Easy cash withdrawal</h4>
-                            <p class="sf-text">Withdraw your funds instantly, anytime with ease.</p>
+                            <p class="sf-text">Withdraw your funds easily, anytime with ease.</p>
                         </div>
                         <div class="slide-feature">
                             <div class="sf-icon"><img loading="lazy" src="img/referearn.svg" alt="Refer"></div>
                             <h4 class="sf-title">Refer & Earn</h4>
-                            <p class="sf-text">Invite friends and earn rewards every time they start investing in gold.
+                            <p class="sf-text">Invite friends and earn rewards every time they start savings in gold.
                             </p>
                         </div>
                     </div>
@@ -187,12 +219,12 @@
                         <div class="slide-feature">
                             <div class="sf-icon"><img loading="lazy" src="img/easy_cash_withdrawal.svg" alt="Withdrawal"></div>
                             <h4 class="sf-title">Easy cash withdrawal</h4>
-                            <p class="sf-text">Withdraw your funds instantly, anytime with ease.</p>
+                            <p class="sf-text">Withdraw your funds easily, anytime with ease.</p>
                         </div>
                         <div class="slide-feature">
                             <div class="sf-icon"><img loading="lazy" src="img/referearn.svg" alt="Refer"></div>
                             <h4 class="sf-title">Refer & Earn</h4>
-                            <p class="sf-text">Invite friends and earn rewards every time they start investing in gold.
+                            <p class="sf-text">Invite friends and earn rewards every time they start savings in silver.
                             </p>
                         </div>
                     </div>

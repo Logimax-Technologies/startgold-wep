@@ -138,58 +138,18 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 /** Header interactions — scroll, hamburger */
 function initHeader() {
-    // Scroll effect - Match background color of active section
-    const sectionColors = [
-        { selector: '.top-wrapper', color: 'rgba(2, 42, 22, 0.95)' },
-        { selector: '.golden-banner', color: 'linear-gradient(134.11deg, rgba(255, 239, 192, 0.95) 15.42%, rgba(255, 217, 124, 0.95) 109.23%)' },
-        { selector: '.why-choose-section', color: 'linear-gradient(134.11deg, rgba(255, 248, 228, 0.95) 15.42%, rgba(255, 223, 146, 0.95) 109.23%)' },
-        { selector: '.stable-invest-section', color: 'rgba(255, 192, 36, 0.95)' },
-        { selector: '.sip-section', color: 'linear-gradient(134.11deg, rgba(255, 248, 228, 0.95) 15.42%, rgba(255, 223, 146, 0.95) 109.23%)' },
-        { selector: '.app-slider-section', color: 'rgba(2, 42, 22, 0.95)' },
-        { selector: '.trust-badges-section', color: 'rgba(2, 42, 22, 0.95)' },
-        { selector: '.digi-gold-section', color: 'rgba(2, 42, 22, 0.95)' },
-        { selector: '.faq-section', color: 'rgba(252, 235, 187, 0.95)' },
-        { selector: '.about-hero', color: 'rgba(252, 235, 187, 0.95)' },
-        { selector: '.about-mv-section', color: 'linear-gradient(134.11deg, rgba(255, 248, 228, 0.95) 15.42%, rgba(255, 223, 146, 0.95) 109.23%)' },
-        { selector: '.about-why-section', color: 'linear-gradient(134.11deg, rgba(255, 248, 228, 0.95) 15.42%, rgba(255, 223, 146, 0.95) 109.23%)' },
-        { selector: '.contact-page-wrapper', color: 'rgba(252, 235, 187, 0.95)' },
-        { selector: 'footer', color: 'rgba(2, 42, 22, 0.95)' },
-        { selector: '.site-footer-new', color: 'rgba(2, 42, 22, 0.95)' }
-    ];
-
+    // The header bar is now genuinely translucent via CSS (backdrop-filter
+    // blur on .header-bar), so it adapts to whatever's behind it
+    // automatically -- no more need to track scroll position against a
+    // hardcoded list of section selectors/colors and manually paint a
+    // matching background on the header every scroll tick. The only thing
+    // still worth doing on scroll is toggling a lightweight "scrolled"
+    // state for the small padding tweak once the user has moved off the
+    // very top of the page.
     window.addEventListener('scroll', () => {
         const header = document.getElementById('siteHeader');
         if (!header) return;
-
-        const scrollY = window.scrollY;
-        header.classList.toggle('scrolled', scrollY > 40);
-
-        if (scrollY > 40) {
-            const headerCenter = scrollY + (header.offsetHeight / 2);
-            let currentColor = 'rgba(2, 42, 22, 0.95)'; // Default Dark Green
-
-            const elements = document.querySelectorAll(sectionColors.map(s => s.selector).join(', '));
-
-            elements.forEach(el => {
-                const rect = el.getBoundingClientRect();
-                const top = rect.top + scrollY;
-                const bottom = top + rect.height;
-
-                if (headerCenter >= top && headerCenter <= bottom) {
-                    for (const item of sectionColors) {
-                        if (el.matches(item.selector)) {
-                            currentColor = item.color;
-                            break;
-                        }
-                    }
-                }
-            });
-
-            header.style.background = currentColor;
-        } else {
-            header.style.background = '';
-            header.style.backgroundColor = ''; // Clear both just in case
-        }
+        header.classList.toggle('scrolled', window.scrollY > 40);
     });
 
     // Hamburger menu
@@ -231,6 +191,361 @@ function initHeader() {
 
     // Start live rate updates via WebSocket
     initLiveRates();
+
+    // Store links: direct-navigate on the matching platform, QR modal otherwise
+    initAppLinks();
+
+    // "Start Saving Gold" / "Start AutoGold" CTA buttons: direct-navigate on
+    // a matching phone platform, both-QR modal on desktop
+    initStoreCtaButtons();
+
+    // "A newer version of this site is available" toast, whenever the
+    // visitor's cached css/js is behind what's actually deployed
+    initVersionCheck();
+}
+
+/** Detects when the visitor's browser is holding a stale cached copy of
+ *  the site's own css/js and offers a one-click reload once it's confident
+ *  the deployed files have actually changed -- e.g. after a deploy that
+ *  purges/updates css/style.css or js/common.js on the server, someone who
+ *  already had the site open (or whose browser aggressively cached those
+ *  files) would otherwise keep running the old ones until they happen to
+ *  do a manual hard refresh.
+ *
+ *  Deliberately requires NO manual "bump this version number on every
+ *  deploy" step -- it compares the browser's own cached copy of each
+ *  watched file against a guaranteed-fresh network fetch of the same URL,
+ *  using the file's own ETag/Last-Modified/Content-Length (whichever the
+ *  server provides) as the signature to compare. A real deploy that
+ *  changes these files' content will naturally change at least one of
+ *  those response headers, so there's nothing for anyone to remember to
+ *  update alongside a deploy -- this reads the truth directly off the
+ *  server every time.
+ *
+ *  Fails silently (no false "update available" toast) if the server
+ *  doesn't send any of those headers for a given file, or if the
+ *  visitor's browser/network blocks the extra fetches -- most static
+ *  hosts/CDNs do send at least one of them by default, but this is not
+ *  guaranteed for every possible hosting setup.
+ */
+function initVersionCheck() {
+    const WATCHED_FILES = ['js/common.js', 'css/style.css'];
+    const CHECK_INTERVAL_MS = 5 * 60 * 1000; // re-check every 5 minutes while the tab stays open
+    const DISMISS_KEY_PREFIX = 'sg_update_dismissed_';
+    let toastEl = null;
+
+    function fileSignature(res) {
+        // Prefer ETag (usually the most precise), then Last-Modified, then
+        // Content-Length as a last resort -- weaker (two different file
+        // contents could coincidentally be the same length), but still
+        // catches most real changes if a host doesn't send the other two.
+        return res.headers.get('etag') || res.headers.get('last-modified') || res.headers.get('content-length') || '';
+    }
+
+    function getSignatures(cacheMode) {
+        return Promise.all(WATCHED_FILES.map((path) =>
+            fetch(path, { cache: cacheMode }).then(fileSignature).catch(() => null)
+        )).then((sigs) => sigs.join('|'));
+    }
+
+    function forceReload() {
+        // Re-fetch the watched files with cache:'reload' one more time
+        // right before navigating -- like the background check below,
+        // this both bypasses the cache for reading AND overwrites the
+        // browser's cache entry for that exact URL with the fresh
+        // response, so the reload that follows picks up the new files
+        // immediately rather than serving what was cached a moment ago.
+        Promise.all(WATCHED_FILES.map((path) =>
+            fetch(path, { cache: 'reload' }).catch(() => null)
+        )).finally(() => {
+            window.location.reload();
+        });
+    }
+
+    function showToast(freshSig) {
+        if (toastEl) return;
+        toastEl = document.createElement('div');
+        toastEl.className = 'version-toast';
+        toastEl.setAttribute('role', 'status');
+        toastEl.setAttribute('aria-live', 'polite');
+        toastEl.innerHTML =
+            '<span class="version-toast-text">A newer version of this site is available.</span>' +
+            '<button type="button" class="version-toast-reload">Reload</button>' +
+            '<button type="button" class="version-toast-close" aria-label="Dismiss">&times;</button>';
+        document.body.appendChild(toastEl);
+        requestAnimationFrame(() => requestAnimationFrame(() => toastEl.classList.add('show')));
+
+        toastEl.querySelector('.version-toast-reload').addEventListener('click', forceReload);
+        toastEl.querySelector('.version-toast-close').addEventListener('click', () => {
+            sessionStorage.setItem(DISMISS_KEY_PREFIX + freshSig, '1');
+            toastEl.classList.remove('show');
+            const el = toastEl;
+            toastEl = null;
+            setTimeout(() => el.remove(), 400);
+        });
+    }
+
+    function checkForUpdate() {
+        Promise.all([getSignatures('force-cache'), getSignatures('reload')])
+            .then(([cachedSig, freshSig]) => {
+                if (!cachedSig || !freshSig) return; // headers unavailable -- stay quiet, no false alarm
+                if (cachedSig === freshSig) return; // already up to date
+                if (sessionStorage.getItem(DISMISS_KEY_PREFIX + freshSig)) return; // already dismissed this exact update
+                showToast(freshSig);
+            })
+            .catch(() => { /* offline, blocked, etc. -- ignore */ });
+    }
+
+    checkForUpdate();
+    setInterval(checkForUpdate, CHECK_INTERVAL_MS);
+    document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible') checkForUpdate();
+    });
+}
+
+// Shared store links + branded QR images, used by both the header icons
+// and the "Start Saving Gold"/"Start AutoGold" CTA buttons below.
+const STORE_LINKS = {
+    android: 'https://play.google.com/store/apps/details?id=com.startgold.app&pcampaignid=web_share',
+    ios: 'https://apps.apple.com/in/app/startgold/id6786217713'
+};
+// Pre-made, branded (logo-in-the-middle) QR codes -- not generated on the
+// fly, so there's no third-party QR API dependency at all.
+const STORE_QR_IMAGES = {
+    android: 'img/startGOLD_Android.png',
+    ios: 'img/startGOLD_iOS.png'
+};
+
+// Copies a link to the clipboard and briefly swaps the button's icon/text
+// to a "Copied!" confirmation state before reverting. Falls back to the
+// older execCommand('copy') technique for any browser without the modern
+// Clipboard API (or where it's blocked, e.g. non-HTTPS/insecure contexts).
+function copyLinkToClipboard(url, btnEl) {
+    if (!btnEl) return;
+    const textEl = btnEl.querySelector('.qr-copy-btn-text');
+    const iconEl = btnEl.querySelector('i');
+    if (!textEl || !iconEl) return;
+    if (btnEl._copyResetTimer) clearTimeout(btnEl._copyResetTimer);
+
+    function showCopied() {
+        textEl.textContent = 'Copied!';
+        iconEl.className = 'bi bi-check2';
+        btnEl.classList.add('copied');
+        btnEl._copyResetTimer = setTimeout(() => {
+            textEl.textContent = 'Copy Link';
+            iconEl.className = 'bi bi-clipboard';
+            btnEl.classList.remove('copied');
+        }, 2000);
+    }
+
+    function legacyFallbackCopy() {
+        try {
+            const ta = document.createElement('textarea');
+            ta.value = url;
+            ta.style.position = 'fixed';
+            ta.style.opacity = '0';
+            document.body.appendChild(ta);
+            ta.focus();
+            ta.select();
+            document.execCommand('copy');
+            document.body.removeChild(ta);
+            showCopied();
+        } catch (e) { /* clipboard unavailable -- give up quietly */ }
+    }
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(showCopied).catch(legacyFallbackCopy);
+    } else {
+        legacyFallbackCopy();
+    }
+}
+
+function detectPlatform() {
+    // Prefer the modern, explicit User-Agent Client Hints API where the
+    // browser supports it (Chromium-based browsers). Google's own guidance
+    // is to use this over parsing navigator.userAgent going forward: that
+    // string is being progressively "reduced" (frozen minor/patch version,
+    // genericized device model) as part of Chrome's ongoing UA Reduction
+    // rollout, so relying on it alone gets less reliable as that continues.
+    // userAgentData.platform/.mobile are synchronous (unlike
+    // getHighEntropyValues(), which is async), so this needs no restructuring.
+    if (navigator.userAgentData && navigator.userAgentData.platform) {
+        if (/android/i.test(navigator.userAgentData.platform)) return 'android';
+    }
+
+    const ua = navigator.userAgent || navigator.vendor || '';
+    // iPadOS 13+ reports itself as "MacIntel" with no "iPad" in the UA
+    // string at all, so a touch-capable "Mac" is treated as iOS too.
+    const isIpadOS13Plus = navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1;
+    if (/android/i.test(ua)) return 'android';
+    if (/iPad|iPhone|iPod/.test(ua) || isIpadOS13Plus) return 'ios';
+    return 'desktop';
+}
+
+// Chrome for iOS (CriOS) has a long-standing, widely-reported bug where a
+// target="_blank" link opens a new tab that immediately closes itself and
+// bounces back to the original tab -- visible as a brief flash, then
+// landing back on this page instead of the store. It's specific to
+// Chrome's iOS build (a thin WebKit wrapper, not Safari's own engine), so
+// the fix is to skip target="_blank" for that one browser and just
+// navigate the current tab instead.
+function isChromeIOS() {
+    return /CriOS/i.test(navigator.userAgent || '');
+}
+
+// Opens a URL the way a real link click would (rather than window.open(),
+// which several mobile browsers visibly open as a blank tab first and only
+// navigate a moment later -- the "blank tab then redirect" delay). Falls
+// back to same-tab navigation on Chrome for iOS specifically, to sidestep
+// its self-closing-tab bug described above.
+function openStoreLink(url) {
+    if (isChromeIOS()) {
+        window.location.href = url;
+        return;
+    }
+    const a = document.createElement('a');
+    a.href = url;
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+}
+
+/** Store-link routing + QR modal for the two header icons.
+ *  - Android visitor clicking Google Play  -> opens normally (new tab)
+ *  - iOS visitor clicking the App Store    -> opens normally (new tab)
+ *  - Any other combination (wrong platform, or desktop clicking either)
+ *    -> shows a QR modal instead, with the branded pre-made QR image for
+ *       that store, so a desktop visitor (or someone on the "wrong" phone
+ *       OS) can scan it with their phone rather than land on a store page
+ *       they can't use.
+ */
+function initAppLinks() {
+    const platform = detectPlatform();
+
+    const playLink = document.getElementById('playStoreLink');
+    const appLink = document.getElementById('appStoreLink');
+    const qrBackdrop = document.getElementById('qrModalBackdrop');
+    const qrModal = document.getElementById('qrModal');
+    const qrImg = document.getElementById('qrModalImg');
+    const qrTitle = document.getElementById('qrModalTitle');
+    const qrSub = document.getElementById('qrModalSub');
+    const qrCopyBtn = document.getElementById('qrModalCopyBtn');
+    const qrClose = document.getElementById('qrModalClose');
+    if (!playLink || !appLink || !qrBackdrop || !qrModal) return;
+
+    let currentUrl = '';
+
+    function openQrModal(url, storeName, qrImgSrc, scanCaption) {
+        currentUrl = url;
+        qrImg.src = qrImgSrc;
+        qrImg.alt = storeName + ' QR code';
+        qrTitle.textContent = 'Get the app on ' + storeName;
+        qrSub.textContent = scanCaption;
+        qrBackdrop.classList.add('open');
+        qrModal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    if (qrCopyBtn) {
+        qrCopyBtn.addEventListener('click', () => copyLinkToClipboard(currentUrl, qrCopyBtn));
+    }
+
+    function closeQrModal() {
+        qrBackdrop.classList.remove('open');
+        qrModal.classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    if (qrClose) qrClose.addEventListener('click', closeQrModal);
+    qrBackdrop.addEventListener('click', closeQrModal);
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeQrModal();
+    });
+
+    playLink.addEventListener('click', (e) => {
+        if (platform !== 'android') {
+            e.preventDefault();
+            openQrModal(STORE_LINKS.android, 'Google Play', STORE_QR_IMAGES.android, 'Scan to download from PlayStore');
+        }
+        // On Android, do nothing extra -- the link's own href + target="_blank" handles it.
+        // (Chrome for iOS's self-closing-tab bug doesn't apply here: this
+        // branch only runs when the visitor is actually on Android.)
+    });
+
+    appLink.addEventListener('click', (e) => {
+        if (platform !== 'ios') {
+            e.preventDefault();
+            openQrModal(STORE_LINKS.ios, 'the App Store', STORE_QR_IMAGES.ios, 'Scan to download from AppStore');
+        } else if (isChromeIOS()) {
+            // Let openStoreLink() handle Chrome-iOS's same-tab workaround
+            // instead of the plain target="_blank" click that would
+            // otherwise trigger the self-closing-tab bug.
+            e.preventDefault();
+            openStoreLink(STORE_LINKS.ios);
+        }
+        // Otherwise (Safari, or any other non-Chrome iOS browser): let the
+        // native target="_blank" click proceed as normal.
+    });
+}
+
+/** "Start Saving Gold" / "Start AutoGold" CTA buttons (a single button,
+ *  unlike the two separate header icons):
+ *  - Android visitor -> opens Google Play directly (new tab)
+ *  - iOS/iPadOS visitor -> opens the App Store directly (new tab)
+ *  - Desktop visitor -> shows both store QR codes at once, since there's
+ *    no single icon to click that already implies which store they meant.
+ */
+function initStoreCtaButtons() {
+    const buttons = document.querySelectorAll('.js-store-cta');
+    if (!buttons.length) return;
+
+    const platform = detectPlatform();
+    const dualBackdrop = document.getElementById('dualQrModalBackdrop');
+    const dualModal = document.getElementById('dualQrModal');
+    const dualClose = document.getElementById('dualQrModalClose');
+
+    if (dualModal) {
+        dualModal.querySelectorAll('.qr-copy-btn[data-store]').forEach((btn) => {
+            const store = btn.getAttribute('data-store');
+            const url = STORE_LINKS[store];
+            if (url) btn.addEventListener('click', () => copyLinkToClipboard(url, btn));
+        });
+    }
+
+    function openDualQrModal() {
+        if (!dualBackdrop || !dualModal) return;
+        dualBackdrop.classList.add('open');
+        dualModal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeDualQrModal() {
+        if (!dualBackdrop || !dualModal) return;
+        dualBackdrop.classList.remove('open');
+        dualModal.classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    if (dualClose) dualClose.addEventListener('click', closeDualQrModal);
+    if (dualBackdrop) dualBackdrop.addEventListener('click', closeDualQrModal);
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeDualQrModal();
+    });
+
+    buttons.forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (platform === 'android') {
+                openStoreLink(STORE_LINKS.android);
+            } else if (platform === 'ios') {
+                openStoreLink(STORE_LINKS.ios);
+            } else {
+                openDualQrModal();
+            }
+        });
+    });
 }
 
 /** Live Gold & Silver rates via WebSocket */

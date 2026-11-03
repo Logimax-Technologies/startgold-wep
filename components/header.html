@@ -21,8 +21,17 @@
             </div>
             <div class="header-right d-flex align-items-center header-right-actions">
                 <div class="header-apps d-flex align-items-center">
-                    <a href="#"><img src="img/android-top.png" alt="Android" class="header-app-icon"></a>
-                    <a href="#"><img src="img/ios-top.png" alt="iOS" class="header-app-icon"></a>
+                    <!-- Android: opens Google Play directly on Android; shows a QR modal otherwise -->
+                    <a href="https://play.google.com/store/apps/details?id=com.startgold.app&pcampaignid=web_share"
+                        id="playStoreLink" target="_blank" rel="noopener noreferrer">
+                        <img src="img/android-top.png" alt="Android" class="header-app-icon">
+                    </a>
+
+                    <!-- iOS: opens the App Store directly on iOS; shows a QR modal otherwise -->
+                    <a href="https://apps.apple.com/in/app/startgold/id6786217713" id="appStoreLink" target="_blank"
+                        rel="noopener noreferrer">
+                        <img src="img/ios-top.png" alt="iOS" class="header-app-icon">
+                    </a>
                 </div>
                 <button class="hamburger" id="hamburger" aria-label="Menu">
                     <span></span><span></span><span></span>
@@ -40,6 +49,57 @@
         <a href="features.html">Features</a>
         <a href="contact.html">Contact</a>
     </nav>
+</div>
+
+<!-- QR modal: shown whenever the clicked store doesn't match the visitor's
+     own platform (iOS visitor clicking Google Play, Android visitor clicking
+     the App Store, or any desktop visitor clicking either) -- see
+     initAppLinks() in js/common.js. -->
+<div class="qr-modal-backdrop" id="qrModalBackdrop"></div>
+<div class="qr-modal" id="qrModal" role="dialog" aria-modal="true" aria-labelledby="qrModalTitle">
+    <button type="button" class="qr-modal-close" id="qrModalClose" aria-label="Close">&times;</button>
+    <h3 class="qr-modal-title" id="qrModalTitle">Get the app</h3>
+    <div class="qr-modal-code">
+        <img id="qrModalImg" src="" alt="QR code" width="220" height="220">
+    </div>
+    <p class="qr-modal-sub" id="qrModalSub">Scan to download</p>
+    <button type="button" class="qr-copy-btn" id="qrModalCopyBtn">
+        <i class="bi bi-clipboard"></i>
+        <span class="qr-copy-btn-text">Copy Link</span>
+    </button>
+</div>
+
+<!-- Dual QR modal: for the "Start Saving Gold" / "Start AutoGold" CTA
+     buttons (index.html, features.html). Unlike the two header icons,
+     these are a single button, so a desktop visitor gets both store QR
+     codes at once here rather than picking an icon first -- see
+     initStoreCtaButtons() in js/common.js. -->
+<div class="qr-modal-backdrop" id="dualQrModalBackdrop"></div>
+<div class="dual-qr-modal" id="dualQrModal" role="dialog" aria-modal="true" aria-labelledby="dualQrModalTitle">
+    <button type="button" class="qr-modal-close" id="dualQrModalClose" aria-label="Close">&times;</button>
+    <h3 class="qr-modal-title" id="dualQrModalTitle">Get the startGOLD app</h3>
+    <div class="dual-qr-row">
+        <div class="dual-qr-item">
+            <div class="qr-modal-code">
+                <img src="img/startGOLD_Android.png" alt="Google Play QR code" width="170" height="170">
+            </div>
+            <p class="qr-modal-sub">Scan to download from PlayStore</p>
+            <button type="button" class="qr-copy-btn" data-store="android">
+                <i class="bi bi-clipboard"></i>
+                <span class="qr-copy-btn-text">Copy Link</span>
+            </button>
+        </div>
+        <div class="dual-qr-item">
+            <div class="qr-modal-code">
+                <img src="img/startGOLD_iOS.png" alt="App Store QR code" width="170" height="170">
+            </div>
+            <p class="qr-modal-sub">Scan to download from AppStore</p>
+            <button type="button" class="qr-copy-btn" data-store="ios">
+                <i class="bi bi-clipboard"></i>
+                <span class="qr-copy-btn-text">Copy Link</span>
+            </button>
+        </div>
+    </div>
 </div>
 
 <!--<div class="marquee-bar">

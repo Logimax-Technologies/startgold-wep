@@ -6,7 +6,37 @@
     <meta name="google-site-verification" content="BbC-nKT3wPJDlN66nUnDt_HHox5hEfvXDhA4WOoMl2M" />
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>StartGOLD - FAQ</title>
+    <title>startGOLD - FAQ</title>
+    <!-- Path-safety fix: every asset on this site (css/, img/, js/, components/) is
+         referenced with a relative path like "css/style.css". Relative paths resolve
+         against the CURRENT URL's folder -- but only if that URL ends in "/". Load this
+         page at e.g. https://startgold.com/test (no trailing slash) instead of
+         https://startgold.com/test/, and the browser treats "test" as a FILE in the
+         root folder rather than a folder itself, so every relative asset silently
+         resolves one level up (https://startgold.com/css/... instead of
+         https://startgold.com/test/css/...) -- serving whatever is at that same path in
+         production instead of this folder's own files. This one-line fix pins a <base>
+         tag to this document's actual folder before anything else loads, so every
+         relative path below resolves correctly regardless of a missing trailing slash,
+         which subfolder/staging path this is deployed under, or environment. Must stay
+         the very first thing in <head>, before any relative <link>/<script src>.
+    -->
+    <script>
+        document.write('<base href="' + (function () {
+            var path = location.pathname;
+            if (path.charAt(path.length - 1) !== '/') {
+                var lastSegment = path.substring(path.lastIndexOf('/') + 1);
+                // No "." in the last segment means it reads as a folder name
+                // ("/test") rather than a file ("/test/index.html" or
+                // "/about.html") -- append the missing trailing slash instead
+                // of stripping down to the parent folder.
+                path = lastSegment.indexOf('.') === -1
+                    ? path + '/'
+                    : path.substring(0, path.lastIndexOf('/') + 1);
+            }
+            return location.origin + path;
+        })() + '">');
+    </script>
     <script src="js/common.js"></script>
 </head>
 
@@ -25,8 +55,8 @@
                     <div class="col-lg-7 col-md-7">
                         <h1 class="about-hero-heading">Frequently Asked<br>Questions</h1>
                         <p class="about-hero-desc">
-                            Find clear, comprehensive answers about digital gold savings, security, billing, and how
-                            StartGOLD works. We're committed to making your 24K gold investment journey completely
+                            Find clear, comprehensive answers about pure gold savings, security, billing, and how
+                            startGOLD works. We're committed to making your 24K gold savings journey completely
                             transparent.
                         </p>
                     </div>
@@ -43,7 +73,7 @@
             <div class="faq-accordion">
                 <div class="faq-item active">
                     <button class="faq-question">
-                        <span>Is the StartGOLD app secure?</span>
+                        <span>Is the startGOLD app secure?</span>
                         <span class="faq-icon"></span>
                     </button>
                     <div class="faq-answer">
@@ -58,16 +88,16 @@
                     </button>
                     <div class="faq-answer">
                         <p>You can reset your password or recover your account using your registered mobile number and
-                            email via the app.</p>
+                            e-mail via the startGOLD app.</p>
                     </div>
                 </div>
                 <div class="faq-item ">
                     <button class="faq-question">
-                        <span>How do I contact StartGOLD support?</span>
+                        <span>How do I contact startGOLD support?</span>
                         <span class="faq-icon"></span>
                     </button>
                     <div class="faq-answer">
-                        <p>Contact us via: <br>• In-app chat support <br>• Email: support@startgold.in <br>• Toll-free:
+                        <p>Contact us via: <br>• In-app chat support <br>• Email: support@startgold.com <br>• Toll-free:
                             1800 309 4177 <br>• WhatsApp support</p>
                     </div>
                 </div>
@@ -93,11 +123,11 @@
                 </div>
                 <div class="faq-item ">
                     <button class="faq-question">
-                        <span>What happens to my gold if StartGOLD shuts down?</span>
+                        <span>What happens to my gold if startGOLD shuts down?</span>
                         <span class="faq-icon"></span>
                     </button>
                     <div class="faq-answer">
-                        <p>Your gold is held by independent custodians (MMTC-PAMP) and is not part of StartGOLD’s
+                        <p>Your gold is held by independent custodians (MMTC-PAMP) and is not part of startGOLD’s
                             assets. It remains yours regardless of the company’s status.</p>
                     </div>
                 </div>
@@ -107,7 +137,7 @@
                         <span class="faq-icon"></span>
                     </button>
                     <div class="faq-answer">
-                        <p>Yes, you can sell your digital gold 24/7 at real-time market rates directly through the app.
+                        <p>Yes, you can sell your saved pure gold 24/7 at real-time market rates directly through the startGOLD app.
                         </p>
                     </div>
                 </div>
@@ -127,7 +157,7 @@
                         <span class="faq-icon"></span>
                     </button>
                     <div class="faq-answer">
-                        <p>Sale proceeds are typically credited to your bank account instantly.</p>
+                        <p>Sale proceeds are typically credited to your bank account within 24 hours.</p>
                     </div>
                 </div>
                 <div class="faq-item ">
@@ -136,13 +166,13 @@
                         <span class="faq-icon"></span>
                     </button>
                     <div class="faq-answer">
-                        <p>No hidden fees. StartGOLD charges a transparent small making/delivery charge only if you opt
-                            for physical gold delivery. Buying and selling digital gold has no fee.</p>
+                        <p>No hidden fees. startGOLD charges a transparent small making/delivery charge only if you opt
+                            for physical gold delivery. Buying and selling 24K pure gold has no fee.</p>
                     </div>
                 </div>
                 <div class="faq-item ">
                     <button class="faq-question">
-                        <span>Is GST applicable on digital gold?</span>
+                        <span>Is GST applicable on 24K pure gold?</span>
                         <span class="faq-icon"></span>
                     </button>
                     <div class="faq-answer">
@@ -151,11 +181,11 @@
                 </div>
                 <div class="faq-item ">
                     <button class="faq-question">
-                        <span>What documents are needed to start investing?</span>
+                        <span>What documents are needed to start savings?</span>
                         <span class="faq-icon"></span>
                     </button>
                     <div class="faq-answer">
-                        <p>You need a valid PAN card for KYC verification, as required by Indian financial regulations.
+                        <p>You need a valid PAN card, valid Aadhar card for the KYC verification, as required by Indian financial regulations.
                         </p>
                     </div>
                 </div>
@@ -165,38 +195,38 @@
                         <span class="faq-icon"></span>
                     </button>
                     <div class="faq-answer">
-                        <p>Yes, KYC is mandatory for all users to comply with RBI and anti-money laundering regulations.
+                        <p>Yes, KYC is mandatory for all customers to comply with the RBI and anti-money laundering (AML) regulations.
                         </p>
                     </div>
                 </div>
                 <div class="faq-item ">
                     <button class="faq-question">
-                        <span>Can minors invest in gold on StartGOLD?</span>
+                        <span>Can minors save in gold on startGOLD?</span>
                         <span class="faq-icon"></span>
                     </button>
                     <div class="faq-answer">
-                        <p>Minors can invest through a guardian’s account, with the gold held in the guardian’s name
+                        <p>Minors can save through a guardian’s account, with the gold held in the guardian’s name
                             until the minor turns 18.</p>
                     </div>
                 </div>
                 <div class="faq-item ">
                     <button class="faq-question">
-                        <span>Why should I invest in gold for the future?</span>
+                        <span>Why should I save in gold for the future?</span>
                         <span class="faq-icon"></span>
                     </button>
                     <div class="faq-answer">
                         <p>Gold is a proven hedge against inflation, currency devaluation, and market volatility. It
                             offers long- term security and stable returns. Gold isn’t just metal — it’s your most
-                            secured investment for future financial freedom.</p>
+                            secured savings for future financial freedom.</p>
                     </div>
                 </div>
                 <div class="faq-item ">
                     <button class="faq-question">
-                        <span>How is StartGOLD better than buying physical gold?</span>
+                        <span>How is startGOLD better than buying physical gold?</span>
                         <span class="faq-icon"></span>
                     </button>
                     <div class="faq-answer">
-                        <p>StartGOLD offers: <br>• No storage or safety worries <br>• Instant buying/selling <br>• Lower
+                        <p>startGOLD offers: <br>• No storage or safety worries <br>• Instant buying/selling <br>• Lower
                             costs (no making charges unless you take delivery) <br>• Full ownership with vaulted
                             security</p>
                     </div>
@@ -207,34 +237,34 @@
                         <span class="faq-icon"></span>
                     </button>
                     <div class="faq-answer">
-                        <p>Yes, you can gift digital gold to anyone with bank account and valid KYC.</p>
+                        <p>Yes, you can gift 24K pure gold to anyone with a bank account and valid KYC.</p>
                     </div>
                 </div>
                 <div class="faq-item ">
                     <button class="faq-question">
-                        <span>What is StartGOLD?</span>
+                        <span>What is startGOLD?</span>
                         <span class="faq-icon"></span>
                     </button>
                     <div class="faq-answer">
-                        <p>StartGOLD is a digital gold savings platform that allows you to invest in secure, verified
+                        <p>StartGOLD is a pure gold savings platform that allows you to save in secure, verified
                             gold easily through your mobile app or website. Your gold is stored safely with trusted
-                            custodians like MMTC- PAMP.</p>
+                            custodians like MMTC-PAMP.</p>
                     </div>
                 </div>
                 <div class="faq-item ">
                     <button class="faq-question">
-                        <span>Is gold investment through StartGOLD safe?</span>
+                        <span>Is gold savings through startGOLD safe?</span>
                         <span class="faq-icon"></span>
                     </button>
                     <div class="faq-answer">
-                        <p>Yes. Your digital gold is backed by physical gold stored in insured, high-security vaults
-                            with renowned custodians. StartGOLD complies with KYC, PAN, and ISO 27001:2022 security
+                        <p>Yes. Your pure gold is backed by physical gold stored in insured, high-security vaults
+                            with renowned custodians. startGOLD complies with KYC, PAN, and ISO 27001:2022 security
                             standards.</p>
                     </div>
                 </div>
                 <div class="faq-item ">
                     <button class="faq-question">
-                        <span>How does digital gold work on StartGOLD?</span>
+                        <span>How does pure gold savings work on startGOLD?</span>
                         <span class="faq-icon"></span>
                     </button>
                     <div class="faq-answer">
@@ -245,11 +275,11 @@
                 </div>
                 <div class="faq-item ">
                     <button class="faq-question">
-                        <span>What is the minimum investment amount?</span>
+                        <span>What is the minimum savings amount?</span>
                         <span class="faq-icon"></span>
                     </button>
                     <div class="faq-answer">
-                        <p>You can start investing in gold with as little as <span class="rupee">₹</span>10, depending on current gold rates.</p>
+                        <p>You can start saving in gold with as little as <span class="rupee">₹</span>10, depending on current gold rates.</p>
                     </div>
                 </div>
                 <div class="faq-item ">
@@ -278,7 +308,7 @@
                         <span class="faq-icon"></span>
                     </button>
                     <div class="faq-answer">
-                        <p>StartGOLD supports UPI, net banking, debit/credit cards, and other secure payment gateways
+                        <p>startGOLD supports UPI, net banking, debit/credit cards offered through our payment gateway partners
                             like Cashfree and Razorpay.</p>
                     </div>
                 </div>
