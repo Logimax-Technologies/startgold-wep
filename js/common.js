@@ -3,7 +3,7 @@
  * Include this script on every page to automatically load shared components.
  *
  * WHAT THIS HANDLES:
- * 1. Injects common <head> CSS/font/analytics (from components/head-assets.html)
+ * 1. Injects common <head> favicon/analytics (from components/head-assets.html)
  * 2. Loads header HTML (from components/header.html)
  * 3. Loads footer HTML (from components/footer.html)
  * 4. Loads footer scripts (bootstrap.bundle.min.js)
@@ -13,8 +13,9 @@
  */
 
 // ── STEP 0: Inject common <head> assets from components/head-assets.html ──
-// Uses sync XHR so CSS loads before first paint (avoids FOUC).
-// To add/remove CSS, fonts, or analytics — edit components/head-assets.html.
+// Do NOT add stylesheets this way: script-added CSS doesn't hold the first paint, so
+// the raw page shows first (FOUC). Stylesheets are <link> tags in each page's <head>.
+// To add/remove the favicon or analytics — edit components/head-assets.html.
 (function injectHeadAssets() {
     try {
         var xhr = new XMLHttpRequest();
@@ -555,7 +556,7 @@ function initLiveRates() {
     const _d = function(a) { return a.map(function(c) { return String.fromCharCode(c ^ _x); }).join(''); };
     const WS_URL = 'wss://sgbackoffice.startgold.com/ws/';
     const PROTOCOLS = [_d([106,56,104,98,108,59,98,56,107,107,106,106,60,106,99,109,63,109,57,98,63,98,109,99,62,56,62,110,107,109,110,63,110,108,98,59,99,63,99,104,60,98,98,98,63,108,63,104,98,99,111,99,111,63,60,62,62,110,109,110,109,56,98,99])];
-    const RECONNECT_BASE = 3000;   // start at 3s
+    const RECONNECT_BASE = 500;    // start at 0.5s: first attempts do fail, and rates show -- until one works
     const RECONNECT_MAX = 30000;   // cap at 30s
 
     let ws = null;
@@ -595,11 +596,9 @@ function initLiveRates() {
 
         ws = new WebSocket(WS_URL, PROTOCOLS);
 
-        ws.onopen = function () {
-            retryCount = 0; // reset backoff on successful connection
-        };
-
         ws.onmessage = function (e) {
+            // Reset backoff only once rates arrive: the server can accept a connection and then close it
+            retryCount = 0;
             const data = e.data;
             if (!data || data === 'R') return;
             const cleaned = data.replace(/^R[\s\t]+/, '');
@@ -620,6 +619,9 @@ function initLiveRates() {
         clearTimeout(reconnectTimer);
         reconnectTimer = null;
         if (ws) {
+            // Closing on purpose: its late onclose must not touch a newer socket or schedule a reconnect
+            ws.onclose = null;
+            ws.onerror = null;
             try { ws.close(); } catch (x) {}
             ws = null;
         }
@@ -628,7 +630,7 @@ function initLiveRates() {
     function scheduleReconnect() {
         if (reconnectTimer) return; // already scheduled
         if (document.hidden || !navigator.onLine) return; // wait for visibility/network events
-        const delay = Math.min(RECONNECT_BASE * Math.pow(1.5, retryCount), RECONNECT_MAX);
+        const delay = Math.min(RECONNECT_BASE * Math.pow(2, retryCount), RECONNECT_MAX);
         retryCount++;
         reconnectTimer = setTimeout(() => {
             reconnectTimer = null;

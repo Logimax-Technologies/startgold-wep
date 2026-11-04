@@ -78,15 +78,19 @@ Every inner page (About, Privacy, Terms, Refund, FAQ, Features, Contact) **MUST*
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>[Page Title] - StartGOLD | Digital Gold Investment Platform</title>
     <meta name="description" content="[Page-specific description]">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="preload" href="components/header.html" as="fetch" crossorigin="anonymous">
+    <link rel="preload" href="components/footer.html" as="fetch" crossorigin="anonymous">
     <link rel="stylesheet" href="vendor/fonts/fonts.css">
     <link href="vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="vendor/bootstrap-icons/bootstrap-icons.css">
-    <link rel="stylesheet" href="css/style.css?v=3">
-    <link rel="stylesheet" href="css/media.css?v=3">
-    <script src="js/viewport-scale.js"></script>
+    <link rel="stylesheet" href="css/style.css?v=14">
+    <link rel="stylesheet" href="css/media.css?v=6">
+    <script src="js/common.js?v=2"></script>
 </head>
 ```
+
+> [!CAUTION]
+> **Stylesheets must be real `<link>` tags in the page, before `common.js`.** Never add them through `common.js` or `components/head-assets.html`: the browser doesn't wait for script-added CSS, so visitors see the raw unstyled page first.
 
 ### Body Structure (CRITICAL — follow exactly)
 ```html
@@ -122,9 +126,6 @@ Every inner page (About, Privacy, Terms, Refund, FAQ, Features, Contact) **MUST*
 
     <!-- Footer MUST be OUTSIDE all wrappers -->
     <div id="footer-slot"></div>
-
-    <script src="vendor/bootstrap/bootstrap.bundle.min.js"></script>
-    <script src="js/common.js"></script>
 </body>
 </html>
 ```
@@ -384,10 +385,12 @@ Scale can be tested via URL: `?scale=2` (applies via `common.js`).
 > [!CAUTION]
 > 1. **`#header-slot` placement**: ALWAYS outside `.about-top-wrapper`. Putting it inside breaks the golden hero background on scroll.
 > 2. **Logo column**: Must have BOTH `col-lg-5` AND `col-md-5`. Missing `col-md-5` causes the logo to stack below 992px unexpectedly.
-> 3. **CSS cache busting**: Stylesheets use `?v=3` query param. Bump this when deploying CSS changes.
+> 3. **Cache busting**: The CDN caches CSS and JS for 7 days. `css/style.css`, `css/media.css` and `js/common.js` carry a `?v=` in each page's `<head>`. When deploying a change to one of them, bump its `?v=` on all 8 pages.
 > 4. **Don't duplicate media queries**: The `media.css` file is large (~7600 lines). Search before adding new breakpoint blocks.
 > 5. **`.faq-sectionpage` class**: Required on FAQ page to override the home page's negative positioning hack.
 > 6. **Scale factor testing**: Use `?scale=X` URL param — don't hardcode test overrides in CSS.
+> 7. **Hero phone image**: Keep `width` and `height` on `img/hero-phone.png`. They reserve its space while it downloads; without them the hero jumps and the headline overlaps the marquee on wide screens.
+> 8. **Deploying**: Upload only the files you changed, never the whole folder. The local `sitemap.xml` and some images (`feature1-3.png`, `Group 1171277086.png`) are older than the live ones.
 
 ---
 

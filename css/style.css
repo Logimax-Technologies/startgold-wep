@@ -95,7 +95,7 @@ img {
 
 /* ======== TOP WRAPPER ======== */
 .top-wrapper {
-    background: url('../img/header_top1.png') no-repeat center;
+    background: var(--dk-green) url('../img/header_top1.png') no-repeat center;
     border-bottom-right-radius: 60px;
     border-bottom-left-radius: 60px;
     position: relative;
@@ -779,6 +779,8 @@ img {
     padding-top: 20px;
     padding-bottom: 40px;
     padding-left: 40px;
+    --hero-logo-h: 72px;
+    --hero-logo-gap: 24px;
 }
 
 .hero-h1 {
@@ -860,13 +862,37 @@ img {
 .hero-trust-certs {
     display: flex;
     align-items: center;
-    gap: 24px;
+    gap: var(--hero-logo-gap);
 }
 
-.hero-trust-logo {
-    height: 33px;
-    width: auto;
+.hero-trust-logo,
+.hero-partner-logo {
+    flex: none;
+    height: auto;
     object-fit: contain;
+}
+
+/* Partner logos (captions are part of the images), above "Certified by" */
+.hero-partner-row {
+    display: flex;
+    align-items: center;
+    gap: var(--hero-logo-gap);
+    margin-top: 24px;
+}
+
+.hero-partner-row + .hero-trust-row {
+    margin-top: 20px;
+}
+
+/* Both logo rows share two columns, so MMTC PAMP/BIS and Sequel/ISO have matching
+   widths and the rows stay parallel. The multipliers are the aspect ratios of the
+   partner images (432x153, 292x154). Set --hero-logo-h per breakpoint in media.css. */
+.hero-logo-col1 {
+    width: calc(var(--hero-logo-h) * 2.824);
+}
+
+.hero-logo-col2 {
+    width: calc(var(--hero-logo-h) * 1.896);
 }
 
 .hero-right {
@@ -976,6 +1002,7 @@ img {
 
 .hero-slide2-img {
     max-height: 460px;
+    aspect-ratio: 1020 / 950;
 }
 
 /* --- Slide 2: editorial stat + status offer block --- */

@@ -38,7 +38,17 @@
             return location.origin + path;
         })() + '">');
     </script>
-    <script src="js/common.js"></script>
+    <!-- Stylesheets are real tags here, not added by common.js: the browser only holds
+         the first paint for CSS written in the page itself, so script-added CSS shows
+         the raw page first. When bumping ?v=, change it on all 8 pages. -->
+    <link rel="preload" href="components/header.html" as="fetch" crossorigin="anonymous">
+    <link rel="preload" href="components/footer.html" as="fetch" crossorigin="anonymous">
+    <link rel="stylesheet" href="vendor/fonts/fonts.css">
+    <link href="vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="vendor/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/style.css?v=14">
+    <link rel="stylesheet" href="css/media.css?v=6">
+    <script src="js/common.js?v=2"></script>
 </head>
 
 <body>

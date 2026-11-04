@@ -39,7 +39,17 @@
             return location.origin + path;
         })() + '">');
     </script>
-    <script src="js/common.js"></script>
+    <!-- Stylesheets are real tags here, not added by common.js: the browser only holds
+         the first paint for CSS written in the page itself, so script-added CSS shows
+         the raw page first. When bumping ?v=, change it on all 8 pages. -->
+    <link rel="preload" href="components/header.html" as="fetch" crossorigin="anonymous">
+    <link rel="preload" href="components/footer.html" as="fetch" crossorigin="anonymous">
+    <link rel="stylesheet" href="vendor/fonts/fonts.css">
+    <link href="vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="vendor/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/style.css?v=14">
+    <link rel="stylesheet" href="css/media.css?v=6">
+    <script src="js/common.js?v=2"></script>
     <!-- Performance: Preload critical resources -->
     <link rel="preload" href="img/hero-phone.png" as="image">
 </head>
@@ -92,19 +102,25 @@
                                         Start saving in gold starting as<br class="d-none d-sm-block">
                                         low as <span class="clr-gold fw-bold"><span class="rupee">₹</span>10.</span>
                                     </p>
+                                    <div class="hero-partner-row">
+                                        <img src="img/partner-mmtc-pamp.webp" alt="Bullion Partner: MMTC PAMP (Govt. of India Enterprise)"
+                                            class="hero-partner-logo hero-logo-col1">
+                                        <img src="img/partner-sequel.webp" alt="Secured Vault Partner: Sequel (Certified by SEBI)"
+                                            class="hero-partner-logo hero-logo-col2">
+                                    </div>
                                     <div class="hero-trust-row">
                                         <div class="hero-trust-item">
                                             <span class="hero-trust-label">Certified by</span>
                                             <div class="hero-trust-certs">
-                                                <img src="img/bis.png" alt="BIS 24K Hallmark" class="hero-trust-logo">
+                                                <img src="img/bis.png" alt="BIS 24K Hallmark" class="hero-trust-logo hero-logo-col1">
                                                 <img src="img/iso.png" alt="ISO 27001"
-                                                    class="hero-trust-logo hero-trust-logo1">
+                                                    class="hero-trust-logo hero-logo-col2">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-7 col-md-7 col-sm-7 hero-right">
-                                    <img src="img/hero-phone.png" alt="startGOLD App" class="hero-phone">
+                                    <img src="img/hero-phone.png" width="890" height="1200" alt="startGOLD App" class="hero-phone">
                                 </div>
                             </div>
                         </div>
