@@ -185,6 +185,11 @@
         padding-left: 40px;
     }
 
+    .hero-left {
+        --hero-logo-h: 60px;
+        --hero-logo-gap: 16px;
+    }
+
     .digi-gold-section .container {
         max-width: 980px;
     }
@@ -972,8 +977,13 @@
         gap: 16px;
     }
 
-    .hero-trust-logo {
-        height: 32px;
+    .hero-left {
+        --hero-logo-h: 56px;
+    }
+
+    .hero-partner-row {
+        justify-content: center;
+        margin-top: 20px;
     }
 
     .hero {
@@ -4374,6 +4384,12 @@
         margin-bottom: 0px;
     }
 
+    /* Height follows the width here, so this reserves the image's space while it downloads */
+    .hero-right .hero-phone {
+        width: 100%;
+        height: auto;
+    }
+
     .hero-badges {
         flex-direction: row !important;
         gap: 10px;
@@ -4888,6 +4904,19 @@
 
 
 /* --- Mobile (651â€“767px) --- */
+/* Two-column hero (Bootstrap col-sm): the logo rows are wider than the column here, so
+   start them at its edge (centring would push them off screen) and keep them clear of the phone */
+@media (max-width: 767px) and (min-width: 576px) {
+    .hero-left {
+        --hero-logo-h: 52px;
+    }
+
+    .hero-partner-row,
+    .hero-trust-row {
+        justify-content: flex-start;
+    }
+}
+
 @media (max-width: 767px) and (min-width: 557px) {
     .trust-badges-section {
         padding-bottom: 220px !important;
@@ -5994,7 +6023,7 @@
     .top-wrapper {
         border-bottom-right-radius: 80px;
         border-bottom-left-radius: 80px;
-        background: url(../img/header_top1.png) no-repeat center;
+        background: var(--dk-green) url(../img/header_top1.png) no-repeat center;
         background-size: 102% 100% !important;
         top: -127px;
     }
@@ -6068,14 +6097,17 @@
         padding-right: 40px;
     }
 
-    .hero-trust-logo1 {
-        padding-left: 40px;
+    .hero-left {
+        --hero-logo-h: 96px;
+        --hero-logo-gap: 40px;
     }
 
-    .hero-trust-logo {
-        height: 50px;
-        width: auto;
-        object-fit: contain;
+    .hero-partner-row {
+        margin-top: 40px;
+    }
+
+    .hero-partner-row + .hero-trust-row {
+        margin-top: 32px;
     }
 
     .hero-left {
